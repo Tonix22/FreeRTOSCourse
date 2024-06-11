@@ -1,0 +1,1645 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+\usepackage{amsmath} % for mathematical content
+\usepackage{amsfonts} % for mathematical fonts
+
+\usepackage{fancyhdr} % for better header layout
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{svg}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+FreeRTOS Course
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/tonix/Documents/Doctorado/PrimerSemestre/EqDiff/ProjectoIntegracion/pasted1.png
+	lyxscale 15
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+maketitle 
+\backslash
+tableofcontents 
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Course Overview
+\end_layout
+
+\begin_layout Subsection
+Instructor Information
+\end_layout
+
+\begin_layout Standard
+\align center
+Name: Luis Emilio Tonix Gleason 
+\end_layout
+
+\begin_layout Standard
+\align center
+Contact: ltonix@up.edu.mx
+\end_layout
+
+\begin_layout Standard
+This course provides comprehensive training on FreeRTOS, targeting embedded
+ systems programmers who are looking to utilize the FreeRTOS real-time operating
+ system to its full potential in cricitcal system where safety is a key
+ role for a responsable project.
+ Remeber safety first.
+\end_layout
+
+\begin_layout Subsection
+Prerequisites
+\end_layout
+
+\begin_layout Standard
+Participants are expected to have:
+\end_layout
+
+\begin_layout Standard
+1.
+ Basic knowledge of C programming
+\end_layout
+
+\begin_layout Standard
+2.
+ Microcontroller architectures.
+\end_layout
+
+\begin_layout Standard
+3.
+ Linux basics commands
+\end_layout
+
+\begin_layout Standard
+4.
+ Esp32 microcontroller
+\end_layout
+
+\begin_layout Standard
+5.
+ Windows/Linux Setup.
+ MacOs not guarenteed to be supported
+\end_layout
+
+\begin_layout Standard
+6.
+ Git/Github: I will review your code and diagrams in this tool.
+ We can learn good coding standars and practices, and you will generate
+ a porfolio.
+ 
+\end_layout
+
+\begin_layout Subsection
+Assessment and Evaluation
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{table}[h!] 
+\backslash
+centering 
+\backslash
+begin{tabular}{|l|c|} 
+\backslash
+hline 
+\backslash
+textbf{Assessment Component} & 
+\backslash
+textbf{Percentage} 
+\backslash
+
+\backslash
+ 
+\backslash
+hline Class Participation & 10
+\backslash
+% 
+\backslash
+
+\backslash
+ 
+\backslash
+hline Homework Assignments & 20
+\backslash
+% 
+\backslash
+
+\backslash
+ 
+\backslash
+hline Midterm Examination & 20
+\backslash
+% 
+\backslash
+
+\backslash
+ 
+\backslash
+hline Project Design and Requirements First Delivery & 20
+\backslash
+% 
+\backslash
+
+\backslash
+ 
+\backslash
+hline Final Project Delivery & 30
+\backslash
+% 
+\backslash
+
+\backslash
+ 
+\backslash
+hline 
+\backslash
+end{tabular} 
+\backslash
+caption{Breakdown of assessment components and their corresponding weights
+ in the course.} 
+\backslash
+label{table:assessment} 
+\backslash
+end{table}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Objectives
+\end_layout
+
+\begin_layout Itemize
+Understand the core concepts of real-time operating systems.
+ 
+\end_layout
+
+\begin_layout Itemize
+Learn how to configure,develop and run FreeRTOS on ESP32.
+ 
+\end_layout
+
+\begin_layout Itemize
+Design and management of systems that must compute and provide results within
+ strict time constraints.
+\end_layout
+
+\begin_layout Itemize
+Designing and implementing effective emergency procedures and recovery plans
+ to handle potential disasters or failures.
+\end_layout
+
+\begin_layout Itemize
+Study of systems where failure could cause loss of life, significant property
+ damage, or environmental harm.
+\end_layout
+
+\begin_layout Section
+Agenda
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=
+\backslash
+textbf{Week 
+\backslash
+arabic*:}]
+\end_layout
+
+\begin_layout Plain Layout
+
+ 	
+\backslash
+item 
+\backslash
+textbf{Introduction to Real-Time Systems}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+begin{itemize}         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Overview of the implications of MIT licensing.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item General understanding of what constitutes an operating system, with
+ a focus on real-time systems.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Detailed exploration of real-time concepts using visual aids.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Introduction to Real-Time Operating Systems (RTOS) and their relevance
+ in embedded solutions.
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item 
+\backslash
+textbf{Critical Systems and Applications of RTOS}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{itemize}         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Discussion of RTOS applications in critical systems across various
+ industries:         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+begin{itemize}             
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Aerospace and Aviation (e.g., General Electric, Hydra, DJI)         
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Automotive (e.g., Continental, NXP, Avnet)             
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Healthcare (e.g., Plexus, Baxter)             
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Power Generation (e.g., Baker Hughes, CERN)             
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Telecommunications (e.g., Cinvestav, Qualcomm)             
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Defense and Military (e.g., Hydra, A2E)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+end{itemize}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{FreeRTOS Architecture (Part 1)}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{itemize}         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Introduction to heap/stack memory management in RTOS.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Detailed discussion on function pointers and the concept of callbacks.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Overview of interrupt service routines and timer ISR.
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{FreeRTOS Architecture (Part 2)}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{itemize}         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item In-depth look at concurrent processing in FreeRTOS:         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+begin{itemize}             
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+item Scheduler dynamics             
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+item Task management and priority settings             
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+item Queues, semaphores, and mutexes         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+end{itemize}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Hands-on with ESP32 (Setup and Basic Examples)}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{itemize}         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Introduction to Espressif microcontrollers, with a focus on ESP32.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Setting up the development environment, including Visual Studio Code.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Configuring WSL for the Espressif FreeRTOS SDK.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Practical examples: Running basic GPIO LED control tasks.
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Advanced Hands-on with ESP32}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{itemize}               
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Techniques for effective serial debugging.
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item WIFI drivers and code examples   
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item 
+\backslash
+textbf{Midterm Review and Examination}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{itemize}         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Review of all topics covered thus far.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Midterm examination to assess knowledge and practical application.
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{FreeRTOS Programming (Part 1)}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{itemize}         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Techniques for task creation and management.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Control functions such as delay, suspend, and resume.
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item FreeRTOS configuration overview  
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item 
+\backslash
+textbf{FreeRTOS Programming (Part 2)}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{itemize}         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Comprehensive management of queues and semaphores.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item 
+\backslash
+textbf{Project Design, Requirements, UML and Planning for FreeRTOS Programming}
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item Detailed discussion on final project design and requirements.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Initial project planning and milestone setting.
+           
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Utilizing Unified Modeling Language (UML) to plan and model FreeRTOS
+ projects.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Creating sequence diagrams and behavioral architectures for real-time
+ systems.
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}    
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item 
+\backslash
+textbf{FreeRTOS Programming (Part 3)}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{itemize} 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Detailed handling of software timers and event groups.
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item 
+\backslash
+textbf{IOT MQTT Programming}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{itemize} 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item MQTT introduction
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item MQTT broker and subscriber
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item hello world project MQTT with FreeRTOS
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item 
+\backslash
+textbf{Final Project workshop (Part 1)}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{itemize}         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Practical implementation of the final projects.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Final presentations and review sessions.
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item 
+\backslash
+textbf{Final Project workshop (Part 2)}     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{itemize}         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Practical implementation of the final projects.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Final presentations and review sessions.
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\begin_inset Graphics
+	filename PlannigPart1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename PlannigPart2.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Course Gannt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Course Content
+\end_layout
+
+\begin_layout Subsection
+Module 1: Introduction to Real-Time Systems
+\end_layout
+
+\begin_layout Subsubsection
+What exactly means Free?
+\end_layout
+
+\begin_layout Standard
+Overview of the implication of having an MIT license.
+ What you should and not do with this type of licence.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+What is an Operating System?
+\end_layout
+
+\begin_layout Standard
+A generic overview of an operating sytem
+\end_layout
+
+\begin_layout Subsubsection
+What is Real-Time?
+\end_layout
+
+\begin_layout Standard
+Diagrams to undertand the key concept of real time
+\end_layout
+
+\begin_layout Subsubsection
+What does RTOS standfor?
+\end_layout
+
+\begin_layout Standard
+How RTOS are part for embbeded solutions 
+\end_layout
+
+\begin_layout Subsubsection
+Critical systems
+\end_layout
+
+\begin_layout Standard
+Use cases for RTOS enviroments
+\end_layout
+
+\begin_layout Itemize
+Aerospace and Aviation (General Electic) (Hydra) (Dji)
+\end_layout
+
+\begin_layout Itemize
+Automotive (Continental) (NXP) (Avnet) 
+\end_layout
+
+\begin_layout Itemize
+Healthcare (Plexus) (Baxter)
+\end_layout
+
+\begin_layout Itemize
+Power Generation (Baker Hughges)(Cern)
+\end_layout
+
+\begin_layout Itemize
+Telecommunications (Cinvestav)(Qualcomm)
+\end_layout
+
+\begin_layout Itemize
+Defense and Military (Hydra)(A2E)
+\end_layout
+
+\begin_layout Subsection
+FreeRTOS Architecture
+\end_layout
+
+\begin_layout Subsubsection
+Basic Concepts
+\end_layout
+
+\begin_layout Itemize
+Heap/Stack Memory managment
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We need to know how this memory is managed because the RTOS task creating
+ will require to understand this
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Function pointers
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Review of the callback concept
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Interrupt service routine [Review]
+\end_layout
+
+\begin_layout Itemize
+Timer ISR
+\end_layout
+
+\begin_layout Subsubsection
+Concurrent procesing in FreeRTOS
+\end_layout
+
+\begin_layout Itemize
+Scheduler
+\end_layout
+
+\begin_layout Itemize
+Task, priorities
+\end_layout
+
+\begin_layout Itemize
+Queues
+\end_layout
+
+\begin_layout Itemize
+Semaphores
+\end_layout
+
+\begin_layout Itemize
+Mutexes
+\end_layout
+
+\begin_layout Subsection
+Hands on ESP32
+\end_layout
+
+\begin_layout Subsubsection
+Short story about spressif microcontrollers
+\end_layout
+
+\begin_layout Subsubsection
+Install visual studio code
+\end_layout
+
+\begin_layout Subsubsection
+WSL instalation for espressif FreeRTOS SDK
+\end_layout
+
+\begin_layout Itemize
+Download git FreeRTOS SDK project
+\end_layout
+
+\begin_layout Itemize
+Explore and open basic example
+\end_layout
+
+\begin_layout Itemize
+Configure COM ports to program
+\end_layout
+
+\begin_layout Itemize
+How to serial debug microcontroller
+\end_layout
+
+\begin_layout Itemize
+Run basic examples with GPIO LED
+\end_layout
+
+\begin_layout Subsection
+How to do UML and planning for FreeRTOS programming
+\end_layout
+
+\begin_layout Subsection
+FreeRTOS Programming
+\end_layout
+
+\begin_layout Standard
+https://www.freertos.org/a00106.html
+\end_layout
+
+\begin_layout Itemize
+Configuration 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+FreeRTOS configuration overview
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Task Creation
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+xTaskCreate vs xTaskCreateStatic
+\end_layout
+
+\begin_layout Itemize
+vTaskDelete
+\end_layout
+
+\begin_layout Itemize
+What task parameters mean?
+\end_layout
+
+\begin_layout Itemize
+Create one task that blink a led to high frequency
+\end_layout
+
+\begin_layout Itemize
+Create other task that blink a led with low frequency
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Task Control
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+vTaskDelay
+\end_layout
+
+\begin_layout Itemize
+vTaskDelayUntil
+\end_layout
+
+\begin_layout Itemize
+vTaskSuspend 
+\end_layout
+
+\begin_layout Itemize
+vTaskResume
+\end_layout
+
+\begin_layout Itemize
+xTaskResumeFromISR
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Kernel Control
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+vTaskStartScheduler
+\end_layout
+
+\begin_layout Itemize
+vTaskStepTick
+\end_layout
+
+\begin_layout Itemize
+vTaskStartScheduler
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Task Utilities
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+vTaskList
+\end_layout
+
+\begin_layout Itemize
+xTaskGetSchedulerState
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Queue Management 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+xQueueCreate 
+\end_layout
+
+\begin_layout Itemize
+xQueueCreateStatic 
+\end_layout
+
+\begin_layout Itemize
+vQueueDelete 
+\end_layout
+
+\begin_layout Itemize
+xQueueSend 
+\end_layout
+
+\begin_layout Itemize
+xQueueSendFromISR
+\end_layout
+
+\begin_layout Itemize
+xQueueReceive 
+\end_layout
+
+\begin_layout Itemize
+xQueueReceiveFromISR
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Semaphores 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+xSemaphoreCreateBinary 
+\end_layout
+
+\begin_layout Itemize
+xSemaphoreCreateBinaryStatic
+\end_layout
+
+\begin_layout Itemize
+xSemaphoreGive
+\end_layout
+
+\begin_layout Itemize
+xSemaphoreGiveFromISR
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Software Timers
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+xTimerCreate 
+\end_layout
+
+\begin_layout Itemize
+xTimerCreateStatic 
+\end_layout
+
+\begin_layout Itemize
+vTimerSetReloadMode 
+\end_layout
+
+\begin_layout Itemize
+xTimerStart 
+\end_layout
+
+\begin_layout Itemize
+xTimerStop 
+\end_layout
+
+\begin_layout Itemize
+xTimerChangePeriod 
+\end_layout
+
+\begin_layout Itemize
+xTimerDelete 
+\end_layout
+
+\begin_layout Itemize
+xTimerReset 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Event Groups 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+vEventGroupDelete 
+\end_layout
+
+\begin_layout Itemize
+xEventGroupClearBits 
+\end_layout
+
+\begin_layout Itemize
+xEventGroupClearBitsFromISR 
+\end_layout
+
+\begin_layout Itemize
+xEventGroupCreate 
+\end_layout
+
+\begin_layout Itemize
+xEventGroupCreateStatic 
+\end_layout
+
+\begin_layout Itemize
+xEventGroupGetBits 
+\end_layout
+
+\begin_layout Itemize
+xEventGroupGetBitsFromISR 
+\end_layout
+
+\begin_layout Itemize
+xEventGroupGetStaticBuffer 
+\end_layout
+
+\begin_layout Itemize
+xEventGroupSetBits 
+\end_layout
+
+\begin_layout Itemize
+xEventGroupSetBitsFromISR 
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Final project 
+\end_layout
+
+\begin_layout Standard
+For a final project in a FreeRTOS class that involves the implementation
+ of a critical system, you could consider designing a "Smart Emergency Response
+ System." This project would integrate various sensors, communication modules,
+ and control outputs to create a comprehensive emergency management system
+ suitable for environments like industrial facilities, schools, or public
+ buildings.
+ The SERS will use FreeRTOS to manage the concurrent operations of various
+ sensors and actuators to detect and respond to emergencies such as fires,
+ gas leaks, and unauthorized access.
+ The system will prioritize tasks based on the severity and type of emergency,
+ ensuring that the most critical responses are handled first.
+\end_layout
+
+\begin_layout Subsection
+Software Requirements:
+\end_layout
+
+\begin_layout Enumerate
+Design
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Software squence diagram, representing task comunication
+\end_layout
+
+\begin_layout Enumerate
+Behavioral architecture
+\end_layout
+
+\begin_layout Enumerate
+Software Detail Design Document and the critical constrains to be met.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+FreeRTOS Configuration: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Implement tasks
+\end_layout
+
+\begin_layout Enumerate
+Queues
+\end_layout
+
+\begin_layout Enumerate
+Semaphores
+\end_layout
+
+\begin_layout Enumerate
+Mutexes.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Task Scheduling:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+High priority tasks for immediate threats (e.g., fire detection and response).
+ 
+\end_layout
+
+\begin_layout Enumerate
+Lower priority tasks for non-immediate alerts (e.g., unauthorized access).
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Interrupt Service Routines (ISR): For immediate processing of critical sensor
+ data.
+\end_layout
+
+\begin_layout Enumerate
+Communication Protocol: Implementation for sending real-time data and alerts.
+\end_layout
+
+\begin_layout Section
+Materials and Resources
+\end_layout
+
+\begin_layout Standard
+https://www.freertos.org/Documentation/Mastering-the-FreeRTOS-Real-Time-Kernel.v1.0.p
+df
+\end_layout
+
+\end_body
+\end_document
