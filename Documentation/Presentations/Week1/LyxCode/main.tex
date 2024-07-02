@@ -142,6 +142,8 @@
     \end{block}
 \end{frame}
 
+
+
 \subsection{What is real time?}
 \begin{frame}{What is a Real-Time Operating System (RTOS)?}
   \begin{itemize}
@@ -164,9 +166,7 @@
     \end{figure}
 \end{frame}
 
-\section{What does mean Free? And what is Open Source?}
-
-
+\section{Open Source}
     \begin{frame}{Terms of service you didn't read }
       \begin{itemize}
         \item Blizard
@@ -185,7 +185,98 @@
         \end{figure}
     \end{frame}
 
+    \begin{frame}{Introduction to Open Source Licenses}
+      \begin{itemize}
+          \item Open source licenses empower developers to access, modify, and share software code.
+          \item They promote collaboration and innovation in the software development community.
+          \item Different licenses come with different permissions, conditions, and limitations.
+      \end{itemize}
+  \end{frame}
+  \subsection{MIT License}
+  \begin{frame}{The MIT License}
+    \begin{itemize}
+        \item \textbf{Overview:} One of the most permissive open source licenses.
+        \item \textbf{Permissions:} 
+            \begin{itemize}
+                \item Allows commercial use, modification, distribution, private use.
+                \item Minimal restrictions on how software can be redistributed.
+            \end{itemize}
+        \item \textbf{Requirements:}
+            \begin{itemize}
+                \item License and copyright notice must be included with copies of the software.
+            \end{itemize}
+        \item \textbf{Key Feature:} Does not require derivative works to be distributed under the same license.
+    \end{itemize}
+\end{frame}
+\subsection{GNU}
+\begin{frame}{The GNU General Public License (GPL)}
+    \begin{itemize}
+        \item \textbf{Overview:} A copyleft license that requires derivatives to be open.
+        \item \textbf{Permissions:}
+            \begin{itemize}
+                \item Permits commercial use, modification, distribution, and private use.
+            \end{itemize}
+        \item \textbf{Requirements:}
+            \begin{itemize}
+                \item Derived works must be released under the same license (GPL).
+                \item Must accompany with the source code or offer access to the source.
+            \end{itemize}
+        \item \textbf{Key Feature:} Ensures that the freedom to modify and redistribute is preserved in derivatives, known as "share-alike".
+    \end{itemize}
+\end{frame}
+\subsection{Comparison of MIT and GPL}
+\begin{frame}{Comparison of MIT and GPL}
+    \begin{itemize}
+        \item \textbf{MIT License:} Encourages widespread use and modification without requiring derivatives to use the same license.
+        \item \textbf{GPL:} Promotes free use but enforces that any derivative work must also be freely available under the GPL, preserving the original freedoms.
+    \end{itemize}
+\end{frame}
+\subsection{Understanding Copyleft}
 
+\begin{frame}{Understanding Copyleft}
+\textcolor{myNewColorA}{\Huge{\centerline{\href{https://www.fsf.org/blogs/community/help-others-find-free-software-watch-and-share-escape-to-freedom}{FreeSoftwareVideo}}}}
+
+\end{frame}
+
+\begin{frame}{Understanding Copyleft}
+  \begin{itemize}
+      \item \textbf{Definition:} Copyleft is a licensing scheme that allows the software (and sometimes other types of works) to be freely used, modified, and distributed, but with one key condition: any derivative work must also be distributed under the same or compatible copyleft terms.
+      
+      \item \textbf{Purpose:} The main goal of copyleft is to ensure that all versions of the software remain free and open, preventing proprietary forks that restrict user freedoms.
+      
+      \item \textbf{Key Features:}
+          \begin{itemize}
+              \item \textit{Viral Nature:} The copyleft clause is often described as "viral" because it requires all modified and extended versions of the program to be free as well.
+              \item \textit{Share and Share Alike:} If you distribute copies or modified versions, you must also share the source code under the same terms.
+          \end{itemize}
+      
+      \item \textbf{Examples of Copyleft Licenses:}
+          \begin{itemize}
+              \item GNU General Public License (GPL)
+              \item GNU Lesser General Public License (LGPL)
+              \item Mozilla Public License (MPL)
+          \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\subsection{Comparison of Open Source Licenses}
+\begin{frame}{Comparison of Open Source Licenses}
+  \footnotesize % You can use \tiny, \scriptsize, or \footnotesize as well
+  \begin{table}[]
+      \begin{tabular}{|l|l|l|}
+      \hline
+      \textbf{License} & \textbf{Characteristics} & \textbf{Ownership Potential} \\ \hline
+      MIT              & Very permissive, minimal requirements & \alert{High(Proprietary possible)}  \\ \hline
+      BSD              & Similar to MIT, slightly more clauses & \alert{High(Proprietary possible)}  \\ \hline
+      GPL              & Copyleft,requires same license on derivatives & Low (Must remain open) \\ \hline
+      Apache           & Permissive, includes patent clauses & Moderate (Proprietary with conditions) \\ \hline
+      \end{tabular}
+  \end{table}
+
+  \begin{alertblock}{Note}
+      Licenses marked with \alert{High} allow proprietary use of the project, potentially leading to ownership claims on derivative works.
+  \end{alertblock}
+\end{frame}
 
 \section*{Acknowledgement}  
 \begin{frame}
