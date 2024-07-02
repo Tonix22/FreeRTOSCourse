@@ -44,7 +44,16 @@
 \index_command default
 \paperfontsize default
 \spacing single
-\use_hyperref false
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize default
 \use_geometry false
 \use_package amsmath 1
@@ -98,7 +107,7 @@ FreeRTOS Course
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/tonix/Documents/Doctorado/PrimerSemestre/EqDiff/ProjectoIntegracion/pasted1.png
+	filename /home/tonix/Documents/FreeRTOSCourse/Documentation/Presentations/CommonFigures/Universidad_Panamericana-logo.jpg
 	lyxscale 15
 	scale 15
 
@@ -278,6 +287,21 @@ end{table}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Class participation involves responding to the professor's questions on
+ the topic currently being studied.
+\end_layout
+
+\begin_layout Standard
+Some homework assignments are assessed through quizzes using the Kahoot
+ format.
+\end_layout
+
+\begin_layout Standard
+Winners of the Kahoot quizzes receive additional bonus points that can be
+ used towards projects or exams.
 \end_layout
 
 \begin_layout Subsection
@@ -1100,7 +1124,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename PlannigPart2.png
-	scale 50
+	scale 45
 
 \end_inset
 

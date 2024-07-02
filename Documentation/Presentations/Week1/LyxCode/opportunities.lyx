@@ -1,0 +1,1931 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\usetheme{Warsaw}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\end_preamble
+\options usenames,dvipsnames
+\use_default_options false
+\begin_modules
+fixltx2e
+lilypond
+logicalmkup
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman times
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+LyX for many purposes
+\end_layout
+
+\begin_layout Subtitle
+Opportunities with LyX
+\end_layout
+
+\begin_layout Author
+Helge Hafting
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfdeclareimage[height=0.5cm]{institution-logo}{lyx_logo_medium2.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+logo{
+\backslash
+pgfuseimage{institution-logo}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Outline
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Documents in general
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+LyX is useful for writing many kinds of documents
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Letters
+\end_layout
+
+\begin_layout Itemize
+Reports
+\end_layout
+
+\begin_layout Itemize
+Books
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+can make camera-ready PDF for professional printing
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Handles hundreds of pages with ease
+\end_layout
+
+\begin_layout Itemize
+Can split big documents over multiple files
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Features making your documents look good
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+LyX uses the LaTeX typesetting software
+\end_layout
+
+\begin_layout Itemize
+Automatic hyphenation, for most languages
+\end_layout
+
+\begin_layout Itemize
+Advanced line breaking
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+straight margins without overly long spaces
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Advanced page breaking
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+never a heading at the bottom of a page!
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Uses advanced font features automatically
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+kerning
+\end_layout
+
+\begin_layout Itemize
+ligatures
+\end_layout
+
+\begin_layout Itemize
+small 
+\shape smallcaps
+caps
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Features making your documents look good
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Styles based, instead of 
+\begin_inset Quotes eld
+\end_inset
+
+tweaking font parameters
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+consistent style throughout long documents
+\end_layout
+
+\begin_layout Itemize
+little need for 
+\begin_inset Quotes eld
+\end_inset
+
+finishing
+\begin_inset Quotes erd
+\end_inset
+
+, saves time
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Structured documents
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The table of contents is automatic, so it is 
+\emph on
+never 
+\emph default
+wrong
+\end_layout
+
+\begin_layout Itemize
+likewise for cross references, figure numbers
+\end_layout
+
+\begin_layout Itemize
+support for bibliographies & indexes
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Image support
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+many formats (jpeg, png, svg, fig, eps & more)
+\end_layout
+
+\begin_layout Itemize
+exact sizing avoids variations from drag-based sizing
+\end_layout
+
+\begin_layout Itemize
+floating and numbered figures 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+Presentations
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Making presentations with LyX
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
++-
+\end_layout
+
+\end_inset
+
+PDF-based presentations
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+such as this one
+\end_layout
+
+\begin_layout Itemize
+works with any 
+\begin_inset Flex Noun
+status open
+
+\begin_layout Plain Layout
+pdf
+\end_layout
+
+\end_inset
+
+-viewer
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+LyX strong points are available in presentations too
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+math
+\end_layout
+
+\begin_layout Itemize
+graphics
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Stepwise animations using tikz/pgf
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+example on the following page
+\end_layout
+
+\begin_layout Itemize
+you may skip it by clicking on 
+\begin_inset Quotes eld
+\end_inset
+
+Math
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Stepwise animation of a breadth-first search
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\lang norsk
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%Lag
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfdeclarelayer{background}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfsetlayers{background,main}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Styles
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{grafnode}=[circle, minimum size=40pt, ball color=blue!10!white,draw,fo
+nt=
+\backslash
+sffamily
+\backslash
+large]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{konode}=[grafnode, minimum size=23pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{aktiv node}=[grafnode,ball color=red!25!yellow]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{ferdig node}=[grafnode, ball color=red!25!white]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{kant}=[draw,thick,-]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{forgj}=[draw,line width=5pt,<-,green!75!black!80]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%The animation:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm, 
+  thick]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Place the graph nodes
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+foreach 
+\backslash
+plass/
+\backslash
+navn in {{(-4,0)/a}, {(0,0)/b}, {(4, 0)/c}, {(-2, 2)/d}, {(2, 2)/e}, {(2,
+ -2)/g}} 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[grafnode] (
+\backslash
+navn) at 
+\backslash
+plass {
+\backslash
+navn:$
+\backslash
+infty$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%the start node is special
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[grafnode] (s) at (-2, -2) {s:0};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%graph edges
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+foreach 
+\backslash
+fra/
+\backslash
+til in { s/a, s/b, a/b, a/d, b/d, b/e, b/g, e/g, e/c, g/c} 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[kant] (
+\backslash
+fra) -- node {} (
+\backslash
+til);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Placeholder
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[minimum size=23pt, circle] (z) at (5,-3.7) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (koe) at (-3,-3.7) {Queue:};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Time dependent effects (animation):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Queue
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+foreach 
+\backslash
+navn/
+\backslash
+x/
+\backslash
+tstart/
+\backslash
+tstopp in { s/-2/1/1, a/-1/3/4, b/0/4/6, d/1/6/9, e/2/8/10, g/3/9/12, c/4/12/13}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node<
+\backslash
+tstart-
+\backslash
+tstopp>[konode] (k
+\backslash
+navn) at (
+\backslash
+x,-3.7) {
+\backslash
+navn};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Color finished nodes
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+foreach 
+\backslash
+nynode/
+\backslash
+tid/
+\backslash
+dist in {s/5/0, a/3/1, b/4/1, d/6/2, e/8/2, g/9/2, c/12/3}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path<
+\backslash
+tid-> node[ferdig node] at (
+\backslash
+nynode) {
+\backslash
+nynode:
+\backslash
+dist};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Color the active node
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+foreach 
+\backslash
+aktiv/
+\backslash
+dist/
+\backslash
+fra/
+\backslash
+til in { s/0/2/4, a/1/5/6, b/1/7/9, d/2/10/10, e/2/11/12, g/2/13/13, c/3/14/14}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path<
+\backslash
+fra-
+\backslash
+til> node[aktiv node] at (
+\backslash
+aktiv) {
+\backslash
+aktiv:
+\backslash
+dist};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%The discovered path is animated in the background layer
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{pgfonlayer}{background}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+foreach 
+\backslash
+fra/
+\backslash
+til/
+\backslash
+tid in {s/a/3, s/b/4, a/d/6, b/e/8, b/g/9, e/c/12}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+path<
+\backslash
+tid->[forgj] (
+\backslash
+fra) -- (
+\backslash
+til);
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pgfonlayer}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Math
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Math in LyX
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+LaTeX makes formulas look good printed
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{n=1}^{k}\frac{1}{n}>\intop_{1}^{k+1}\frac{1}{x}dx=\ln(k+1)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+LyX has the best formula editor there is
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+pick everything from menus, or
+\end_layout
+
+\begin_layout Itemize
+write TeX formulas directly 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Interfaces to computer algebra systems
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+example, using 
+\emph on
+maxima
+\emph default
+ to solve an integral:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\int\frac{1}{1-x}dx=-\log\left(1-x\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+the equals sign and the rest were filled in by 
+\emph on
+maxima
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+Music
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Sheet music with LyX & Lilypond
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+LyX can use the Lilypond music engraving software
+\end_layout
+
+\begin_layout Itemize
+Small snippets such as
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+a scale: {g4 a b c d e f g}:
+\begin_inset space \hspace*{\fill}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "5cm"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex LilyPond
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+staffsize=12
+\end_layout
+
+\end_inset
+
+
+\backslash
+relative g' {g4 a b c d e f g}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+a chord: {<e g cis e>2}:
+\begin_inset space \hspace*{\fill}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "5cm"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex LilyPond
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+staffsize=12
+\end_layout
+
+\end_inset
+
+
+\backslash
+new Staff 
+\backslash
+with{
+\backslash
+remove "Time_signature_engraver"}{ 
+\backslash
+relative g' {<e g cis e>2}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Larger example on the following page
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+all entered in LyX
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Grieg's concerto in A minor 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Flex LilyPond
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+staffsize=10
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+language "norsk"
+\end_layout
+
+\begin_layout Plain Layout
+
+son = 
+\backslash
+sustainOn
+\end_layout
+
+\begin_layout Plain Layout
+
+soff = 
+\backslash
+sustainOff
+\end_layout
+
+\begin_layout Plain Layout
+
+csup = 
+\backslash
+change Staff="up"
+\end_layout
+
+\begin_layout Plain Layout
+
+csdown = 
+\backslash
+change Staff="down"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cadenzaAup = 
+\backslash
+relative a {
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+cadenzaOn
+\end_layout
+
+\begin_layout Plain Layout
+
+  <a a'>2..->
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+csdown
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+teeny             %Small notes
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+newSpacingSection %Spacing for the smaller notes
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+  a,,,16_
+\backslash
+([ a' e' a]  
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+csup
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+clef bass c[ e a c]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+csdown
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+stemUp a,[_
+\backslash
+markup{
+\backslash
+italic stringendo} c e a]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+csup
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+clef treble 
+\end_layout
+
+\begin_layout Plain Layout
+
+  c[ e a c]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+csdown
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+stemUp a,[ c 
+\backslash
+change Staff="up" 
+\backslash
+stemDown e a]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+stemUp c[ e a c]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+stemDown a,[ c e a]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+stemUp c[ e a c]
+\backslash
+) 
+\backslash
+stemNeutral
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+newSpacingSection %Resume normal spacing
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+normalsize        %Resume normal note size
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+clef bass
+\end_layout
+
+\begin_layout Plain Layout
+
+  f,,,,8->-1^
+\backslash
+markup {
+\backslash
+italic "a tempo"}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+clef treble
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+cadenzaOff
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+bar "|"
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cadenzaAdn = 
+\backslash
+relative a,, {
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+cadenzaOn
+\end_layout
+
+\begin_layout Plain Layout
+
+  <a a'>2..->^
+\backslash
+markup{
+\backslash
+italic "a tempo"}
+\end_layout
+
+\begin_layout Plain Layout
+
+  s16
+\backslash
+son s1 s2 s4 s8 s16
+\backslash
+soff
+\end_layout
+
+\begin_layout Plain Layout
+
+  <f f'>8
+\backslash
+son
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+cadenzaOff
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+bar "|" 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+pianoAup = {
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+tempo "Allegro molto moderato" 4=84
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+clef treble 
+\backslash
+key a 
+\backslash
+minor 
+\backslash
+time 4/4
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+relative a''' {  
+\end_layout
+
+\begin_layout Plain Layout
+
+    r1 |
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+ottava #1
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+set Staff.ottavation = #"8"
+\end_layout
+
+\begin_layout Plain Layout
+
+    <a c e a>4.->
+\backslash
+ff <a a'>16 <gis gis'> <e gis h e>4.-> <e e'>16 <c c'> |
+\end_layout
+
+\begin_layout Plain Layout
+
+    <a c e a>8-> <a a'>16 <gis gis'> 
+\backslash
+ottava #0 <e gis h e>8-> <e e'>16 <c c'> <a c e a>8-> <a a'>16_
+\backslash
+markup {
+\backslash
+italic "poco rit"} <gis gis'> <e gis h e>8-> <e e'>16 <c c'> | 
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+cadenzaAup
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+relative a' {
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+acciaccatura <a, d a'>8 <a' d a'>2..
+\backslash
+fz 
+\backslash
+clef bass gis,8->-1 
+\backslash
+clef treble
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+acciaccatura <h e h'>8 <h' e h'>1
+\backslash
+fz
+\backslash
+fermata |
+\end_layout
+
+\begin_layout Plain Layout
+
+  }  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+pianoAdown = { 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+set Staff.pedalSustainStyle = #'bracket
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+relative a '{
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+clef bass 
+\backslash
+key a 
+\backslash
+minor 
+\backslash
+time 4/4
+\end_layout
+
+\begin_layout Plain Layout
+
+    r1 
+\backslash
+clef treble 
+\end_layout
+
+\begin_layout Plain Layout
+
+    <a c e a>4.->
+\backslash
+son <a a'>16 <gis gis'> <e gis h e>4.->
+\backslash
+soff
+\backslash
+son <e e'>16 <c c'> |
+\end_layout
+
+\begin_layout Plain Layout
+
+    <a c e a>8->
+\backslash
+soff <a a'>16
+\backslash
+son <gis gis'> 
+\backslash
+clef bass <e gis  h e>8->
+\backslash
+soff
+\backslash
+son <e e'>16 <c c'> <a c e a>8->
+\backslash
+soff
+\backslash
+son <a a'>16 <gis gis'> <e gis h e>8->
+\backslash
+soff
+\backslash
+son <e e'>16 <c c'>
+\backslash
+soff
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+cadenzaAdn
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+relative f {
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+acciaccatura <f, a d f>8 <f' a d f>2..
+ <gis,, gis'>8
+\backslash
+soff
+\backslash
+son |
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+acciaccatura <gis' h e gis>8 <gis' h e gis>1
+\backslash
+fermata
+\backslash
+soff |
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+new PianoStaff 
+\backslash
+with {
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+override TupletBracket.bracket-visibility = ##f 
+\end_layout
+
+\begin_layout Plain Layout
+
+ instrumentName = "Piano"
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+<< 
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+new Staff="up" 
+\backslash
+pianoAup 
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+new Staff="down" 
+\backslash
+pianoAdown
+\end_layout
+
+\begin_layout Plain Layout
+
+>>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Section
+Software documentation
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Source code support
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Enter source code into LyX, or
+\end_layout
+
+\begin_layout Itemize
+Refererence source files directly
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+automatic document update when the source change
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Either way, automatic syntax highlighting 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+for any language
+\begin_inset space \hspace*{\fill}
+\end_inset
+
+
+\begin_inset listings
+lstparams "language=C"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+int x=42; /* C */
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+customizable, if needed
+\begin_inset space \hspace*{\fill}
+\end_inset
+
+
+\begin_inset listings
+lstparams "language=C,commentstyle={\itshape\color{Mahogany}},identifierstyle={\bfseries\color{Violet}},keywordstyle={\color{OliveGreen}}"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+int x=42; /* C */
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Example on the following page
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+line numbers & highlighting done automatically
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Source code example, count to 10 in C
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C,numbers=right,commentstyle={\color{RoyalPurple}},numberstyle={\color{Gray}}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#include <stdio.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+int main() {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int i;       /* 'i' is a "variable" */
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (i = 1; i < 10; ++i) {  /* loop */
+\end_layout
+
+\begin_layout Plain Layout
+
+		printf("i = %i
+\backslash
+n", i);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}                 /* This program ends here */
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\end_body
+\end_document

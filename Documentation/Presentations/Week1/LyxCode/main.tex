@@ -1,0 +1,198 @@
+\documentclass[10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage {mathtools}
+\usepackage{hyperref}
+\usepackage{hyperref}
+\usepackage{utopia} %font utopia imported
+\usetheme{CambridgeUS}
+\usecolortheme{dolphin}
+\hypersetup{colorlinks=true,linkcolor=blue, linktocpage}
+% set colors
+\definecolor{myNewColorA}{RGB}{118,193,188}
+\definecolor{myNewColorB}{RGB}{106,172,150}
+\definecolor{myNewColorC}{RGB}{94,150,218}
+\setbeamercolor*{palette primary}{bg=myNewColorC}
+\setbeamercolor*{palette secondary}{bg=myNewColorB, fg=white}
+\setbeamercolor*{palette tertiary}{bg=myNewColorA, fg=white}
+\setbeamercolor*{titlelike}{fg=myNewColorA}
+\setbeamercolor*{title}{bg=myNewColorA, fg=white}
+\setbeamercolor*{item}{fg=myNewColorA}
+\setbeamercolor*{caption name}{fg=myNewColorA}
+\usefonttheme{professionalfonts}
+\usepackage{natbib}
+\usepackage{hyperref}
+%------------------------------------------------------------
+\titlegraphic{\includegraphics[height=1.5cm]{../../CommonFigures/Universidad_Panamericana-logo.jpg}}
+
+\setbeamerfont{title}{size=\large}
+\setbeamerfont{subtitle}{size=\small}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{institute}{size=\small}
+\title[Universidad Panamericana]{}
+\subtitle{Introduction to Real-Time Operating Systems}
+\author[]{Name}
+
+\institute[ltonix@up.edu.mx]{Universidad Panamericana}
+\date[Presentation \today]
+{Presentation \today}
+
+%------------------------------------------------------------
+%This block of commands puts the table of contents at the 
+%beginning of each section and highlights the current section:
+%\AtBeginSection[]
+%{
+%  \begin{frame}
+%    \frametitle{Contents}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+\setbeamercolor{block title}{bg=myNewColorA, fg=black} % Background and foreground colors for the block title
+\setbeamercolor{block body}{bg=myNewColorC, fg=black} % Background and foreground colors for the block body
+%------------------------------------------------------------
+
+\begin{document}
+
+%The next statement creates the title page.
+\frame{\titlepage}
+\begin{frame}
+\frametitle{Contents}
+\tableofcontents
+\end{frame}
+%------------------------------------------------------------
+\section{What is an operating system?}
+    \begin{frame}{What is an operating system?}
+      
+      \begin{block}{Block Title}
+        \textbf{Is a software that manages and distributes multiple running applications} across a computer or platform, with the main objective to \textbf{efficiently manage multiple tasks simultaneously}.
+      \end{block}
+      \begin{itemize}
+        \item It acts as a mediator between the computer's hardware and the applications that run on it, providing a user-friendly interface and managing the execution of software programs.
+      \end{itemize}
+    \end{frame}
+\subsection{Main features of an OS}
+%------------------------------------------------------------   
+    \begin{frame}{Modularity}
+      \begin{itemize}
+        \item Modularity: Operating systems should be modular in design, allowing for parts of the system to be modified or enhanced without affecting other parts. This supports easier updates and maintenance.
+        \begin{figure}[h]
+          \centering
+          \includegraphics[width=0.5\textwidth]{figures/qnxOSExample.png}
+          \caption{Here is the caption of the figure.}
+          \label{fig:my_label}
+          \end{figure}
+      \end{itemize}
+    \end{frame}
+%------------------------------------------------------------ 
+    \begin{frame}{Portability, Usability, and Responsiveness}
+      \begin{itemize}
+      \item \textbf{Portability}: The ability of the operating system to run on different types of hardware without significant modifications. This is crucial for reducing the development time and cost when moving software among different systems.
+      \item \textbf{Usability}: The operating system should be designed for ease of use, with interfaces and tools that are intuitive and easy to learn for various categories of users.
+      \item \textbf{Responsiveness}: The system should respond in a timely manner to user inputs and system events. This is particularly important in interactive environments and real-time operating systems.
+      \item $\rightarrow$ \href{https://www.youtube.com/watch?v=R_FoFbAyVQk\#t=10s}{Check the video}
+    \end{itemize}
+    \end{frame}
+    \subsection{Safety}
+    \begin{frame}{Safety in Operating Systems}
+      \begin{block}{Definition of Safety}
+          Ensuring that an operating system operates without leading to catastrophic consequences in the environment it controls.
+      \end{block}
+      \begin{block}{Objectives}
+          \begin{itemize}
+              \item Prevent system failures that might lead to hazardous situations.
+              \item Ensure reliability and fault tolerance.
+          \end{itemize}
+      \end{block}
+      \begin{block}{Strategies}
+          \begin{itemize}
+              \item Redundancy in critical system components.
+              \item Regular system audits and error checks.
+              \item Use of watchdog timers to recover from hardware/software failures.
+          \end{itemize}
+      \end{block}
+  \end{frame}
+  \subsection{Security}
+  \begin{frame}{Security in Operating Systems}
+    \begin{block}{Definition of Security}
+        Protecting system resources and data from unauthorized access and ensuring confidentiality, integrity, and availability.
+    \end{block}
+    \begin{block}{Objectives}
+        \begin{itemize}
+            \item Protect data confidentiality and integrity.
+            \item Ensure system availability against attacks and breaches.
+        \end{itemize}
+    \end{block}
+    \begin{block}{Strategies}
+        \begin{itemize}
+            \item Implementation of user authentication mechanisms.
+            \item Use of encryption for data protection.
+            \item Regular updates and patches to fix vulnerabilities.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\subsection{What is real time?}
+\begin{frame}{What is a Real-Time Operating System (RTOS)?}
+  \begin{itemize}
+      \item \textbf{Purpose:} Real-time systems are designed to respond to input or events within a guaranteed time frame, typically measured in milliseconds or microseconds. The term "real-time" refers to the system’s ability to process and respond to inputs almost instantaneously, ensuring outputs are produced within a strictly defined time period relative to an event.
+      \item \textbf{Deterministic:} Behavior in terms of timing and execution is predictable.
+      \item \textbf{Use Cases:}
+          \begin{itemize}
+              \item Embedded systems (e.g., medical devices, automotive controls)
+              \item Industrial automation
+              \item Telecommunications systems
+          \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{What is a Real-Time Operating System (RTOS)?}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/real_time_tasks.png}
+    \label{fig:my_label}
+    \end{figure}
+\end{frame}
+
+\section{What does mean Free? And what is Open Source?}
+
+
+    \begin{frame}{Terms of service you didn't read }
+      \begin{itemize}
+        \item Blizard
+        \item Paypal
+        \item Pinterest
+        \item Facebook
+      \end{itemize}
+      \begin{alertblock}{Important}
+        Thats why open source is soo important \newline
+        \href{https://tosdr.org/}{Click}
+      \end{alertblock}
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\textwidth]{figures/DoxingMeme.jpg}
+        \label{fig:my_label}
+        \end{figure}
+    \end{frame}
+
+
+
+\section*{Acknowledgement}  
+\begin{frame}
+\textcolor{myNewColorA}{\Huge{\centerline{Thank you!}}}
+\end{frame}
+
+\end{document}
+
+
+
