@@ -31,18 +31,42 @@
 \headcommand {\beamer@framepages {10}{10}}
 \headcommand {\beamer@sectionpages {3}{10}}
 \headcommand {\beamer@subsectionpages {9}{10}}
-\headcommand {\sectionentry {2}{What does mean Free? And what is Open Source?}{11}{What does mean Free? And what is Open Source?}{0}}
+\headcommand {\sectionentry {2}{Open Source}{11}{Open Source}{0}}
 \headcommand {\slideentry {2}{0}{1}{11/11}{}{0}}
 \headcommand {\beamer@framepages {11}{11}}
 \headcommand {\slideentry {2}{0}{2}{12/12}{}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\beamer@sectionpages {11}{12}}
-\headcommand {\beamer@subsectionpages {11}{12}}
-\headcommand {\sectionentry {3}{Acknowledgement}{13}{Acknowledgement}{0}}
-\headcommand {\slideentry {3}{0}{1}{13/13}{}{0}}
+\headcommand {\slideentry {2}{0}{3}{13/13}{}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\beamer@partpages {1}{13}}
-\headcommand {\beamer@subsectionpages {13}{13}}
-\headcommand {\beamer@sectionpages {13}{13}}
-\headcommand {\beamer@documentpages {13}}
-\headcommand {\gdef \inserttotalframenumber {13}}
+\headcommand {\beamer@subsectionpages {11}{13}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{14}{MIT License}}
+\headcommand {\slideentry {2}{1}{1}{14/14}{MIT License}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@subsectionpages {14}{14}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{15}{GNU}}
+\headcommand {\slideentry {2}{2}{1}{15/15}{GNU}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@subsectionpages {15}{15}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{16}{Comparison of MIT and GPL}}
+\headcommand {\slideentry {2}{3}{1}{16/16}{Comparison of MIT and GPL}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\beamer@subsectionpages {16}{16}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{17}{Understanding Copyleft}}
+\headcommand {\slideentry {2}{4}{1}{17/17}{Understanding Copyleft}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\slideentry {2}{4}{2}{18/18}{Understanding Copyleft}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\beamer@subsectionpages {17}{18}}
+\headcommand {\beamer@subsectionentry {0}{2}{5}{19}{Comparison of Open Source Licenses}}
+\headcommand {\slideentry {2}{5}{1}{19/19}{Comparison of Open Source Licenses}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\beamer@sectionpages {11}{19}}
+\headcommand {\beamer@subsectionpages {19}{19}}
+\headcommand {\sectionentry {3}{Acknowledgement}{20}{Acknowledgement}{0}}
+\headcommand {\slideentry {3}{0}{1}{20/20}{}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\beamer@partpages {1}{20}}
+\headcommand {\beamer@subsectionpages {20}{20}}
+\headcommand {\beamer@sectionpages {20}{20}}
+\headcommand {\beamer@documentpages {20}}
+\headcommand {\gdef \inserttotalframenumber {20}}

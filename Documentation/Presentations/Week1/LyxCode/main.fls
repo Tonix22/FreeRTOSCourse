@@ -1291,6 +1291,21 @@ INPUT figures/DoxingMeme.jpg
 INPUT ./figures/DoxingMeme.jpg
 INPUT ./figures/DoxingMeme.jpg
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss17.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmssi9.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
 OUTPUT main.nav
 OUTPUT main.toc
 OUTPUT main.snm
@@ -1303,4 +1318,5 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
