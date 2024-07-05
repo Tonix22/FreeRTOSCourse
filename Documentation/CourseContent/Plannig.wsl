@@ -2,26 +2,40 @@
 saturday are closed
 sunday are closed
 
-Project starts the 20th of August 2024
+Project starts the 5th of August 2024
 
-[Week 1: Introduction to Real-Time Systems] as [W1] starts at 2024-08-20 and lasts 1 day
+[Week 1: Introduction and Real-Time Systems] as [W1] starts at 2024-08-06 and lasts 1 day
 [Week 2: Critical Systems and Applications of RTOS] as [W2] starts 6 day after [W1]'s end and lasts 1 day
-[Week 3: FreeRTOS Architecture (Part 1)] as [W3] starts 6 day after [W2]'s end and lasts 1 day
-[Week 4: FreeRTOS Architecture (Part 2)] as [W4] starts 6 day after [W3]'s end and lasts 1 day
-[Week 5: Hands-on with ESP32 (Setup and Basic Examples)] as [W5] starts 6 day after [W4]'s end and lasts 1 day
-[Week 6: Advanced Hands-on with ESP32] as [W6] starts 6 day after [W5]'s end and lasts 1 day
-[Week 7: Midterm Review and Examination] as [W7] starts 6 day after [W6]'s end and lasts 1 day
+[Week 3: Continous integration and profesional workflow] as [W3] starts 6 day after [W2]'s end and lasts 1 day
+[Week 4: FreeRTOS Architecture (Part 1)] as [W4] starts 6 day after [W3]'s end and lasts 1 day
+[Week 5: FreeRTOS Architecture (Part 2)] as [W5] starts 6 day after [W4]'s end and lasts 1 day
+[Week 6: Hands-on with ESP32 (Setup and Basic Examples)] as [W6] starts 6 day after [W5]'s end and lasts 1 day
+
+[Git quizz] happens at [W4]'s end
+
+[Week 7: Advanced Hands-on with ESP32] as [W7] starts 6 day after [W6]'s end and lasts 1 day
+[FreeRTOS Architecture adn Esp32 quizz] happens at [W7]'s end
+
 [Week 8: FreeRTOS Programming (Part 1)] as [W8] starts 6 day after [W7]'s end and lasts 1 day
 [Week 9: FreeRTOS Programming (Part 2)] as [W9] starts 6 day after [W8]'s end and lasts 1 day
-[First Project delivey] as [Stage] starts 6 day after [W9]'s end and lasts 6 day
-[Week 10: Project Design, Requirements, UML and Planning] as [W10] starts 6 day after [W9]'s end and lasts 5 day
-[End First Delivery] happens at [W10]'s end
-[Week 11: FreeRTOS Programming (Part 3)] as [W11] starts 0 day after [W10]'s end and lasts 1 day
-[Week 12: IoT MQTT Programming] as [W12] starts 6 day after [W11]'s end and lasts 1 day
-[Start Final Project Stage] happens at [W12]'s end
-[Final Project Stage] as [FP] starts 6 day after [W12]'s end and lasts 18 day
-[Week 13: Final Project workshop (Part 1)] as [W13] starts 6 day after [W12]'s end and lasts 1 day
-[Week 14: Final Project workshop (Part 2)] as [W14] starts 6 day after [W13]'s end and lasts 1 day
-[Week 15: Final Project workshop (Part 4)] as [W15] starts 6 day after [W14]'s end and lasts 1 day
+
+[Week 10: Midterm Review and Examination] as [W10] starts 6 day after [W9]'s end and lasts 1 day
+[MidTerm Project] happens at [W10]'s end
+
+[Week 11: IoT MQTT Programming Part 1 (TPC and WIFI)] as [W11] starts 6 day after [W10]'s end and lasts 1 day
+
+[Week 12: IoT MQTT Programming Part 2 (Adafruit IO)] as [W12] starts 6 day after [W11]'s end and lasts 1 day
+
+
+[Week 13: Project Design, Requirements, UML and Planning] as [W13] starts 6 day after [W12]'s end and lasts 5 day
+[Week 14: FreeRTOS Programming (Part 3)] as [W14] starts 0 day after [W13]'s end and lasts 1 day
+[First Project delivey] as [Stage] starts 6 day after [W14]'s end and lasts 6 day
+[Start Final Project Stage] happens at [W13]'s end
+[Final Project Stage] as [FP] starts 6 day after [W13]'s end and lasts 18 day
+[Week 15: Final Project workshop (Part 1)] as [W15] starts 6 day after [W14]'s end and lasts 1 day
+[Week 16: Final Project workshop (Part 2)] as [W16] starts 6 day after [W15]'s end and lasts 1 day
+[Week 17: Final Project workshop (Part 3)] as [W17] starts 6 day after [W16]'s end and lasts 1 day
 [End Final Delivery] happens at [W15]'s end
+
+
 @endgantt
