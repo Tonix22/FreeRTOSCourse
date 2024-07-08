@@ -1,0 +1,146 @@
+\documentclass[10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage {mathtools}
+\usepackage{hyperref}
+\usepackage{hyperref}
+\usepackage{utopia} %font utopia imported
+\usetheme{CambridgeUS}
+\usecolortheme{dolphin}
+\hypersetup{colorlinks=true,linkcolor=blue, linktocpage}
+% set colors
+\definecolor{myNewColorA}{RGB}{118,193,188}
+\definecolor{myNewColorB}{RGB}{106,172,150}
+\definecolor{myNewColorC}{RGB}{94,150,218}
+\setbeamercolor*{palette primary}{bg=myNewColorC}
+\setbeamercolor*{palette secondary}{bg=myNewColorB, fg=white}
+\setbeamercolor*{palette tertiary}{bg=myNewColorA, fg=white}
+\setbeamercolor*{titlelike}{fg=myNewColorA}
+\setbeamercolor*{title}{bg=myNewColorA, fg=white}
+\setbeamercolor*{item}{fg=myNewColorA}
+\setbeamercolor*{caption name}{fg=myNewColorA}
+\usefonttheme{professionalfonts}
+\usepackage{natbib}
+\usepackage{hyperref}
+%------------------------------------------------------------
+\titlegraphic{\includegraphics[height=1.5cm]{../CommonFigures/Universidad_Panamericana-logo.jpg}}
+
+\setbeamerfont{title}{size=\large}
+\setbeamerfont{subtitle}{size=\small}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{institute}{size=\small}
+\title[Universidad Panamericana]{}
+\subtitle{Critical Systems and Applications of RTOS}
+\author[]{Name}
+
+\institute[ltonix@up.edu.mx]{Universidad Panamericana}
+\date[Presentation \today]
+{Presentation \today}
+
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+\setbeamercolor{block title}{bg=myNewColorA, fg=black} % Background and foreground colors for the block title
+\setbeamercolor{block body}{bg=myNewColorC, fg=black} % Background and foreground colors for the block body
+%------------------------------------------------------------
+\begin{document}
+%The next statement creates the title page.
+\frame{\titlepage}
+\begin{frame}
+\frametitle{Contents}
+\tableofcontents
+\end{frame}
+
+
+%------------------------------------------------------------
+\begin{frame}{Critical Systems and Applications of RTOS}
+    \begin{itemize}
+        \item Discussion of RTOS applications in critical systems across various industries:smb://tonix.local/sambashare/tonix/Hardisk/Pictures2023/IMG_20231227_162711.jpg
+        \begin{itemize}
+            \item \textbf{Aerospace and Aviation} (e.g., General Electric, Hydra, DJI)
+            \item \textbf{Automotive} (e.g., Continental, NXP, Avnet)
+            \item \textbf{Healthcare} (e.g., Plexus, Baxter)
+            \item \textbf{Power Generation} (e.g., Baker Hughes, CERN)
+            \item \textbf{Telecommunications} (e.g., Cinvestav, Qualcomm)
+            \item \textbf{Defense and Military} (e.g., Hydra, A2E)
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+%------------------------------------------------------------
+
+%------------------------------------------------------------
+\begin{frame}{RTOS in Aerospace and Aviation}
+    \begin{itemize}
+        \item Flight control systems, engine management, and in-flight entertainment systems.
+        \item Santiago de Queretaro \href{https://www.geaerospace.com/commercial}{General Electric Aeroespace}
+        \item Europe Aeroespace \href{https://www.dlr.de/en/careers/your-entry/your-specialist-field/research-funding-knowledge-management}{DLR}
+        \item Hydra technologies \href{https://www.hydra-technologies.com/}{Hydra}
+        \item A2E technologies (Guadalajara) \href{https://www.a2etechnologies.com/}{A2E technologies}
+        \item DO-178C Software Considerations in Airborne Systems and Equipment Certification.
+        \item Examples include managing real-time data from multiple sensors and executing complex algorithms for autopilot systems.
+    \end{itemize}
+\end{frame}
+%------------------------------------------------------------
+
+\begin{frame}{RTOS in the Automotive Industry}
+    \begin{itemize}
+        \item AUTOSAR (Automotive Open System ARchitecture), provides a standardized architecture for automotive software, facilitating the integration of RTOS into diverse automotive applications.
+        \item Engine controls, safety systems, and infotainment systems.
+        \item Advanced driver-assistance systems (ADAS) and autonomous driving technologies.
+        \item \href{https://www.autosar.org/standards/classic-platform}{AutoSAR stack}
+    \end{itemize}
+\end{frame}
+%------------------------------------------------------------
+
+\begin{frame}{RTOS in Healthcare}
+    \begin{itemize}
+        \item Healthcare systems rely on RTOS for the management of critical medical devices such as ventilators, infusion pumps, and diagnostic systems.
+        \item These systems require absolute reliability and precision, where timing is often critical to patient care outcomes.
+        \item RTOS ensure that the medical devices operate under strict timing constraints, providing consistent and reliable performance.
+    \end{itemize}
+\end{frame}
+%------------------------------------------------------------
+
+\begin{frame}{RTOS in Power Generation}
+    \begin{itemize}
+        \item \href{https://www.bakerhughes.com/bently-nevada/monitoring-systems/machinery-protection/orbit-60-series}{Orbit60}
+        \item RTOS are integral to managing operations in power generation and distribution, ensuring stability and efficiency in the power grid.
+        \item They handle real-time monitoring and control of power systems, adjusting loads and generation in response to real-time demand changes.
+        \item This real-time capability is vital for integrating renewable energy sources effectively, where power supply can be intermittent and variable.
+    \end{itemize}
+\end{frame}
+%------------------------------------------------------------
+
+\begin{frame}{RTOS in Telecommunications}
+    \begin{itemize}
+        \item In telecommunications, RTOS manage critical real-time operations such as signal processing, data routing, and session management.
+        \item Their ability to handle high-speed data with low latency supports the reliability and quality of voice, video, and data transmission across networks.
+        \item RTOS also enhance the scalability and adaptability of network infrastructures to meet changing data traffic demands.
+    \end{itemize}
+\end{frame}
+%------------------------------------------------------------
+
+\begin{frame}{RTOS in Defense and Military}
+    \begin{itemize}
+        \item Compliance with ITAR (International Traffic in Arms Regulations) is crucial, ensuring that defense technologies including those powered by RTOS adhere to strict export control laws, maintaining national security.
+        \item The defense sector utilizes RTOS for systems requiring robust, real-time responses such as weaponry, surveillance, and communication systems.
+        \item \href{https://www.geaerospace.com/military-defense/engines/xa100}{General Electric Aeroespace}
+    \end{itemize}
+\end{frame}
+%------------------------------------------------------------
+
+\section*{Acknowledgement}  
+\begin{frame}
+\textcolor{myNewColorA}{\Huge{\centerline{Thank you!}}}
+\end{frame}
+
+
+\end{document}
