@@ -372,25 +372,35 @@ begin{itemize}
 
 		
 \backslash
-item Overview of the implications of MIT licensing.
-         
+item What is an operating system?
 \end_layout
 
 \begin_layout Plain Layout
 
 		
 \backslash
-item General understanding of what constitutes an operating system, with
- a focus on real-time systems.
-         
+item Main features of an OS
 \end_layout
 
 \begin_layout Plain Layout
 
 		
 \backslash
-item Detailed exploration of real-time concepts using visual aids.
-         
+item Safety
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Security
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item What is real time?     
 \end_layout
 
 \begin_layout Plain Layout
@@ -398,8 +408,28 @@ item Detailed exploration of real-time concepts using visual aids.
 		
 \backslash
 item Introduction to Real-Time Operating Systems (RTOS) and their relevance
- in embedded solutions.
-     
+ in embedded solutions
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item MIT License, GNU, MIT and GPL
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Understanding Copyleft
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Comparison of Open Sources Licenses
 \end_layout
 
 \begin_layout Plain Layout
@@ -507,11 +537,15 @@ end{itemize}
 
 \begin_layout Plain Layout
 
-    
+	
 \backslash
 item 
 \backslash
-textbf{FreeRTOS Architecture (Part 1)}     
+textbf{Good software practices and Continuous Integration (CI)}
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -525,24 +559,157 @@ begin{itemize}
 
 		
 \backslash
-item Introduction to heap/stack memory management in RTOS.
+item Overview of standard industry practices.
          
 \end_layout
 
 \begin_layout Plain Layout
 
 		
+\backslash
+item Importance of documentation and diagrams in maintaining scalable and
+ maintainable code.
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Software Development Guide (SDG)
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Key components of an effective SDG.
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Software Detailed Document (SDD)  
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Requirments
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Exploring the role and structure of SDD.
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Unified Modeling Language (UML)
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Development process, good practices and coding standard
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Version control process GIT
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Test plan document 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Whitebox testing and manual testing
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Understanding Continuous Integration 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Benefits of integrating CI into the software development lifecycle.
+      	 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item 
+\backslash
+textbf{FreeRTOS Architecture (Part 1)}      	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{itemize}          		
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item Introduction to heap/stack memory management in RTOS.
+          		
+\end_layout
+
+\begin_layout Plain Layout
+
+	
 \backslash
 item Detailed discussion on function pointers and the concept of callbacks.
-         
+          		
 \end_layout
 
 \begin_layout Plain Layout
 
-		
+	
 \backslash
 item Overview of interrupt service routines and timer ISR.
-     
+      	
 \end_layout
 
 \begin_layout Plain Layout
@@ -1096,6 +1263,17 @@ end{itemize}
 
 \backslash
 end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
 \end_layout
 
 \end_inset
