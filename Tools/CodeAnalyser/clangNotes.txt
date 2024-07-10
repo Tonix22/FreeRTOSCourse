@@ -1,0 +1,18 @@
+Google C++ Style Guide
+https://google.github.io/styleguide/cppguide.html
+sudo apt-get install clang-tidy
+
+
+Clang tool for custon coding standard
+https://clang.llvm.org/extra/clang-tidy/
+
+clang-tidy my_file.cpp -- -Iinclude_directory
+
+Vscode extension
+https://marketplace.visualstudio.com/items?itemName=CS128.cs128-clang-tidy
+
+Run Cpp lint is more superficial check and dont neeet clang-tidy
+cpplint Test.cpp
+
+Run Clang tidy
+clang-tidy Test.cpp

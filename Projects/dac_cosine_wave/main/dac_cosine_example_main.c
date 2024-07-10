@@ -21,8 +21,7 @@
 #endif
 #define EXAMPLE_ADC_ATTEN                   ADC_ATTEN_DB_12
 
-static void adc_monitor_task(void *args)
-{
+static void adc_monitor_task(void *args) {
     /* Set the ADC2 channels, these channels are connected to the DAC channels internally */
     adc_oneshot_unit_handle_t adc2_handle = (adc_oneshot_unit_handle_t)args;
     int chan0_val = 0;
@@ -36,8 +35,7 @@ static void adc_monitor_task(void *args)
     }
 }
 
-void app_main(void)
-{
+void app_main(void) {
     dac_cosine_handle_t chan0_handle;
     dac_cosine_handle_t chan1_handle;
     /* Normally two channels can only be configured to one frequency
@@ -45,7 +43,7 @@ void app_main(void)
      * The example here will produce cosine wave at 8 KHz on both channels */
     dac_cosine_config_t cos0_cfg = {
         .chan_id = DAC_CHAN_0,
-        .freq_hz = 1000, // It will be covered by 8000 in the latter configuration
+        .freq_hz = 1000,  // It will be covered by 8000 in the latter configuration
         .clk_src = DAC_COSINE_CLK_SRC_DEFAULT,
         .offset = 0,
         .phase = DAC_COSINE_PHASE_0,
@@ -59,7 +57,7 @@ void app_main(void)
         .offset = 0,
         .phase = DAC_COSINE_PHASE_180,
         .atten = DAC_COSINE_ATTEN_DB_6,
-        .flags.force_set_freq = true, // set true will allow to overwrite the frequency that set before
+        .flags.force_set_freq = true,  // set true will allow to overwrite the frequency that set before
     };
     ESP_ERROR_CHECK(dac_cosine_new_channel(&cos0_cfg, &chan0_handle));
     ESP_ERROR_CHECK(dac_cosine_new_channel(&cos1_cfg, &chan1_handle));
