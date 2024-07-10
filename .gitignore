@@ -1,4 +1,4 @@
-dac_cosine_wave/build/
+Projects/dac_cosine_wave/build
 *pyc
 *main.aux
 *main.fdb_latexmk
@@ -9,3 +9,6 @@ dac_cosine_wave/build/
 *main.snm
 *main.synctex.gz
 *main.toc
+*obj
+*.a
+Tools/reqs/output.html/
