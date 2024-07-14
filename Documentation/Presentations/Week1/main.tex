@@ -1,14 +1,20 @@
 \documentclass[10pt]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage {mathtools}
-\usepackage{hyperref}
-\usepackage{hyperref}
-\usepackage{utopia} %font utopia imported
+\usepackage{mathtools}
+\usepackage{utopia} % Font Utopia imported
 \usetheme{CambridgeUS}
 \usecolortheme{dolphin}
-\hypersetup{colorlinks=true,linkcolor=blue, linktocpage}
-% set colors
+
+% Set up hyperref once and configure colors
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    linktocpage
+}
+
+% Custom colors
 \definecolor{myNewColorA}{RGB}{118,193,188}
 \definecolor{myNewColorB}{RGB}{106,172,150}
 \definecolor{myNewColorC}{RGB}{94,150,218}
@@ -20,9 +26,7 @@
 \setbeamercolor*{item}{fg=myNewColorA}
 \setbeamercolor*{caption name}{fg=myNewColorA}
 \usefonttheme{professionalfonts}
-\usepackage{natbib}
-\usepackage{hyperref}
-%------------------------------------------------------------
+
 \titlegraphic{\includegraphics[height=1.5cm]{../CommonFigures/Universidad_Panamericana-logo.jpg}}
 
 \setbeamerfont{title}{size=\large}
@@ -31,13 +35,10 @@
 \setbeamerfont{date}{size=\small}
 \setbeamerfont{institute}{size=\small}
 \title[Universidad Panamericana]{}
-\subtitle{Introduction to Real-Time Operating Systems}
+\subtitle{Introduction to FreeRTOS}
 \author[]{Name}
-
 \institute[ltonix@up.edu.mx]{Universidad Panamericana}
-\date[Presentation \today]
-{Presentation \today}
-
+\date[Presentation \today]{Presentation \today}
 
 \AtBeginSection[]{
   \begin{frame}
@@ -49,22 +50,80 @@
   \vfill
   \end{frame}
 }
+
 \setbeamercolor{block title}{bg=myNewColorA, fg=black} % Background and foreground colors for the block title
 \setbeamercolor{block body}{bg=myNewColorC, fg=black} % Background and foreground colors for the block body
-%------------------------------------------------------------
 
 \begin{document}
 
-%The next statement creates the title page.
 \frame{\titlepage}
 \begin{frame}
 \frametitle{Contents}
 \tableofcontents
 \end{frame}
+
+\section{Introduction}
+\subsection{What is FreeRTOS?}
+\begin{frame}{FreeRTOS}
+    \begin{columns}
+    % Column for text
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+        \item What does "Free" really mean?
+            \begin{itemize}
+                \item Why should you care about the word "Free"?
+                \item What are you compromising?
+            \end{itemize}
+        \item What does RTOS stand for?
+            \begin{itemize}
+                \item Real
+                \item Time
+                \item Operating
+                \item System
+            \end{itemize}
+      \end{itemize}
+    \end{column}
+    
+    % Column for the image
+    \begin{column}{0.4\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth]{figures/WhatTheCatchMeme.jpg}
+        \end{figure}
+    \end{column}
+    \end{columns}
+\end{frame}
+%------------------------------------------------------------
+\subsection{Why FreeRTOS?}
+\begin{frame}{Why FreeRTOS?}
+  \begin{itemize}
+    \item Open Source and Free
+        \begin{itemize}
+            \item FreeRTOS is open source, allowing customization and transparency.
+            \item No cost for the software, reducing project budgets.
+        \end{itemize}
+    \item Wide Hardware Compatibility
+        \begin{itemize}
+            \item Supports a vast range of microcontroller architectures.
+            \item Easily adaptable to new hardware.
+        \end{itemize}
+    \item Strong Community Support
+        \begin{itemize}
+            \item Active community and extensive documentation.
+            \item Regular updates and security patches.
+        \end{itemize}
+    \item Designed for Real-Time Applications
+        \begin{itemize}
+            \item Provides precise control over hardware with real-time tasks.
+            \item Efficient in handling interruptions and timing requirements.
+        \end{itemize}
+  \end{itemize}
+\end{frame}
+
 %------------------------------------------------------------
 \section{What is an operating system?}
     \begin{frame}{What is an operating system?}
-      
+
       \begin{block}{Block Title}
         \textbf{Is a software that manages and distributes multiple running applications} across a computer or platform, with the main objective to \textbf{efficiently manage multiple tasks simultaneously}.
       \end{block}
@@ -72,7 +131,7 @@
         \item It acts as a mediator between the computer's hardware and the applications that run on it, providing a user-friendly interface and managing the execution of software programs.
       \end{itemize}
     \end{frame}
-\subsection{Main features of an OS}
+    \subsection{Main features of an OS}
 %------------------------------------------------------------   
     \begin{frame}{Modularity}
       \begin{itemize}
@@ -174,7 +233,7 @@
         \item Facebook
       \end{itemize}
       \begin{alertblock}{Important}
-        Thats why open source is soo important \newline
+        Thats why open source is so important \newline
         \href{https://tosdr.org/}{Click}
       \end{alertblock}
       \begin{figure}[h]
@@ -182,6 +241,14 @@
         \includegraphics[width=0.5\textwidth]{figures/DoxingMeme.jpg}
         \label{fig:my_label}
         \end{figure}
+    \end{frame}
+    \begin{frame}{Temu}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=1.0\textwidth]{figures/TemuWarning.jpg}
+            \label{fig:temu}
+        \end{figure}
+
     \end{frame}
 
     \begin{frame}{Introduction to Open Source Licenses}

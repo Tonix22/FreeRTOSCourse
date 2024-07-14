@@ -1,0 +1,80 @@
+\documentclass[10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage {mathtools}
+\usepackage{hyperref}
+\usepackage{hyperref}
+\usepackage{utopia} %font utopia imported
+\usetheme{CambridgeUS}
+\usecolortheme{dolphin}
+\hypersetup{colorlinks=true,linkcolor=blue, linktocpage}
+% set colors
+\definecolor{myNewColorA}{RGB}{118,193,188}
+\definecolor{myNewColorB}{RGB}{106,172,150}
+\definecolor{myNewColorC}{RGB}{94,150,218}
+\setbeamercolor*{palette primary}{bg=myNewColorC}
+\setbeamercolor*{palette secondary}{bg=myNewColorB, fg=white}
+\setbeamercolor*{palette tertiary}{bg=myNewColorA, fg=white}
+\setbeamercolor*{titlelike}{fg=myNewColorA}
+\setbeamercolor*{title}{bg=myNewColorA, fg=white}
+\setbeamercolor*{item}{fg=myNewColorA}
+\setbeamercolor*{caption name}{fg=myNewColorA}
+\usefonttheme{professionalfonts}
+\usepackage{natbib}
+\usepackage{hyperref}
+%------------------------------------------------------------
+\titlegraphic{\includegraphics[height=1.5cm]{../CommonFigures/Universidad_Panamericana-logo.jpg}}
+
+\setbeamerfont{title}{size=\large}
+\setbeamerfont{subtitle}{size=\small}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{institute}{size=\small}
+\title[Universidad Panamericana]{}
+\subtitle{Introduction to Real - Time Operating Systems}
+\author[]{Name}
+
+\institute[ltonix@up.edu.mx]{Universidad Panamericana}
+\date[Presentation \today]
+{Presentation \today}
+
+
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+\setbeamercolor{block title}{bg=myNewColorA, fg=black} % Background and foreground colors for the block title
+\setbeamercolor{block body}{bg=myNewColorC, fg=black} % Background and foreground colors for the block body
+%------------------------------------------------------------
+
+\begin{document}
+
+%The next statement creates the title page.
+\frame{\titlepage}
+\begin{frame}
+\frametitle{Contents}
+\tableofcontents
+\end{frame}
+%------------------------------------------------------------
+\section{What is an operating system?}
+    \begin{frame}{What is an operating system?}
+      
+      \begin{block}{Block Title}
+        \textbf{Is a software that manages and distributes multiple running applications} across a computer or platform, with the main objective to \textbf{efficiently manage multiple tasks simultaneously}.
+      \end{block}
+      \begin{itemize}
+        \item It acts as a mediator between the computer's hardware and the applications that run on it, providing a user-friendly interface and managing the execution of software programs.
+      \end{itemize}
+    \end{frame}
+
+
+\end{document}
+
+
+
