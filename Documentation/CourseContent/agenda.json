@@ -1,0 +1,181 @@
+{
+    "weeks": [
+      {
+        "weekNumber": 1,
+        "title": "Introduction to Real-Time Systems",
+        "topics": [
+          "What is an operating system?",
+          "Main features of an OS",
+          "Safety",
+          "Security",
+          "What is real time?",
+          "Introduction to Real-Time Operating Systems (RTOS) and their relevance in embedded solutions",
+          "MIT License, GNU, MIT, and GPL",
+          "Understanding Copyleft",
+          "Comparison of Open Source Licenses"
+        ]
+      },
+      {
+        "weekNumber": 2,
+        "title": "Critical Systems and Applications of RTOS",
+        "topics": [
+          "Discussion of RTOS applications in critical systems across various industries",
+          "Aerospace and Aviation (e.g., General Electric, Hydra, DJI)",
+          "Automotive (e.g., Continental, NXP, Avnet)",
+          "Healthcare (e.g., Plexus, Baxter)",
+          "Power Generation (e.g., Baker Hughes, CERN)",
+          "Telecommunications (e.g., Cinvestav, Qualcomm)",
+          "Defense and Military (e.g., Hydra, A2E)"
+        ]
+      },
+      {
+        "weekNumber": 3,
+        "title": "Continuous Integration and Professional Workflow",
+        "topics": [
+          "Overview of standard industry practices.",
+          "Importance of documentation and diagrams in maintaining scalable and maintainable code.",
+          "Software Development Guide (SDG)",
+          "Key components of an effective SDG.",
+          "Software Detailed Document (SDD)",
+          "Requirements",
+          "Exploring the role and structure of SDD.",
+          "Unified Modeling Language (UML)",
+          "Development process, good practices, and coding standards",
+          "Version control process GIT",
+          "Test plan document",
+          "Whitebox testing and manual testing",
+          "Understanding Continuous Integration",
+          "Benefits of integrating CI into the software development lifecycle."
+        ]
+      },
+      {
+        "weekNumber": 4,
+        "title": "Continuous Integration and Professional Workflow (continued)",
+        "topics": [
+          "Practical perspective on applying CI strategies in development projects."
+        ]
+      },
+      {
+        "weekNumber": 5,
+        "title": "FreeRTOS Architecture (Part 1)",
+        "topics": [
+          "Introduction to heap/stack memory management in RTOS.",
+          "Detailed discussion on function pointers and the concept of callbacks.",
+          "Overview of interrupt service routines and timer ISR."
+        ]
+      },
+      {
+        "weekNumber": 6,
+        "title": "FreeRTOS Architecture (Part 2)",
+        "topics": [
+          "In-depth look at concurrent processing in FreeRTOS:",
+          "Scheduler dynamics",
+          "Task management and priority settings",
+          "Queues, semaphores, and mutexes"
+        ]
+      },
+      {
+        "weekNumber": 7,
+        "title": "Hands-on with ESP32 (Setup and Basic Examples)",
+        "topics": [
+          "Introduction to Espressif microcontrollers, with a focus on ESP32.",
+          "Setting up the development environment, including Visual Studio Code.",
+          "Configuring WSL for the Espressif FreeRTOS SDK.",
+          "Practical examples: Running basic GPIO LED control tasks."
+        ]
+      },
+      {
+        "weekNumber": 8,
+        "title": "Advanced Hands-on with ESP32",
+        "topics": [
+          "Techniques for effective serial debugging.",
+          "WIFI drivers and code examples"
+        ]
+      },
+      {
+        "weekNumber": 9,
+        "title": "FreeRTOS Programming (Part 1)",
+        "topics": [
+          "Techniques for task creation and management.",
+          "Control functions such as delay, suspend, and resume.",
+          "FreeRTOS configuration overview"
+        ]
+      },
+      {
+        "weekNumber": 10,
+        "title": "FreeRTOS Programming (Part 2)",
+        "topics": [
+          "Comprehensive management of queues and semaphores."
+        ]
+      },
+      {
+        "weekNumber": 11,
+        "title": "Midterm Review and Examination",
+        "topics": [
+          "Review of all topics covered thus far.",
+          "Midterm examination to assess knowledge and practical application."
+        ]
+      },
+      {
+        "weekNumber": 12,
+        "title": "IoT MQTT Programming Part 1 (TCP and WIFI)",
+        "topics": [
+          "Introduction to MQTT protocols",
+          "Setting up MQTT broker and clients",
+          "Implementing MQTT with TCP and WiFi on ESP32"
+        ]
+      },
+      {
+        "weekNumber": 13,
+        "title": "IoT MQTT Programming Part 2 (Adafruit IO)",
+        "topics": [
+          "Integrating IoT devices with Adafruit IO using MQTT",
+          "Developing interactive IoT applications",
+          "Practical examples and project ideas"
+        ]
+      },
+      {
+        "weekNumber": 14,
+        "title": "Project Design, Requirements, UML and Planning",
+        "topics": [
+          "Detailed discussion on final project design and requirements.",
+          "Initial project planning and milestone setting.",
+          "Utilizing Unified Modeling Language (UML) to plan and model projects.",
+          "Creating sequence diagrams and behavioral architectures for real-time systems."
+        ]
+      },
+      {
+        "weekNumber": 15,
+        "title": "FreeRTOS Programming (Part 3)",
+        "topics": [
+          "Detailed handling of software timers and event groups.",
+          "Advanced scheduling techniques."
+        ]
+      },
+      {
+        "weekNumber": 16,
+        "title": "Final Project workshop (Part 1)",
+        "topics": [
+          "Practical implementation of the final projects.",
+          "Final presentations and review sessions."
+        ]
+      },
+      {
+        "weekNumber": 17,
+        "title": "Final Project workshop (Part 2)",
+        "topics": [
+          "Continued implementation and final adjustments.",
+          "Concluding presentations and evaluations."
+        ]
+      },
+      {
+        "weekNumber": 18,
+        "title": "Final Project workshop (Part 3)",
+        "topics": [
+          "Completion of project implementations.",
+          "Final evaluations and feedback."
+        ]
+      }
+    ]
+  }
+  

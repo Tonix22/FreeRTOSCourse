@@ -13,3 +13,7 @@ Projects/dac_cosine_wave/build
 *.a
 Tools/reqs/output.html/
 Audios/*
+*.gz
+*.fls
+*.fdb_latexmk
+Documentation/CourseContent/CourseContent.aux
