@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.8)  20 JUL 2024 01:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.8)  20 JUL 2024 02:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -488,21 +488,21 @@ Package pdftex.def Info: /home/tonix/Documents/FreeRTOSCourse/Documentation/Pres
 \openout5 = `CourseContent.toc'.
 
  [2] [3] (./agenda.tex [4] [5]) [6]
-<PlanningPart1.png, id=187, 1285.80376pt x 299.1175pt>
+<PlanningPart1.png, id=187, 1386.17876pt x 315.1775pt>
 File: PlanningPart1.png Graphic file (type png)
 <use PlanningPart1.png>
 Package pdftex.def Info: PlanningPart1.png  used on input line 108.
-(pdftex.def)             Requested size: 514.3124pt x 119.64487pt.
+(pdftex.def)             Requested size: 554.46169pt x 126.06876pt.
 
-Overfull \hbox (96.05872pt too wide) in paragraph at lines 108--109
+Overfull \hbox (136.20801pt too wide) in paragraph at lines 108--109
  [][] 
  []
 
-<PlanningPart2.png, id=188, 1035.87pt x 282.05376pt>
+<PlanningPart2.png, id=188, 923.45pt x 247.92625pt>
 File: PlanningPart2.png Graphic file (type png)
 <use PlanningPart2.png>
 Package pdftex.def Info: PlanningPart2.png  used on input line 111.
-(pdftex.def)             Requested size: 414.34065pt x 112.81949pt.
+(pdftex.def)             Requested size: 369.37346pt x 99.16873pt.
 [7 <./PlanningPart1.png (PNG copy)> <./PlanningPart2.png (PNG copy)>] [8] [9] [10] [11] (./CourseContent.aux)
 Package rerunfilecheck Info: File `CourseContent.out' has not changed.
 (rerunfilecheck)             Checksum: A5F1F4942E16D9CC51E58E8806D96A4D;4539.
@@ -516,7 +516,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  94i,11n,92p,598b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsl1000.pfb>
-Output written on CourseContent.pdf (11 pages, 319915 bytes).
+Output written on CourseContent.pdf (11 pages, 317325 bytes).
 PDF statistics:
  278 PDF objects out of 1000 (max. 8388607)
  244 compressed objects within 3 object streams

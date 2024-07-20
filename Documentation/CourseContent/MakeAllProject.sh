@@ -1,4 +1,5 @@
 #!/bin/bash
+python syncContent.py
 ./renderpuml.sh
 # Constants
 INPUT_FILE="CourseContent"

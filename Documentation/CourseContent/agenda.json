@@ -62,7 +62,8 @@
           "Introduction to heap/stack memory management in RTOS.",
           "Detailed discussion on function pointers and the concept of callbacks.",
           "Overview of interrupt service routines and timer ISR."
-        ]
+        ],
+        "evaluation": "Git quizz"
       },
       {
         "weekNumber": 6,
@@ -90,7 +91,8 @@
         "topics": [
           "Techniques for effective serial debugging.",
           "WIFI drivers and code examples"
-        ]
+        ],
+        "evaluation": "FreeRTOS Architecture and ESP32 quiz"
       },
       {
         "weekNumber": 9,
@@ -106,7 +108,8 @@
         "title": "FreeRTOS Programming (Part 2)",
         "topics": [
           "Comprehensive management of queues and semaphores."
-        ]
+        ],
+        "evaluation": "MidTerm Project"
       },
       {
         "weekNumber": 11,
@@ -142,7 +145,8 @@
           "Initial project planning and milestone setting.",
           "Utilizing Unified Modeling Language (UML) to plan and model projects.",
           "Creating sequence diagrams and behavioral architectures for real-time systems."
-        ]
+        ],
+        "evaluation": "Start Final Project Stage"
       },
       {
         "weekNumber": 15,
@@ -158,7 +162,8 @@
         "topics": [
           "Practical implementation of the final projects.",
           "Final presentations and review sessions."
-        ]
+        ],
+        "evaluation": "First Project delivery"
       },
       {
         "weekNumber": 17,
@@ -174,7 +179,8 @@
         "topics": [
           "Completion of project implementations.",
           "Final evaluations and feedback."
-        ]
+        ],
+        "evaluation":"End Final Delivery"
       }
     ]
   }
