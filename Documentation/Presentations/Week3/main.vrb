@@ -1,0 +1,19 @@
+\frametitle{Passing by Reference}
+\begin{itemize}
+    \item Passing by reference sends a reference to the original variable.
+    \item Any changes inside the function affect the original variable.
+    \item More efficient for large data structures but must be used carefully.
+  \end{itemize}
+
+  \begin{lstlisting}
+  void incrementByReference(int& x) {
+      x = x + 1;
+      cout << "Inside function: " << x << endl;
+  }
+
+  int main() {
+      int a = 5;
+      incrementByReference(a);
+      cout << "Outside function: " << a << endl;
+  }
+  \end{lstlisting}

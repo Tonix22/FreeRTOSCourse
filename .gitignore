@@ -12,3 +12,4 @@ Projects/dac_cosine_wave/build
 *obj
 *.a
 Tools/reqs/output.html/
+Audios/*

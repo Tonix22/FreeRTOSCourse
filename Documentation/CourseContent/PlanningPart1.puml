@@ -1,0 +1,21 @@
+@startgantt
+saturday are closed
+sunday are closed
+
+Project starts the 5th of August 2024
+
+[Week 1: Introduction and Real-Time Systems] as [W1] starts at 2024-08-06 and lasts 1 day
+[Week 2: Critical Systems and Applications of RTOS] as [W2] starts 6 day after [W1]'s end and lasts 1 day
+[Week 3: Continous integration and professional workflow] as [W3] starts 6 day after [W2]'s end and lasts 1 day
+[Week 4: Continous integration and professional workflow] as [W4] starts 6 day after [W3]'s end and lasts 1 day
+[Week 5: FreeRTOS Architecture (Part 1)] as [W5] starts 6 day after [W4]'s end and lasts 1 day
+[Git quizz] happens at [W5]'s end
+[Week 6: FreeRTOS Architecture (Part 2)] as [W6] starts 6 day after [W5]'s end and lasts 1 day
+[Week 7: Hands-on with ESP32 (Setup and Basic Examples)] as [W7] starts 6 day after [W6]'s end and lasts 1 day
+[Week 8: Advanced Hands-on with ESP32] as [W8] starts 6 day after [W7]'s end and lasts 1 day
+[FreeRTOS Architecture and ESP32 quiz] happens at [W8]'s end
+[Week 9: FreeRTOS Programming (Part 1)] as [W9] starts 6 day after [W8]'s end and lasts 1 day
+[Week 10: FreeRTOS Programming (Part 2)] as [W10] starts 6 day after [W9]'s end and lasts 1 day
+[MidTerm Project] happens at [W10]'s end
+
+@endgantt

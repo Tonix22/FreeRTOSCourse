@@ -541,7 +541,7 @@ end{itemize}
 \backslash
 item 
 \backslash
-textbf{Good software practices and Continuous Integration (CI)}
+textbf{Good software practices (Part1)}
 \end_layout
 
 \begin_layout Plain Layout
@@ -665,7 +665,37 @@ end{itemize}
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 	
+\backslash
+item 
+\backslash
+textbf{Good software practices (Part2)}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{itemize}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+item Overview of standard industry practices.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{itemize}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1265,6 +1295,17 @@ end{itemize}
 end{enumerate}
 \end_layout
 
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
 \end_inset
 
 
@@ -1278,10 +1319,10 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\noindent
+\align center
 \begin_inset Graphics
-	filename PlannigPart1.png
-	scale 50
+	filename PlanningPart1.png
+	scale 40
 
 \end_inset
 
@@ -1289,9 +1330,10 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
-	filename PlannigPart2.png
-	scale 45
+	filename PlanningPart2.png
+	scale 40
 
 \end_inset
 
@@ -1299,6 +1341,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout

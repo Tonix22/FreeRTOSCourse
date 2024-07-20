@@ -1,0 +1,101 @@
+\documentclass[10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usetheme{CambridgeUS}
+\usecolortheme{dolphin}
+
+% Set up hyperref once and configure colors
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    linktocpage
+}
+
+% Custom colors
+\definecolor{myNewColorA}{RGB}{118,193,188}
+\definecolor{myNewColorB}{RGB}{106,172,150}
+\definecolor{myNewColorC}{RGB}{94,150,218}
+\setbeamercolor*{palette primary}{bg=myNewColorC}
+\setbeamercolor*{palette secondary}{bg=myNewColorB, fg=white}
+\setbeamercolor*{palette tertiary}{bg=myNewColorA, fg=white}
+\setbeamercolor*{titlelike}{fg=myNewColorA}
+\setbeamercolor*{title}{bg=myNewColorA, fg=white}
+\setbeamercolor*{item}{fg=myNewColorA}
+\setbeamercolor*{caption name}{fg=myNewColorA}
+\usefonttheme{professionalfonts}
+
+\titlegraphic{\includegraphics[height=1.5cm]{../CommonFigures/Universidad_Panamericana-logo.jpg}}
+
+\setbeamerfont{title}{size=\large}
+\setbeamerfont{subtitle}{size=\small}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{institute}{size=\small}
+\title[Universidad Panamericana]{}
+\subtitle{FreeRTOS Architecture Part 1}
+\author[]{Name}
+\institute[ltonix@up.edu.mx]{Universidad Panamericana}
+\date[Presentation \today]{Presentation \today}
+
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+\setbeamercolor{block title}{bg=myNewColorA, fg=black} % Background and foreground colors for the block title
+\setbeamercolor{block body}{bg=myNewColorC, fg=black} % Background and foreground colors for the block body
+
+\begin{document}
+
+\frame{\titlepage}
+\begin{frame}
+\frametitle{Contents}
+\tableofcontents
+\end{frame}
+
+\section{Memory Managment}
+
+\begin{frame}{Memory Hierarchy}
+  \begin{itemize}
+    \item Registers: Fastest, smallest, and located inside the CPU. Used for immediate operations.
+    \item Cache: Faster than RAM, located close to the CPU to speed up data access. Cache in any software can causes unexpected behavior. Thats why deleting cache is a good practice. 
+    \item RAM (Random Access Memory): Main memory used to store data and instructions temporarily while the computer is running.
+    \item Storage (e.g., SSDs, HDDs): Permanent storage well known as file system.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Defensive Programmig}
+
+\end{frame}
+
+\begin{frame}{Common errors in variable allocation}
+
+\end{frame}
+
+\begin{frame}{What does static mean?}
+
+\end{frame}
+
+\begin{frame}{Stack Memory}
+
+\end{frame}
+
+\begin{frame}{Heap Memory}
+
+\end{frame}
+
+\begin{frame}{Pointers}
+
+\end{frame}
+
+\begin{frame}{Callbacks}
+
+\end{frame}

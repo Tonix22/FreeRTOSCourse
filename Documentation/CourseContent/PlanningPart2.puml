@@ -1,0 +1,21 @@
+@startgantt
+saturday are closed
+sunday are closed
+
+Project starts the 23th of October 2024
+
+
+[Week 11: Midterm Review and Examination] as [W11] starts at 2024-10-23 and lasts 1 day
+[Week 12: IoT MQTT Programming Part 1 (TCP and WIFI)] as [W12] starts 6 day after [W11]'s end and lasts 1 day
+[Week 13: IoT MQTT Programming Part 2 (Adafruit IO)] as [W13] starts 6 day after [W12]'s end and lasts 1 day
+[Week 14: Project Design, Requirements, UML and Planning] as [W14] starts 6 day after [W13]'s end and lasts 5 day
+[Start Final Project Stage] happens at [W14]'s end
+[Final Project Stage] as [FP] starts 6 day after [W14]'s end and lasts 18 day
+[Week 15: FreeRTOS Programming (Part 3)] as [W15] starts 0 day after [W14]'s end and lasts 1 day
+[First Project delivery] as [Stage] starts 6 day after [W15]'s end and lasts 6 day
+[Week 16: Final Project workshop (Part 1)] as [W16] starts 6 day after [W15]'s end and lasts 1 day
+[Week 17: Final Project workshop (Part 2)] as [W17] starts 6 day after [W16]'s end and lasts 1 day
+[Week 18: Final Project workshop (Part 3)] as [W18] starts 6 day after [W17]'s end and lasts 1 day
+[End Final Delivery] happens at [W16]'s end
+
+@endgantt
