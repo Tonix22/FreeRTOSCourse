@@ -32,27 +32,28 @@
         "weekNumber": 3,
         "title": "Continuous Integration and Professional Workflow",
         "topics": [
-          "Overview of standard industry practices.",
-          "Importance of documentation and diagrams in maintaining scalable and maintainable code.",
-          "Software Development Guide (SDG)",
-          "Key components of an effective SDG.",
-          "Software Detailed Document (SDD)",
+          "Why good practices?",
+          "You shouldn't be opposed to learning programming languages.",
+          "Unified Modeling Language with PlantUML (UML)",
           "Requirements",
-          "Exploring the role and structure of SDD.",
-          "Unified Modeling Language (UML)",
-          "Development process, good practices, and coding standards",
-          "Version control process GIT",
-          "Test plan document",
-          "Whitebox testing and manual testing",
-          "Understanding Continuous Integration",
-          "Benefits of integrating CI into the software development lifecycle."
+          "Software Detailed Document (SDD)",
+          "Software Development Guide (SDG)",
+          "Test plan document (TPD)",
+          "Black box vs Whitebox testing"
         ]
       },
       {
         "weekNumber": 4,
         "title": "Continuous Integration and Professional Workflow (continued)",
         "topics": [
-          "Practical perspective on applying CI strategies in development projects."
+          "Why Cpp instead of just C?",
+          "Coding standards",
+          "Good code practices with .clang-tidy and cpplint ",
+          "Defensive programming",
+          "Automated testing (Unit Test) and manual testing",
+          "Version control process GIT",
+          "Benefits of integrating CI into the software development lifecycle.",
+          "Understanding Continuous Integration"
         ]
       },
       {
