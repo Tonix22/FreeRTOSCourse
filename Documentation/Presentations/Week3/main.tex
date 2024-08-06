@@ -7,13 +7,7 @@
 \usepackage{listings}
 \usepackage{pdfpages}
 
-% Set up hyperref once and configure colors
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    linktocpage=true
-}
+
 
 % Custom colors
 \definecolor{myNewColorA}{RGB}{118,193,188}
@@ -27,6 +21,13 @@
 \setbeamercolor*{item}{fg=myNewColorA}
 \setbeamercolor*{caption name}{fg=myNewColorA}
 \usefonttheme{professionalfonts}
+% Set up hyperref once and configure colors
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    linktocpage=true
+}
 
 \titlegraphic{\includegraphics[height=1.5cm]{../CommonFigures/Universidad_Panamericana-logo.jpg}}
 
@@ -162,22 +163,19 @@
 
 \end{frame}
 
-  \includepdf{figures/SoftwareProductCycle.pdf}
+\includepdf{figures/SoftwareProductCycle.pdf}
 
 \section{Requirements}
 \begin{frame} {Requirements}
-
+  DOORS is a requirements management tool used by organizations to manage project requirements throughout the development lifecycle. It helps in capturing, analyzing, tracing, and maintaining changes to information to ensure a project's compliance with its initial requirements. This tool is particularly useful for managing complex projects, providing traceability, and improving collaboration and verification efforts.
+  \href{https://doorstop.readthedocs.io/en/latest/}{Requirements}
 \end{frame}
 
 
 \section{SDD}
 \begin{frame} {Software Detailed Document (SDD)}
-
-\end{frame}
-
-\section{SDG}
-\begin{frame} {Software Development Guide (SDG)}
-
+  The SDD serves as a guide for developers during the build phase and aids in maintaining consistency and understanding of the system's design principles and functionalities.
+  \href{https://docs.google.com/document/d/1unF8FmWHeOJKlPy6cR2QpmrcaOKSOiiO/edit?usp=sharing&ouid=109808472061203912811&rtpof=true&sd=true}{SDD}
 \end{frame}
 
 
@@ -185,20 +183,22 @@
 \begin{frame} {Unified Modeling Language with PlantUML (UML)}
   UML diagrams serve as excellent documentation tools that are useful throughout the system's lifecycle. \
   They help new team members understand the system quickly and can also be valuable for maintenance and future upgrades.
+  \href{https://plantuml.com/}{PlantUML}
 \end{frame}
 
 
 \section{Testing}
 \begin{frame} {Black box vs Whitebox testing}
-
+\begin{itemize}
+  \item Black Box Testing: Tests the functionality of software without knowledge of its internal workings, focusing on input and output.
+  \item White Box Testing: Examines the internal structure and workings of software, requiring knowledge of the code to ensure through testing of internal operations.
+\end{itemize}
 \end{frame}
 
 \section{TPD}
 \begin{frame} {Test plan document (TPD)}
-
+  A Test Plan Document (TPD) outlines the strategy, resources, scope, and timeline for testing activities within a software project. It serves as a blueprint that guides the testing process, detailing what needs to be tested, how the testing will be conducted, who will perform the tests, and the expected outcomes
+  \href{https://docs.google.com/document/d/1lC8ZuRmzqU7DRiWEhfb8iwjCS3WTwKQk/edit?usp=sharing&ouid=109808472061203912811&rtpof=true&sd=true}{TPD}
 \end{frame}
-
-
-
 
 \end{document}
