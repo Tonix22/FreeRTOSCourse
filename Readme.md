@@ -15,6 +15,8 @@ Our aim is to introduce and enforce good software practices essential for real-t
 
 [Pytest example](Projects/dac_cosine_wave/pytest_dac_cosine_wave.py)
 
+[Software Detailed Document Template](https://docs.google.com/document/d/1unF8FmWHeOJKlPy6cR2QpmrcaOKSOiiO/edit?usp=sharing&ouid=109808472061203912811&rtpof=true&sd=true)
+
 
 ## Course Tooling and Workflow
 
