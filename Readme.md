@@ -54,3 +54,34 @@ pytest test.py
 FreeRTOS is widely used in critical systems where reliability and performance are paramount. By mastering FreeRTOS, you will be well-prepared to develop applications where failure can result in significant consequences. This course ensures you are equipped with both theoretical knowledge and practical skills to build robust and reliable software.
 
 We are excited to guide you through this learning journey, where you will gain both the skills and best practices necessary for professional growth and excellence in the field of embedded systems.
+
+## Teams
+
+### Team Alpha
+
+1. Victor (Team lead)
+2. David
+3. Ivan
+
+Drone safety
+Prevent Drone to crash.
+
+### Team Upanas
+
+1. Christian
+2. Josue
+3. Abraham
+
+Tire degradation detection.
+Prevent baloon to explote
+
+### Team Four Monkeys Doing a Flip
+
+1. Jorge (Team Lead)
+2. Diego
+3. Zyanya
+4. Bryan
+
+Breaking system. 
+
+Prevent car to crash with another car include a fake pedestrian. 
