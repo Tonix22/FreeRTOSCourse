@@ -21,6 +21,9 @@
 #include <iostream>
 #include <vector>
 
+
+constexpr int dummyInt = 10;
+
 // Class should use PascalCase
 class TestClass {
  public:
@@ -38,7 +41,7 @@ class TestClass {
             std::cout << data_[i] << ' ';
         }
         std::cout << std::endl;
-        int* value = new int(10);
+        int* value = new int(dummyInt);
         std::cout << *value << std::endl;  // Corrected spacing around <<
         delete value;  // Added to prevent memory leak
     }
