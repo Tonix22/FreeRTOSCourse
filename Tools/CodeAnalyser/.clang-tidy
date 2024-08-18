@@ -1,4 +1,4 @@
-Checks: 'google-*, -cppcoreguidelines-*,modernize-*,bugprone-*,llvm-*,safety-*,clang-analyzer-* readability-*'
+Checks: 'google-*, -cppcoreguidelines-*,modernize-*,bugprone-*,llvm-*,safety-*,clang-analyzer-*, readability-*'
 CheckOptions:
   - key: readability-identifier-naming.VariableCase
     value: camelBack
