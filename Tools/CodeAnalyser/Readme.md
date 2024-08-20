@@ -8,7 +8,7 @@ Clang-Tidy is a linter tool for C and C++ languages, part of the Clang project. 
 
 ## Coding Standard
 
-[Clang Explained](CodingStandard.md)
+[Coding Standard](CodingStandard.md)
 
 ## Prerequisites
 
