@@ -2,6 +2,14 @@
 
 Clang-Tidy is a linter tool for C and C++ languages, part of the Clang project. It helps in identifying typical programming errors, improving style and performance. Here's how to install Clang-Tidy on different operating systems.
 
+## Clang rules explained
+
+[Clang Explained](clangtydyExplained.md)
+
+## Coding Standard
+
+[Clang Explained](CodingStandard.md)
+
 ## Prerequisites
 
 Before installing Clang-Tidy, ensure you have Clang installed as Clang-Tidy is part of the Clang tools. You can download Clang from the [LLVM downloads page](http://releases.llvm.org/download.html).
