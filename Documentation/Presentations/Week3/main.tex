@@ -6,7 +6,8 @@
 \usecolortheme{dolphin}
 \usepackage{listings}
 \usepackage{pdfpages}
-
+\usepackage{listings}
+\usepackage{venndiagram}
 
 
 % Custom colors
@@ -186,12 +187,153 @@
 \end{frame}
 
 \begin{frame} {Abstract class as interface}
+  \begin{itemize}
+    \item \textbf{Abstract Class in C++:} In C++, an abstract class is defined by declaring at least one pure virtual function, which is a function with no implementation (denoted by `= 0`). This makes the class abstract, meaning it cannot be instantiated directly.
+    
+    \item \textbf{Interface Concept:} In C++, abstract classes are often used to define interfaces. An interface in this context is a class that provides a set of virtual methods that derived classes must implement. This allows you to enforce a consistent API across different subclasses.
+    
+    \item \textbf{Pure Virtual Functions:} A pure virtual function in C++ is declared like this: `virtual void functionName() = 0;`. Any class that inherits from an abstract class must provide an implementation for all pure virtual functions, or it will also be considered abstract.
+    
+    \item \textbf{Usage in C++:} Abstract classes are used in C++ to create a common interface for a group of related classes. For example, an abstract class `Shape` could define a pure virtual function `draw()`, forcing all derived classes like `Circle`, `Square`, or `Triangle` to implement their own version of `draw()`.
+
+  \end{itemize}
 \end{frame}
 
-\begin{frame} {Enums to avoid magic numbers}
+\begin{frame}[fragile]{Abstract Class as Interface in C++}
+  \begin{itemize}
+      \item \textbf{Example:}
+  \end{itemize}
+  \begin{lstlisting}
+    // Abstract base class
+    class Shape {
+    public:
+      virtual void draw() = 0; // Pure virtual function
+    };
+
+    // Derived class
+    class Circle : public Shape {
+    public:
+    void draw() override {
+      // Implementation for drawing a circle
+      }
+    };
+  \end{lstlisting}
 \end{frame}
 
-\begin{frame} {SOLID}
+
+\begin{frame}{Enums to Avoid Magic Numbers}
+  \begin{itemize}
+      \item \textbf{Magic Numbers:} Magic numbers are hard-coded values in your code that have no clear meaning or context. They make the code difficult to understand and maintain, as the purpose of these numbers is not immediately clear.
+      
+      \item \textbf{Problem with Magic Numbers:} 
+      \begin{itemize}
+          \item Reduce code readability.
+          \item Make the code error-prone, as changing a value requires finding and updating every instance.
+          \item Lack of context or explanation for what the number represents.
+      \end{itemize}
+      
+      \item \textbf{Solution: Using Enums:} 
+      \begin{itemize}
+          \item Enums (enumerations) provide a way to define a set of named integer constants.
+          \item They improve code readability and maintainability by replacing magic numbers with descriptive names.
+          \item Enums also allow for easier updates since you only need to change the value in one place.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Example: Using Enums in C++}
+  \begin{lstlisting}[language=C++]
+// Avoiding magic numbers using enum
+enum Direction {
+  North = 0,
+  East = 1,
+  South = 2,
+  West = 3
+};
+
+void move(Direction dir) {
+  if (dir == North) {
+      // Move north
+  } else if (dir == East) {
+      // Move east
+  }
+  // and so on...
+}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+    \item \textbf{Benefits:}
+    \begin{itemize}
+        \item \textbf{Clarity:} The code becomes self-documenting, making it easier to understand the purpose of the values.
+        \item \textbf{Maintenance:} Changing the underlying value of an enum only requires updating the enum definition, not every occurrence in the code.
+        \item \textbf{Safety:} Enums provide type safety, reducing the likelihood of errors from using incorrect values.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{SOLID Principles}
+  \begin{itemize}
+      \item \textbf{SOLID:} A set of five design principles that promote better software architecture in object-oriented programming.
+      
+      \item \textbf{S - Single Responsibility Principle (SRP):}
+      \begin{itemize}
+          \item A class should have only one reason to change.
+      \end{itemize}
+
+      \item \textbf{O - Open/Closed Principle (OCP):}
+      \begin{itemize}
+          \item Classes should be open for extension, but closed for modification.
+      \end{itemize}
+
+      \item \textbf{L - Liskov Substitution Principle (LSP):}
+      \begin{itemize}
+          \item Subclasses should be replaceable for their base classes without altering the program's behavior.
+      \end{itemize}
+
+      \item \textbf{I - Interface Segregation Principle (ISP):}
+      \begin{itemize}
+          \item Clients should not be forced to depend on interfaces they do not use.
+      \end{itemize}
+
+      \item \textbf{D - Dependency Inversion Principle (DIP):}
+      \begin{itemize}
+          \item Depend on abstractions, not on concrete implementations.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Course Activity: Practicing Critical Software Components}
+  During this course, you will engage in hands-on practice to solidify your understanding of key software design principles and components. The activities include:
+  \begin{itemize}
+      \item \textbf{Design an Abstract Class in PlantUML:}
+      \begin{itemize}
+          \item Create a PlantUML diagram for an abstract class that encapsulates common functionalities across all controllers.
+      \end{itemize}
+
+      \item \textbf{Develop Base Classes:}
+      \begin{itemize}
+          \item Write two base classes, which can be either realistic or mock implementations, to practice inheritance and abstraction.
+      \end{itemize}
+
+      \item \textbf{Define Enums:}
+      \begin{itemize}
+          \item Create enumerations for potential errors, sensor types, and processing steps, ensuring clarity and avoiding magic numbers.
+      \end{itemize}
+
+      \item \textbf{Present Your Design:}
+      \begin{itemize}
+          \item Showcase your PlantUML design on the projector, explaining your design decisions and how they align with SOLID principles.
+      \end{itemize}
+
+      \item \textbf{Justify with SOLID:}
+      \begin{itemize}
+          \item Ensure that your design choices adhere to SOLID principles, providing justification for each decision based on these foundational guidelines.
+      \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \section{Planning}
@@ -268,7 +410,7 @@
 
 \section{Git}
 \begin{frame}{Git}
-  
+  \href{run:git basics.pptx}{Open Git Presentation}
 \end{frame}
 
 \end{document}
