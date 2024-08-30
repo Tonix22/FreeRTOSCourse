@@ -1,0 +1,18 @@
+\frametitle{Code Example: Using vTaskDelay}
+\frametitle{Practical Usage of vTaskDelay}
+    \begin{lstlisting}[language=C]
+    #include "FreeRTOS.h"
+    #include "task.h"
+
+    void vTaskCode(void *pvParameters)
+    {
+        for (;;)
+        {
+            // Perform task operation
+            printf("Task is running.\n");
+            // Delay the task for 100 ticks
+            vTaskDelay(100);
+            printf("Task resumes after delay.\n");
+        }
+    }
+    \end{lstlisting}

@@ -211,6 +211,7 @@
   \end{itemize}
 \end{frame}
 
+\section{Function Pointers}
 \begin{frame}{Function Pointers}
   \begin{itemize}
     \item \textbf{What Are They?} Variables that store the address of a function.
@@ -226,6 +227,7 @@
   \end{itemize}
 \end{frame}
 
+\subsection{Callbacks}
 \begin{frame}{Callbacks}
   \begin{itemize}
     \item \textbf{Definition:} Functions passed as arguments to other functions.
@@ -242,6 +244,8 @@
   \end{itemize}
 \end{frame}
 
+\section{FreeRTOS}
+\subsection{Task}
 \begin{frame}{Task similar to Function Pointer}
   \begin{itemize}
     \item \textbf{Task as Function Pointer:}
@@ -261,7 +265,7 @@
   \end{itemize}
 \end{frame}
 
-\section{Scheduler}
+\subsection{Scheduler}
 
 \begin{frame}{Task States in FreeRTOS}
 
@@ -297,4 +301,51 @@
     Only the scheduler can move tasks into the \textit{Running} state or handle transitions when a blocking API function is called.
   \end{block}
 \end{frame}
+
+\subsection{Systick}
+\begin{frame}{SysTick Timer}
+  \frametitle{SysTick Timer in FreeRTOS}
+  \begin{itemize}
+    \item \textbf{Purpose:} The SysTick timer generates interrupt requests at a selectable interval and is often used to increment the system tick count in RTOS.
+    \item \textbf{Function:} Essential for task scheduling, timekeeping, and implementing time delays.
+    \item \textbf{System Tick:} Typically configured to tick once per millisecond, which serves as the heartbeat for task switches and timing operations.
+  \end{itemize}
+  \end{frame}
+
+\subsection{VtaskDelay}
+\begin{frame}{Impact of vTaskDelay on Scheduler States}
+  \frametitle{Task Management and Scheduler States}
+  \begin{itemize}
+    \item \textbf{vTaskDelay:} Delays the execution of the current task, allowing other tasks to run.
+    \item \textbf{Scheduler States:}
+      \begin{itemize}
+        \item \textbf{Running:} The currently executing task.
+        \item \textbf{Ready:} Tasks that are ready to run when given CPU time.
+        \item \textbf{Blocked:} `vTaskDelay` moves the task to the Blocked state until the delay time expires.
+        \item \textbf{Suspended:} Tasks that have been explicitly suspended, not affected by `vTaskDelay`.
+      \end{itemize}
+    \item \textbf{Task Switching:} `vTaskDelay` can trigger a context switch if a higher priority task is ready to run.
+  \end{itemize}
+  \end{frame}
+
+\begin{frame}[fragile]{Code Example: Using vTaskDelay}
+    \frametitle{Practical Usage of vTaskDelay}
+    \begin{lstlisting}[language=C]
+    #include "FreeRTOS.h"
+    #include "task.h"
+    
+    void vTaskCode(void *pvParameters)
+    {
+        for (;;)
+        {
+            // Perform task operation
+            printf("Task is running.\n");
+            // Delay the task for 100 ticks
+            vTaskDelay(100);
+            printf("Task resumes after delay.\n");
+        }
+    }
+    \end{lstlisting}
+\end{frame}
+
 \end{document}
