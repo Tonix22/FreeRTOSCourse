@@ -1,0 +1,18 @@
+@startuml
+
+abstract class State {
+	+ States[]
+}
+
+abstract class ControlSystem {
+	- timeStep
+	+ step(reference,class State)
+}
+
+abstract class Plant {
+	- timeStep
+	+ step(State,corrections[],perturbations[])
+}
+
+
+@enduml

@@ -1,0 +1,41 @@
+@startuml AlphaUML
+
+Abstract Controller{
+    +matrices[]
+    +processOutput
+    +processInput
+    +outputFeedback
+    +timer()
+    +run()
+    +runningStatus()
+    +stop()
+
+}
+
+class Blocks implements Controller{
+    +plant
+    +function
+    +Compensation
+    +gains[]
+    +referenceValues[]
+}
+
+class SystemID implements Controller{
+    +PlantIdentification()
+    +PlantAbstraction()
+}
+
+class IO implements Controller{
+    +inputs[]
+    +outputs[]
+}
+
+class Memory implements Controller{
+    +FlashMemory
+    +eeprom
+    +RAM
+}
+
+@enduml
+
+
