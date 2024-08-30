@@ -1,0 +1,33 @@
+@startuml
+
+' Define interfaces
+interface IControl {
+    +computeControlSignal(double) : double
+}
+
+interface IParameterizable {
+    +setParameters(unordered_map<string, double>)
+    +getParameters() : unordered_map<string, double>
+}
+
+interface IStateUpdatable {
+    +updateState(double)
+}
+
+' Define classes
+class PIDController implements IControl, IParameterizable, IStateUpdatable{
+    -setPoint : double
+    -kp : double
+    -ki : double
+    -kd : double
+    -previousError : double
+    -errorSum : double
+    -currentState : double
+}
+
+class FuzzyLogicController implements  IControl, IParameterizable{
+    -parameters : unordered_map<string, double>
+}
+
+
+@enduml
