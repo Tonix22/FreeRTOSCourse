@@ -11,3 +11,8 @@ You have 15 minutes.
 8. Wait for the team lead to review and approve your pull request to merge into the main branch.
 9. After approval, pull the latest changes from the main branch to your local repository.
 10. Delete your feature branch locally if it’s no longer needed.
+
+diego 10
+bryan 8.5
+zyanya 5
+
