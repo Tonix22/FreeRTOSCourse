@@ -19,38 +19,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-#include "taskWrapper.h"
-#include "ledtask.h"
+
+#pragma once
 #include "freertos/FreeRTOS.h"
-#include "delaytask.h"
+#include "freertos/task.h"
+#include <stdio.h>
+#include <string>
 
-using namespace std;
-
-
-// Main function
-extern "C" void app_main()
+class DelayTask : public Task 
 {
-    // Create LED task
-    /*
-    LedTask ledTask1("LED Task 1", 4096, 3, GPIO_NUM_32, pdMS_TO_TICKS(2000)); // Blinks LED on pin 2 every 500ms
-    ledTask1.start();
+    private:
+    int delay_ms;
+    std::string task_msg;
 
-    LedTask ledTask2("LED Task 2", 4096, 4, GPIO_NUM_33, pdMS_TO_TICKS(3000)); // Blinks LED on pin 3 every 1000ms
-    ledTask2.start();
+    public:
+    
+    DelayTask(int time, std::string messsage) : Task("DelayTask",4096,4), delay_ms(time), task_msg(messsage) {}
 
-    LedTask ledTask3("LED Task 3", 4096, 5, GPIO_NUM_2, pdMS_TO_TICKS(4000)); // Blinks LED on pin 3 every 1000ms
-    ledTask3.start();
-    */
+void taskFunction() override
+{
 
-    DelayTask delay1(1000,"Delay Task 1");
-    DelayTask delay2(2000,"Delay Task 2");
 
-    delay1.start();
-    delay2.start();
-
-      while (1) {
-        vTaskDelay(100 / portTICK_PERIOD_MS);
-        //delay.InMs(100);
+    for(;;)
+    {
+        vTaskDelay(delay_ms/portTICK_PERIOD_MS);
+        printf("%s \n", task_msg.c_str());
     }
-  
 }
+ 
+};

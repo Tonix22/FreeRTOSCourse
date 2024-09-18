@@ -19,8 +19,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-#ifndef TASKWRAPPER
-#define TASKWRAPPER
+
+#pragma once
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -36,8 +36,9 @@ protected:
 
 public:
     Task(const char* name, uint32_t stack, UBaseType_t prio) 
-        : taskName(name), stackSize(stack), priority(prio), taskHandle(nullptr) {}
+        : taskName(name), stackSize(stack), priority(prio), taskHandle(nullptr) {};
 
+    //Clas destructor
     virtual ~Task() {}
 
     // Virtual function to define the task's behavior
@@ -47,9 +48,8 @@ public:
     void start()
     {
         printf("Before start\n");
-        xTaskCreate([](void* obj) {
-            static_cast<Task*>(obj)->taskFunction();
-        }, taskName, stackSize, this, priority, &taskHandle);
+        //Me -> taskFunction acccesing the pointer of an abstrac function
+        xTaskCreate([](void* obj) {static_cast<Task*>(obj)->taskFunction();}, taskName, stackSize, this, priority, &taskHandle);
         printf("After start\n");
     }
 
@@ -64,4 +64,3 @@ public:
     }
 };
 
-#endif
