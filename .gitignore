@@ -17,3 +17,4 @@ Audios/*
 *.fls
 *.fdb_latexmk
 Documentation/CourseContent/CourseContent.aux
+Projects/TaskCreateActivity/build/*
