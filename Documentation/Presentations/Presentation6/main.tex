@@ -85,6 +85,28 @@
     \end{itemize}
 \end{frame}
 
+\subsection{Race Condition}
+\begin{frame}[fragile]{Race Condition}
+    \textbf{Race Condition:}
+    \begin{itemize}
+        \item A \textbf{race condition} occurs when the behavior of software depends on the timing or sequence of uncontrollable events, such as the order of task execution.
+        \item This can lead to unpredictable and incorrect results if multiple tasks or processes access and modify shared resources concurrently.
+    \end{itemize}
+    \textbf{Example:}
+    \begin{itemize}
+        \item Imagine two tasks are incrementing a shared variable:
+        \begin{lstlisting}[language=C, basicstyle=\ttfamily\small]
+        // Task 1:
+        sharedVar++; // Reads, increments, writes
+        
+        // Task 2:
+        sharedVar++; // Reads, increments, writes
+        \end{lstlisting}
+        \item Without proper synchronization, both tasks might read the same value before either one writes it back, leading to a loss of one increment.
+    \end{itemize}
+
+\end{frame}
+
 \section{Semaphores}
 
 \begin{frame}{FreeRTOS Semaphores}
