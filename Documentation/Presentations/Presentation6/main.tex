@@ -1,0 +1,449 @@
+\documentclass[10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usetheme{CambridgeUS}
+\usecolortheme{dolphin}
+\usepackage{listings}
+
+% Set up hyperref once and configure colors
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    linktocpage=true
+}
+
+% Custom colors
+\definecolor{myNewColorA}{RGB}{118,193,188}
+\definecolor{myNewColorB}{RGB}{106,172,150}
+\definecolor{myNewColorC}{RGB}{94,150,218}
+\setbeamercolor*{palette primary}{bg=myNewColorC}
+\setbeamercolor*{palette secondary}{bg=myNewColorB, fg=white}
+\setbeamercolor*{palette tertiary}{bg=myNewColorA, fg=white}
+\setbeamercolor*{titlelike}{fg=myNewColorA}
+\setbeamercolor*{title}{bg=myNewColorA, fg=white}
+\setbeamercolor*{item}{fg=myNewColorA}
+\setbeamercolor*{caption name}{fg=myNewColorA}
+\usefonttheme{professionalfonts}
+
+\titlegraphic{\includegraphics[height=1.5cm]{../CommonFigures/Universidad_Panamericana-logo.jpg}}
+
+\setbeamerfont{title}{size=\large}
+\setbeamerfont{subtitle}{size=\small}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{institute}{size=\small}
+\title[Universidad Panamericana]{}
+\subtitle{FreeRTOS synchronization methods}
+\author[]{Name}
+\institute[ltonix@up.edu.mx]{Universidad Panamericana}
+\date[Presentation \today]{Presentation \today}
+
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+\setbeamercolor{block title}{bg=myNewColorA, fg=black} % Background and foreground colors for the block title
+\setbeamercolor{block body}{bg=myNewColorC, fg=black} % Background and foreground colors for the block body
+
+% Setup listings
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green},
+  stringstyle=\color{red},
+  backgroundcolor=\color{gray!10},
+  frame=single,
+  language=C++,
+  breaklines=true,
+  showspaces=false,
+  showstringspaces=false
+}
+
+\begin{document}
+\frame{\titlepage}
+\begin{frame}
+\frametitle{Contents}
+\tableofcontents
+\end{frame}
+
+\section{Inter process sytem communication}
+\begin{frame}{Interprocess Communication (IPC)}
+    \textbf{Interprocess Communication (IPC)} refers to the mechanisms provided by the operating system that allow processes to exchange data, synchronize their actions, and notify events between processes.
+    \begin{itemize}
+        \item \textbf{Data Exchange:} Enables processes to share information.
+        \item \textbf{Synchronization:} Coordinates processes to avoid race conditions.
+        \item \textbf{Event Notification:} Allows a process to signal another when an event occurs.
+    \end{itemize}
+\end{frame}
+
+\section{Semaphores}
+
+\begin{frame}{FreeRTOS Semaphores}
+    \textbf{Semaphores} in FreeRTOS are synchronization tools used to signal between tasks or between tasks and interrupts.
+    
+    \begin{itemize}
+        \item \textbf{Binary Semaphore:} Used for task synchronization.
+        \begin{itemize}
+            \item It can only have two states: "give" or "taken".
+            \item Used to notify tasks that an event has occurred, like an interrupt.
+        \end{itemize}
+        
+        \item \textbf{Counting Semaphore:} Extends the concept of binary semaphores.
+        \begin{itemize}
+            \item It can hold a count, allowing multiple resources or events to be tracked.
+            \item Useful when you want to track multiple identical resources.
+        \end{itemize}
+\end{itemize}
+
+\textbf{Example Use Cases:}
+\begin{itemize}
+    \item Synchronizing tasks with an interrupt.
+    \item Protecting access to shared resources.
+\end{itemize}
+\end{frame}
+
+\subsection{API}
+\begin{frame}{FreeRTOS Semaphore API Overview}
+    \textbf{FreeRTOS Semaphore:}
+    \begin{itemize}
+        \item Semaphores are used for task synchronization or resource management in FreeRTOS.
+        \item Two key operations:
+        \begin{itemize}
+            \item \textbf{xSemaphoreGive}: Releases the semaphore (signals that a resource is available).
+            \item \textbf{xSemaphoreTake}: Acquires the semaphore (blocks a task until the semaphore is available).
+        \end{itemize}
+    \end{itemize}
+    \vspace{0.5cm}
+    \textbf{Typical Use Case:}
+    \begin{itemize}
+        \item Task synchronization: One task gives the semaphore, and another task waits to take it before proceeding.
+    \end{itemize}
+    
+\end{frame}
+
+\subsection{xSemaphoreTake}
+\begin{frame}{xSemaphoreTake API}
+    \textbf{xSemaphoreTake API:}
+    
+    \vspace{0.2cm}
+    \textbf{xSemaphoreTake( SemaphoreHandle\_t xSemaphore, TickType\_t xTicksToWait )}
+    
+    \begin{itemize}
+        \item \textbf{xSemaphore}: Handle to the semaphore.
+        \item \textbf{xTicksToWait}: The maximum time (in ticks) to block waiting for the semaphore.
+        \item \textbf{Return Value}: 
+            \begin{itemize}
+                \item `pdTRUE` if the semaphore was successfully taken.
+                \item `pdFALSE` if the semaphore was not taken within the timeout period.
+            \end{itemize}
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    
+    \textbf{Purpose:}
+    \begin{itemize}
+        \item Allows a task to block until the semaphore is available, ensuring that the task does not proceed until another task signals completion (or a resource becomes available).
+    \end{itemize}
+    
+\end{frame}
+
+\subsection{xSemaphoreGive}
+\begin{frame}{xSemaphoreGive API}
+    \textbf{xSemaphoreGive API:}
+    
+    \vspace{0.2cm}
+    \textbf{xSemaphoreGive( SemaphoreHandle\_t xSemaphore )}
+    
+    \begin{itemize}
+        \item \textbf{xSemaphore}: Handle to the semaphore.
+        \item \textbf{Return Value}: 
+            \begin{itemize}
+                \item `pdTRUE` if the semaphore was successfully given.
+                \item `pdFALSE` if the semaphore could not be given (e.g., invalid semaphore).
+            \end{itemize}
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    
+    \textbf{Purpose:}
+    \begin{itemize}
+        \item Signals that a resource is available or that a task has completed its work, allowing other tasks waiting on the semaphore to proceed.
+    \end{itemize}
+    
+\end{frame}
+
+\subsection{Example}
+\begin{frame}{Example: Task Synchronization with Semaphore}
+    \textbf{Scenario:}
+    
+    \vspace{0.2cm}
+    Task A waits for Task B to complete some work. Task B signals Task A by giving the semaphore, and Task A continues its execution after taking the semaphore.
+    
+    \vspace{0.2cm}
+    \textbf{Code Outline:}
+    \begin{itemize}
+        \item Task A calls `xSemaphoreTake` to block until Task B gives the semaphore.
+        \item Task B completes its work and calls `xSemaphoreGive` to signal Task A.
+    \end{itemize}
+    
+\end{frame}
+
+% Frame 5: Diagram of Semaphore Workflow
+\begin{frame}{Semaphore Workflow Diagram}
+    \textbf{Semaphore Usage Workflow:}
+    \vspace{0.3cm}
+    
+    \begin{itemize}
+        \item Task A blocks on `xSemaphoreTake`.
+        \item Task B performs some work.
+        \item Task B calls `xSemaphoreGive` after completing work.
+        \item Task A unblocks and continues once it successfully takes the semaphore.
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    
+    \textbf{Diagram (optional)}: Show how Task A waits for Task B to give the semaphore.
+    
+\end{frame}
+
+
+\begin{frame}[fragile]{FreeRTOS Semaphore Example}
+    \begin{lstlisting}
+        // Create binary semaphore
+        SemaphoreHandle_t xBinarySemaphore;
+        
+        void TaskA(void *pvParameters) {
+            for(;;) {
+                // Wait until Task B gives the semaphore
+                if (xSemaphoreTake(xBinarySemaphore, portMAX_DELAY) == pdTRUE) {
+                    // Perform some task after Task B signals completion
+                    // ...
+                }
+            }
+        }
+    \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{FreeRTOS Semaphore Example}
+    \begin{lstlisting}
+        void TaskB(void *pvParameters) {
+            for(;;) {
+                // Perform some work
+                // ...
+        
+                // Give the semaphore to signal Task A
+                xSemaphoreGive(xBinarySemaphore);
+        
+                // Delay before doing the work again
+                vTaskDelay(pdMS_TO_TICKS(1000));
+            }
+        }
+    \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{FreeRTOS Semaphore Example}
+    \textbf{Semaphore Example: Task Synchronization}
+    \begin{itemize}
+        \item \textbf{Scenario:} Task A waits for an interrupt (ISR) to give a semaphore, allowing Task A to proceed.
+    \end{itemize}
+
+    \begin{lstlisting}
+        int main(void) {
+            // Create the binary semaphore
+            xBinarySemaphore = xSemaphoreCreateBinary();
+        
+            // Create the tasks
+            xTaskCreate(TaskA, "TaskA", 1000, NULL, 1, NULL);
+            xTaskCreate(TaskB, "TaskB", 1000, NULL, 1, NULL);
+        
+            // Start the scheduler
+            vTaskStartScheduler();
+        
+            // Will never reach here
+            for(;;);
+        }
+    \end{lstlisting}
+\end{frame}
+
+\section{Mutexes}
+% Frame 2: FreeRTOS Mutexes
+\begin{frame}{FreeRTOS Mutexes}
+    A \textbf{Mutex} (Mutual Exclusion) in FreeRTOS is a specialized type of semaphore used to protect shared resources.
+    
+    \begin{itemize}
+        \item \textbf{Ownership:} A task that successfully “takes” a mutex becomes its owner and is the only one allowed to “give” it back.
+        \item \textbf{Priority Inheritance:} FreeRTOS mutexes include a priority inheritance mechanism to prevent priority inversion.
+        \item \textbf{Recursive Mutexes:} A task can take the same mutex multiple times, but it must give it the same number of times before it is released for others.
+    \end{itemize}
+    
+    \textbf{Example Use Cases:}
+    \begin{itemize}
+        \item Protecting critical sections of code.
+        \item Managing access to hardware resources like peripherals.
+    \end{itemize}
+\end{frame}
+
+\subsection{Mutex API}
+
+\begin{frame}{FreeRTOS Mutex API Overview}
+    \textbf{Mutex in FreeRTOS:}
+    \begin{itemize}
+        \item A mutex (mutual exclusion) is used to protect shared resources between tasks.
+        \item Unlike a binary semaphore, a mutex provides **priority inheritance** to avoid priority inversion.
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    
+    \textbf{Key Mutex API Functions:}
+    API works the same as semaphore.
+    \begin{itemize}
+        \item \textbf{xSemaphoreCreateMutex}: Creates a mutex.
+        \item \textbf{xSemaphoreTake}: Locks the mutex (blocks if already locked by another task).
+        \item \textbf{xSemaphoreGive}: Unlocks the mutex (releases it for other tasks to use).
+    \end{itemize}
+    
+\end{frame}
+
+\subsection{xSemaphoreCreateMutex}
+
+\begin{frame}[fragile]{xSemaphoreCreateMutex API}
+    \textbf{xSemaphoreCreateMutex API:}
+    \begin{lstlisting}[language=C]
+    // Create a mutex
+    SemaphoreHandle_t xMutex;
+    
+    void vInit(void) {
+        xMutex = xSemaphoreCreateMutex();
+        if (xMutex == NULL) {
+            // Mutex creation failed
+        }
+    }
+    \end{lstlisting}
+\end{frame}
+    
+
+\section{Queues}
+% Frame 3: FreeRTOS Queues
+\begin{frame}{FreeRTOS Queues}
+    \textbf{Queues} are the primary method of inter-task communication in FreeRTOS, allowing tasks to send and receive data.
+    
+    \begin{itemize}
+        \item \textbf{Task Communication:} Tasks can send data to each other via queues, allowing safe communication and data exchange.
+        \item \textbf{FIFO Structure:} Queues operate on a First-In-First-Out (FIFO) basis.
+        \item \textbf{Multiple Readers/Writers:} Multiple tasks can write to and read from a queue safely.
+        \item \textbf{Interrupt-Safe:} FreeRTOS queues can be used to send data from an ISR (Interrupt Service Routine) to a task.
+    \end{itemize}
+    
+\end{frame}
+
+\subsection{Queue API Functions}
+\begin{frame}{Queue API Functions}
+    Common functions provided by the Queue API:
+    \begin{itemize}
+        \item \texttt{xQueueCreate()}: Creates a queue with a specified number of elements.
+        \item \texttt{xQueueSend()}: Sends data to the queue (from producer).
+        \item \texttt{xQueueReceive()}: Receives data from the queue (by consumer).
+        \item \texttt{xQueuePeek()}: Reads the data without removing it from the queue.
+        \item \texttt{xQueueReset()}: Resets the queue, discarding all data.
+    \end{itemize}
+\end{frame}
+
+\subsection{xQueueCreate}
+\begin{frame}[fragile]{Example Creating a Queue}
+    Example of how to create a queue that can hold 10 integers:
+    \begin{verbatim}
+    QueueHandle_t xQueue;
+    xQueue = xQueueCreate(10, sizeof(int));
+    if (xQueue == NULL) {
+        // Queue was not created successfully
+    }
+    \end{verbatim}
+    \textbf{Explanation:}
+    \begin{itemize}
+        \item \texttt{xQueueCreate(10, sizeof(int))} creates a queue to store 10 integers.
+    \end{itemize}
+\end{frame}
+
+\subsection{xQueueSend}
+\begin{frame}[fragile]{Example Sending Data to a Queue}
+    Example of how to send data (integer) to a queue:
+    \begin{lstlisting}
+    int valueToSend = 42;
+    if (xQueueSend(xQueue, &valueToSend, 0) != pdPASS) {
+        // Failed to send data to queue
+    }
+    \end{lstlisting}
+    \textbf{Explanation:}
+    \begin{itemize}
+        \item \texttt{xQueueSend()} places \texttt{valueToSend} in the queue.
+        \item The third parameter is the wait time (0 means don't wait).
+    \end{itemize}
+\end{frame}
+
+\subsection{xQueueReceive}
+\begin{frame}[fragile]{Example - Receiving Data from a Queue}
+    Example of how to receive data from the queue:
+
+    \begin{itemize}
+        \item \texttt{xQueueReceive()} retrieves data from the queue.
+        \item \texttt{portMAX\_DELAY} means it will wait indefinitely until data is available.
+    \end{itemize}
+
+    \begin{lstlisting}
+    int receivedValue;
+    if (xQueueReceive(xQueue, &receivedValue, portMAX_DELAY)) {
+        // Successfully received data from queue
+    }
+    \end{lstlisting}
+
+\end{frame}
+
+\subsection{Example}
+\begin{frame}[fragile]{Example - Queue with Multiple Tasks}
+    
+    \begin{lstlisting}[language=C, caption=Queue with Multiple Tasks]
+    // Task 1: Producer
+    void vTaskProducer(void *pvParameters) {
+        int valueToSend = 1;
+        while (1) {
+            xQueueSend(xQueue, &valueToSend, portMAX_DELAY);
+            vTaskDelay(1000); // Send data every second
+        }
+    }
+    
+    // Task 2: Consumer
+    void vTaskConsumer(void *pvParameters) {
+        int receivedValue;
+        while (1) {
+            if (xQueueReceive(xQueue, &receivedValue, portMAX_DELAY)) {
+                // Process received value
+            }
+        }
+    }
+    \end{lstlisting}
+\end{frame}
+
+
+
+\section{ISR special API}
+
+\begin{frame}{Interrupt Context vs. Task Context:}
+    \begin{itemize}
+        \item Regular FreeRTOS API calls like xSemaphoreGive, xQueueSend, or xSemaphoreTake involve task management and may block, which is not allowed in ISR context. Interrupts should execute quickly and not invoke code that could block or wait.
+        \item Special ISR APIs allow the ISR to inform the scheduler that a context switch is necessary after the ISR completes, by setting a flag (xHigherPriorityTaskWoken).
+        \item Semaphores and queues can be safely used in ISRs with special ISR-safe APIs (xSemaphoreGiveFromISR, xQueueSendFromISR) to avoid blocking and manage context switching efficiently.
+        \item \textbf{Mutexes should not be used in ISRs}, and there is no ISR-safe API for them in FreeRTOS.
+    \end{itemize}
+\end{frame}
+
+
+\end{document}
