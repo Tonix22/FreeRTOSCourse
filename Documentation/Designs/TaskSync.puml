@@ -1,0 +1,19 @@
+@startuml
+participant ADC
+participant Controller
+participant Actuator
+
+
+Actuator -> Actuator : GPIO output init
+Actuator -> ADC : ADC init
+ADC -> Controller : Start Timer Driver
+Controller -> Controller : Wait Sampling Time
+ADC -> ADC: Retrieve data
+ADC -> Controller: Timer timeout or ISR
+Controller -> Actuator : Take action
+Actuator -> Actuator : Wait until action Done
+Controller -> Controller : Wait actuator response
+Actuator -> Controller : Report action was done
+
+
+@enduml
