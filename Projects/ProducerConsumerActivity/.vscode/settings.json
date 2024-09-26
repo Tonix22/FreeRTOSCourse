@@ -1,0 +1,10 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "idf.adapterTargetName": "esp32",
+  "cmake.configureOnOpen": false,
+  "files.associations": {
+    "task.h": "c"
+  },
+  "idf.port": "/dev/ttyUSB0",
+  "C_Cpp.errorSquiggles": "disabled"
+}
