@@ -1,0 +1,274 @@
+{
+    "quiz_questions": [
+        {
+            "question": "What is the purpose of Interprocess Communication (IPC)?",
+            "options": [
+                "To allow only data exchange between applications",
+                "To synchronize, exchange data, and notify events between processes",
+                "To increase processing power",
+                "To manage peripheral devices"
+            ],
+            "correct_answer": "B"
+        },
+        {
+            "question": "What does a race condition typically involve?",
+            "options": [
+                "A deadlock between multiple tasks",
+                "Sequential execution of processes",
+                "Concurrent access to shared resources leading to unpredictable results",
+                "Reduced CPU utilization"
+            ],
+            "correct_answer": "C"
+        },
+        {
+            "question": "What is a counting semaphore used for in FreeRTOS?",
+            "options": [
+                "To count the number of tasks in a system",
+                "To track multiple resources or events",
+                "To provide a unique identifier for each task",
+                "To limit the number of tasks created"
+            ],
+            "correct_answer": "B"
+        },
+        {
+            "question": "What is the primary use of the `xSemaphoreTake` operation in FreeRTOS?",
+            "options": [
+                "To delete a semaphore",
+                "To create a semaphore",
+                "To acquire a semaphore ensuring mutual exclusion",
+                "To check the state of the semaphore without blocking"
+            ],
+            "correct_answer": "C"
+        },
+        {
+            "question": "In a typical FreeRTOS semaphore usage, what does `xSemaphoreGive` signify?",
+            "options": [
+                "The task has started processing",
+                "The semaphore is corrupt and must be recreated",
+                "An error occurred during semaphore handling",
+                "A resource is available or a task has completed its work"
+            ],
+            "correct_answer": "D"
+        },
+        {
+            "question": "What feature do FreeRTOS mutexes include to prevent priority inversion?",
+            "options": [
+                "Semaphore signaling",
+                "Priority inheritance",
+                "Recursive locking",
+                "Dynamic priority adjustment"
+            ],
+            "correct_answer": "B"
+        },
+        {
+            "question": "What is the main purpose of queues in FreeRTOS?",
+            "options": [
+                "To manage task states",
+                "To serve as a mechanism for task synchronization and data exchange",
+                "To prioritize tasks",
+                "To track task execution time"
+            ],
+            "correct_answer": "B"
+        },
+        {
+            "question": "Why should mutexes not be used in ISR contexts in FreeRTOS?",
+            "options": [
+                "They can cause memory leaks",
+                "They do not support priority inheritance in ISR",
+                "They may block the ISR, which is not allowed",
+                "They are too slow for ISR processing"
+            ],
+            "correct_answer": "C"
+        },
+        {
+            "question": "What does the `xSemaphoreGive` function do in the context of FreeRTOS?",
+            "options": [
+                "It initializes a new semaphore",
+                "It releases the semaphore, allowing other tasks to acquire it",
+                "It permanently deletes a semaphore",
+                "It decreases the count of a counting semaphore"
+            ],
+            "correct_answer": "B"
+        },
+        {
+            "question": "What does a return value of `pdTRUE` from `xSemaphoreTake` indicate?",
+            "options": [
+                "The semaphore is corrupted",
+                "The semaphore was not available and the task timed out",
+                "The semaphore was successfully taken by the task",
+                "No semaphore with the given handle exists"
+            ],
+            "correct_answer": "C"
+        },
+        {
+            "question": "What allows a task in FreeRTOS to take the same mutex multiple times?",
+            "options": [
+                "Priority inheritance",
+                "Binary semaphore property",
+                "Recursive mutex capability",
+                "Counting semaphore feature"
+            ],
+            "correct_answer": "C"
+        },
+        {
+            "question": "What does `xQueueCreate(10, sizeof(int))` accomplish in FreeRTOS?",
+            "options": [
+                "It creates a mutex for 10 tasks",
+                "It establishes a counting semaphore with a count of 10",
+                "It sets up a queue capable of holding 10 integers",
+                "It allocates memory for 10 integer variables"
+            ],
+            "correct_answer": "C"
+        },
+        {
+            "question": "How do semaphores differ from mutexes in FreeRTOS?",
+            "options": [
+                "Semaphores can be binary or counting, whereas mutexes are binary only",
+                "Mutexes support priority inheritance, unlike semaphores",
+                "Semaphores can block tasks, but mutexes cannot",
+                "Mutexes are used for task scheduling; semaphores are not"
+            ],
+            "correct_answer": "B"
+        },
+        {
+            "question": "What is the purpose of `xQueueSend()` in FreeRTOS?",
+            "options": [
+                "To create a new queue",
+                "To send data to the end of the queue",
+                "To receive data from the front of the queue",
+                "To reset the queue to its initial state"
+            ],
+            "correct_answer": "B"
+        },
+        {
+            "question": "What is the primary reason for using ISR-specific APIs like `xQueueSendFromISR` in FreeRTOS?",
+            "options": [
+                "To enable interrupts to perform task scheduling",
+                "To allow ISRs to safely interact with queues without blocking",
+                "To increase the priority of ISRs",
+                "To decrease the processing time of ISRs"
+            ],
+            "correct_answer": "B"
+        },
+        {
+            "question": "Which FreeRTOS feature ensures safe communication between tasks?",
+            "options": [
+                "Priority scheduling",
+                "Mutexes",
+                "Queues",
+                "Semaphores"
+            ],
+            "correct_answer": "C"
+        },
+        {
+            "question": "In what scenario would you use a binary semaphore over a counting semaphore in FreeRTOS?",
+            "options": [
+                "When tracking multiple identical resources",
+                "When needing to manage several unrelated tasks",
+                "When signaling the occurrence of a single event",
+                "When performing priority inversion control"
+            ],
+            "correct_answer": "C"
+        },
+        {
+            "question": "What is the best method to prevent race conditions when multiple tasks access a shared resource in FreeRTOS?",
+            "options": [
+                "Use a binary semaphore",
+                "Implement a mutex with priority inheritance",
+                "Use a counting semaphore",
+                "Increase the priority of accessing tasks"
+            ],
+            "correct_answer": "B"
+        },
+        {
+            "question": "What is the purpose of the `xSemaphoreCreateBinary()` function in FreeRTOS?",
+            "options": [
+                "To check the status of a binary semaphore",
+                "To create a new binary semaphore",
+                "To reset an existing binary semaphore",
+                "To delete a binary semaphore"
+            ],
+            "correct_answer": "B"
+        },
+        {
+            "question": "What happens if `xSemaphoreGive` is called on a semaphore that is already given?",
+            "options": [
+                "It resets the semaphore to its initial state",
+                "It returns `pdFALSE` indicating an error",
+                "It returns `pdTRUE` but has no effect on the semaphore state",
+                "It blocks the calling task until the semaphore is taken"
+            ],
+            "correct_answer": "B"
+        },
+        {
+            "question": "In FreeRTOS, if `xSemaphoreTake` fails due to timeout, what is the return value?",
+            "options": [
+                "`pdPASS`",
+                "`pdTRUE`",
+                "`pdFAIL`",
+                "`pdFALSE`"
+            ],
+            "correct_answer": "D"
+        },
+        {
+            "question": "Which API function is used to create a mutex in FreeRTOS?",
+            "options": [
+                "`xSemaphoreCreateBinary`",
+                "`xSemaphoreCreateMutex`",
+                "`xSemaphoreGiveMutex`",
+                "`xSemaphoreTakeMutex`"
+            ],
+            "correct_answer": "B"
+        },
+        {
+            "question": "What does the second parameter of `xQueueCreate()` signify in FreeRTOS?",
+            "options": [
+                "The priority of the queue",
+                "The number of items the queue can hold",
+                "The size of each item in the queue",
+                "The ID of the task that will use the queue"
+            ],
+            "correct_answer": "C"
+        },
+        {
+            "question": "What does the third parameter in `xQueueSend()` represent?",
+            "options": [
+                "The data item to send",
+                "The queue handle",
+                "The timeout period for sending data",
+                "The priority of the data item"
+            ],
+            "correct_answer": "C"
+        },
+        {
+            "question": "What is the typical response of `xQueueSend()` when trying to send data to a full queue?",
+            "options": [
+                "It deletes the oldest data in the queue",
+                "It automatically increases the queue size",
+                "It blocks the calling task until space is available",
+                "It returns `pdFAIL` or equivalent error code"
+            ],
+            "correct_answer": "D"
+        },
+        {
+            "question": "What impact does setting the `xTicksToWait` parameter to `portMAX_DELAY` in `xQueueReceive()` have?",
+            "options": [
+                "It disables the queue",
+                "It causes the function to return immediately",
+                "It allows the task to wait indefinitely until data is available",
+                "It sets a maximum limit on waiting time"
+            ],
+            "correct_answer": "C"
+        },
+        {
+            "question": "Who can release a mutex taken by a task in FreeRTOS?",
+            "options": [
+                "Any task in the system",
+                "Only the task that originally took the mutex",
+                "The scheduler",
+                "Any higher priority task"
+            ],
+            "correct_answer": "B"
+        }
+    ]
+}
