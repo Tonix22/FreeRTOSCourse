@@ -1,0 +1,498 @@
+\documentclass[10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usetheme{CambridgeUS}
+\usecolortheme{dolphin}
+\usepackage{listings}
+
+% Set up hyperref once and configure colors
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    linktocpage=true
+}
+
+% Custom colors
+\definecolor{myNewColorA}{RGB}{118,193,188}
+\definecolor{myNewColorB}{RGB}{106,172,150}
+\definecolor{myNewColorC}{RGB}{94,150,218}
+\setbeamercolor*{palette primary}{bg=myNewColorC}
+\setbeamercolor*{palette secondary}{bg=myNewColorB, fg=white}
+\setbeamercolor*{palette tertiary}{bg=myNewColorA, fg=white}
+\setbeamercolor*{titlelike}{fg=myNewColorA}
+\setbeamercolor*{title}{bg=myNewColorA, fg=white}
+\setbeamercolor*{item}{fg=myNewColorA}
+\setbeamercolor*{caption name}{fg=myNewColorA}
+\usefonttheme{professionalfonts}
+
+\titlegraphic{\includegraphics[height=1.5cm]{../CommonFigures/Universidad_Panamericana-logo.jpg}}
+
+\setbeamerfont{title}{size=\large}
+\setbeamerfont{subtitle}{size=\small}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{institute}{size=\small}
+\title[Universidad Panamericana]{}
+\subtitle{FreeRTOS synchronization methods part 2}
+\author[]{Name}
+\institute[ltonix@up.edu.mx]{Universidad Panamericana}
+\date[Presentation \today]{Presentation \today}
+
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+\setbeamercolor{block title}{bg=myNewColorA, fg=black} % Background and foreground colors for the block title
+\setbeamercolor{block body}{bg=myNewColorC, fg=black} % Background and foreground colors for the block body
+
+% Setup listings
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green},
+  stringstyle=\color{red},
+  backgroundcolor=\color{gray!10},
+  frame=single,
+  language=C++,
+  breaklines=true,
+  showspaces=false,
+  showstringspaces=false
+}
+
+\begin{document}
+\frame{\titlepage}
+\begin{frame}
+\frametitle{Contents}
+\tableofcontents
+\end{frame}
+
+
+\section{Event group bits}
+
+\begin{frame}
+    \frametitle{Introduction to Event Bits (Event Flags)}
+    \begin{itemize}
+      \item Event bits, often called event flags, indicate whether an event has occurred.
+      \item \textbf{Example Uses:}
+      \begin{itemize}
+        \item A bit is set to 1 to indicate "A message is ready for processing"; 0 means no messages.
+        \item A bit set to 1 might also mean "A message is ready to be sent to a network"; 0 otherwise.
+        \item A bit could indicate "Time to send a heartbeat message" when set to 1; 0 otherwise.
+      \end{itemize}
+    \end{itemize}
+    \textbf{TIP:} \textit{'Task Notifications' can provide a lightweight alternative to event groups in many situations.}
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{Event Groups}
+    \begin{itemize}
+      \item An event group is a collection of event bits.
+      \item \textbf{Example Configuration:}
+      \begin{itemize}
+        \item "Message received" might be bit number 0.
+        \item "Message ready for network" could be bit number 1.
+        \item "Send heartbeat message" could be bit number 2.
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{Data Types and Storage}
+    \begin{itemize}
+      \item \textbf{EventGroupHandle\_t} - Variable type to reference event groups.
+      \item \textbf{EventBits\_t} - Stores all the event bits in a single unsigned variable.
+      \item Number of bits depends on \texttt{configUSE\_16\_BIT\_TICKS}:
+      \begin{itemize}
+        \item 8 bits if set to 1.
+        \item 24 bits if set to 0.
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{RTOS API Functions}
+    \begin{itemize}
+      \item API functions enable tasks to set, clear, or wait for event bits.
+      \item Useful for task synchronization (\textit{task rendezvous}).
+    \end{itemize}
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{Challenges in Implementing Event Groups}
+    \begin{itemize}
+      \item \textbf{Avoiding Race Conditions:}
+      \begin{itemize}
+        \item Built-in mechanisms to ensure atomic operations on event bits.
+      \end{itemize}
+      \item \textbf{Avoiding Non-Determinism:}
+      \begin{itemize}
+        \item Adherence to strict FreeRTOS quality standards regarding task and interrupt handling.
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+\section{Normal API}
+
+\begin{frame}
+    \frametitle{General Event Group APIs}
+    \begin{itemize}
+      \item \textbf{xEventGroupCreate}
+      \begin{itemize}
+        \item Creates a new event group.
+      \end{itemize}
+      \item \textbf{xEventGroupWaitBits}
+      \begin{itemize}
+        \item Block to wait for one or more bits in the event group to be set.
+      \end{itemize}
+      \item \textbf{xEventGroupSetBits}
+      \begin{itemize}
+        \item Set one or more bits within an event group.
+      \end{itemize}
+      \item \textbf{xEventGroupClearBits}
+      \begin{itemize}
+        \item Clear one or more bits within an event group.
+      \end{itemize}
+      \item \textbf{xEventGroupGetBits}
+      \begin{itemize}
+        \item Returns the current value of the bits in an event group.
+      \end{itemize}
+      \item \textbf{xEventGroupSync}
+      \begin{itemize}
+        \item Synchronize a task with other tasks through event bits.
+      \end{itemize}
+      \item \textbf{vEventGroupDelete}
+      \begin{itemize}
+        \item Delete an event group and free its resources.
+      \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\subsection{xEventGroupCreate}
+\begin{frame}[fragile]
+    \frametitle{xEventGroupCreate}
+    \textbf{Purpose:} Creates a new event group.
+    \textbf{Parameters:} None.
+    \textbf{Returns:} EventGroupHandle\_t - a handle to the newly created event group.
+    \textbf{Usage:}
+    \begin{lstlisting}[language=C++, basicstyle=\ttfamily\small]
+  EventGroupHandle_t eventGroup = xEventGroupCreate();
+  if (eventGroup == NULL) {
+      // Handle error: Event group creation failed
+  }
+    \end{lstlisting}
+    \textbf{Note:} If the event group cannot be created, NULL is returned. Typically used at the initialization phase of the application.
+\end{frame}
+
+\subsection{xEventGroupSetBits}
+\begin{frame}[fragile]
+    \frametitle{xEventGroupSetBits}
+    \textbf{Purpose:} Set one or more bits within an event group.
+    \textbf{Parameters:}
+    \begin{itemize}
+      \item EventGroupHandle\_t xEventGroup - The event group whose bits are being set.
+      \item const EventBits\_t uxBitsToSet - The bits to set.
+    \end{itemize}
+    \textbf{Returns:} EventBits\_t - The value of the event group at the time each bit was set.
+    \textbf{Usage:}
+    \begin{lstlisting}[language=C++, basicstyle=\ttfamily\small]
+  EventBits_t setBits = xEventGroupSetBits(eventGroup, eBit0 | eBit2);
+    \end{lstlisting}
+    \textbf{Note:} Useful for signaling to tasks that certain conditions or tasks have been completed.
+  \end{frame}
+
+\subsection{xEventGroupGetBits}
+
+\begin{frame}[fragile]
+    \frametitle{xEventGroupGetBits}
+    \textbf{Purpose:} Returns the current value of the event bits in an event group.
+    
+    \textbf{Parameters:}
+    \begin{itemize}
+      \item \texttt{EventGroupHandle\_t xEventGroup} - The event group from which to read the bits.
+    \end{itemize}
+    
+    \textbf{Returns:} \texttt{EventBits\_t} - The current value of all the bits in the event group.
+    
+    \textbf{Usage:}
+    \begin{lstlisting}[language=C++, basicstyle=\ttfamily\small]
+  EventBits_t eventBits = xEventGroupGetBits(eventGroup);
+    \end{lstlisting}
+    
+    \textbf{Note:} Useful for tasks to check the status of flags without changing them, supporting conditional behavior based on multiple flags' states.
+\end{frame}
+
+
+\subsection{xEventGroupWaitBits}
+
+\begin{frame}[fragile]
+    \frametitle{xEventGroupWaitBits}
+    \textbf{Purpose:} Wait for a combination of bits to be set within an event group.
+    \textbf{Parameters:}
+    \begin{itemize}
+      \item EventGroupHandle\_t xEventGroup - The event group to test.
+      \item const EventBits\_t uxBitsToWaitFor - The bits within the event group to wait for.
+      \item const BaseType\_t xClearOnExit - Whether to clear the bits in the event group before exiting.
+      \item const BaseType\_t xWaitForAllBits - If pdTRUE, wait for all bits to be set; if pdFALSE, any bit.
+      \item TickType\_t xTicksToWait - Time in tick periods to wait for the event bits to be set.
+    \end{itemize}
+    \textbf{Usage:}
+    \begin{lstlisting}[language=C++, basicstyle=\ttfamily\small]
+  EventBits_t waitResult = xEventGroupWaitBits(
+      eventGroup, eBit0 | eBit1, pdTRUE, pdFALSE, portMAX_DELAY);
+    \end{lstlisting}
+    \textbf{Note:} This function can block and is typically used within task code to synchronize actions.
+\end{frame}
+
+\subsection{xEventGroupClearBits}
+\begin{frame}[fragile]
+    \frametitle{xEventGroupClearBits}
+    \textbf{Purpose:} Clear one or more bits within an event group.
+    \textbf{Parameters:}
+    \begin{itemize}
+      \item EventGroupHandle\_t xEventGroup - The event group whose bits are to be cleared.
+      \item const EventBits\_t uxBitsToClear - The bits to clear.
+    \end{itemize}
+    \textbf{Returns:} EventBits\_t - The value of the event group at the time the specified bits were cleared.
+    \textbf{Usage:}
+    \begin{lstlisting}[language=C++, basicstyle=\ttfamily\small]
+  EventBits_t clearedBits = xEventGroupClearBits(eventGroup, eBit1);
+    \end{lstlisting}
+    \textbf{Note:} Typically used to reset conditions once they have been handled.
+\end{frame}
+
+
+\subsection{xEventGroupSync}
+\begin{frame}[fragile]
+    \frametitle{xEventGroupSync}
+    \textbf{Purpose:} Synchronize multiple tasks using an event group, creating a rendezvous point.
+  
+    \textbf{Parameters:}
+    \begin{itemize}
+      \item \texttt{EventGroupHandle\_t xEventGroup} - The event group used for synchronization.
+      \item \texttt{EventBits\_t uxBitsToSet} - The bits each task sets upon reaching the synchronization point.
+      \item \texttt{EventBits\_t uxBitsToWaitFor} - The bits each task waits for, ensuring all tasks have reached this point.
+      \item \texttt{TickType\_t xTicksToWait} - The maximum time to wait for the synchronization.
+    \end{itemize}
+    
+    \textbf{Usage:}
+    \begin{lstlisting}[language=C++, basicstyle=\ttfamily\small]
+  EventBits_t syncBits = xEventGroupSync(
+      eventGroup, eBit0, eBit1 | eBit2, portMAX_DELAY);
+    \end{lstlisting}
+    
+    \textbf{Note:} Critical for operations where tasks must operate in lockstep, such as multi-stage processing or when tasks depend on each other's results.
+  \end{frame}
+
+
+\section{ISR API}
+\begin{frame}
+    \frametitle{ISR-Specific Event Group APIs}
+    \begin{itemize}
+      \item \textbf{xEventGroupSetBitsFromISR}
+      \begin{itemize}
+        \item Set one or more bits within an event group from an ISR.
+      \end{itemize}
+      \item \textbf{xEventGroupClearBitsFromISR}
+      \begin{itemize}
+        \item Clear one or more bits within an event group from an ISR.
+      \end{itemize}
+      \item \textbf{xEventGroupGetBitsFromISR}
+      \begin{itemize}
+        \item Get the current value of the event group bits from within an ISR.
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+\section{Event group code example}
+
+
+\begin{frame}[fragile]{Example - xEventGroup}
+    
+    \begin{lstlisting}[language=C, caption=setup]
+        #include "FreeRTOS.h"
+        #include "event_groups.h"
+        
+        // Define bit positions using enum
+        enum EventBits {
+            eBit0 = (1 << 0), // Bit 0
+            eBit1 = (1 << 1), // Bit 1
+            eBit2 = (1 << 2)  // Bit 2
+        };
+        
+        // Function to create and return a new Event Group
+        EventGroupHandle_t createEventGroup() {
+            return xEventGroupCreate();
+        }
+    \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]{Continue}
+    
+    \begin{lstlisting}[language=C, caption=Recieve]
+        // Function to wait for specific event bits
+        void waitForEvents(EventGroupHandle_t eventGroup) {
+            const TickType_t xTicksToWait = 1000 / portTICK_PERIOD_MS;
+            EventBits_t uxBits;
+            const EventBits_t uxBitsToWaitFor = 
+                (EventBits_t)(eBit0 | eBit1);
+        
+            uxBits = xEventGroupWaitBits(
+                eventGroup,       // The event group being tested.
+                uxBitsToWaitFor,  // The bits to wait for.
+                pdTRUE,           // Clear bits on exit.
+                pdFALSE,          // Wait for any bit.
+                xTicksToWait      // Timeout.
+            );
+        }
+    \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]{Continue}
+    
+    \begin{lstlisting}[language=C, caption=Recieve]
+            if ((uxBits & (eBit0 | eBit1)) == (eBit0 | eBit1)){
+                printf("Both eBit0 and eBit1 were set.\n");
+            } 
+            else {
+            printf("Timeout reached before bits were set.\n");
+            }
+        }
+    \end{lstlisting}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Continue}
+    
+    \begin{lstlisting}[language=C, caption=Sent]
+        // Function to set specific event bits
+        void setEventBits(EventGroupHandle_t eventGroup) {
+            // Set eBit0 and eBit1
+            xEventGroupSetBits(eventGroup, eBit0 | eBit1);
+        }        
+    \end{lstlisting}
+\end{frame}
+
+
+\section{Timers}
+
+
+\begin{frame}
+    \frametitle{What are Software Timers?}
+  
+    \textbf{Definition:}
+    Software timers are mechanisms that allow tasks to be executed at set intervals. These timers are managed entirely in software by the FreeRTOS scheduler, which ensures that they execute in a time-controlled manner.
+  
+    \textbf{How They Work:}
+    \begin{itemize}
+      \item Software timers run in the context of a dedicated FreeRTOS service task, often referred to as the "timer service task".
+      \item When a timer expires, it can trigger a callback function, allowing for periodic or one-time tasks without the need for manual timing control.
+    \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+    \textbf{Key Features:}
+    \begin{itemize}
+      \item \textit{Configurability:} Timers can be configured for one-shot or periodic execution.
+      \item \textit{Precision:} Although managed by software, precision is typically adequate for many embedded applications.
+      \item \textit{Resource Efficiency:} Uses the system's existing scheduling framework to manage timing, conserving hardware resources.
+    \end{itemize}
+
+    \textbf{Note:}
+    While software timers are highly useful, they should not be used for time-critical operations due to their dependence on the task scheduler and potential delays in a busy system.
+\end{frame}
+
+\subsection{xTimerCreate}
+\begin{frame}[fragile]
+    \frametitle{xTimerCreate}
+    \textbf{Purpose:} Creates a new software timer.
+    \textbf{Parameters:}
+    \begin{itemize}
+      \item \texttt{const char * const pcTimerName} - A descriptive name for the timer.
+      \item \texttt{const TickType\_t xTimerPeriodInTicks} - The timer's period in tick counts.
+      \item \texttt{const UBaseType\_t uxAutoReload} - pdTRUE for automatic reloading, pdFALSE for one-shot timer.
+      \item \texttt{void * const pvTimerID} - Identifier for the timer.
+      \item \texttt{TimerCallbackFunction\_t pxCallbackFunction} - Function to call when the timer expires.
+    \end{itemize}
+    \textbf{Usage:} Typically used to create timers that trigger tasks at fixed intervals or as single shot delays.
+\end{frame}
+
+\subsection{xTimerIsTimerActive}
+\begin{frame}[fragile]
+    \frametitle{xTimerIsTimerActive}
+    \textbf{Purpose:} Check if a timer is currently active.
+    \textbf{Parameters:}
+    \begin{itemize}
+      \item \texttt{TimerHandle\_t xTimer} - The handle of the timer to check.
+    \end{itemize}
+    \textbf{Usage:} Useful in scenarios where task execution depends on the status of a timer.
+\end{frame}
+
+\subsection{vTimerSetReloadMode}
+\begin{frame}[fragile]
+    \frametitle{vTimerSetReloadMode}
+    \textbf{Purpose:} Set or reset the auto-reload mode of a timer.
+    \textbf{Parameters:}
+    \begin{itemize}
+      \item \texttt{TimerHandle\_t xTimer} - The handle of the timer.
+      \item \texttt{UBaseType\_t uxAutoReload} - pdTRUE to set the timer to auto-reload, pdFALSE for one-shot.
+    \end{itemize}
+    \textbf{Usage:} Adjust the reload behavior of a timer during runtime.
+  \end{frame}
+
+\subsection{xTimerStart, xTimerStop, xTimerChangePeriod, xTimerDelete}
+  \begin{frame}[fragile]
+    \frametitle{xTimerStart, xTimerStop, xTimerChangePeriod, xTimerDelete}
+    \textbf{Functions:} Control and modify timer states.
+    \begin{itemize}
+      \item \textbf{xTimerStart:} Starts a timer.
+      \item \textbf{xTimerStop:} Stops a timer.
+      \item \textbf{xTimerChangePeriod:} Change the period of a timer.
+      \item \textbf{xTimerDelete:} Delete a timer and free its resources.
+    \end{itemize}
+    \textbf{Common Parameters:}
+    \begin{itemize}
+      \item \texttt{TimerHandle\_t xTimer} - Timer handle.
+      \item \texttt{TickType\_t xBlockTime} - Time in ticks to wait for the command to be successful.
+    \end{itemize}
+    \textbf{Usage:} These functions provide basic timer manipulations essential for dynamic timing adjustments in applications.
+  \end{frame}
+
+\section{Timer code example}
+
+\begin{frame}[fragile]
+    \frametitle{Example: Using FreeRTOS Timers}
+    \begin{lstlisting}[language=C, basicstyle=\ttfamily\small]
+  // Timer callback function
+  void vTimerCallback(TimerHandle_t xTimer)
+  {
+      // Code to execute when the timer expires
+  }
+  
+  // Creating and starting a timer
+  TimerHandle_t xMyTimer;
+  xMyTimer = xTimerCreate("Timer", 1000 / portTICK_PERIOD_MS, pdTRUE, (void *) 0, vTimerCallback);
+  if(xMyTimer != NULL)
+  {
+      if(xTimerStart(xMyTimer, 0) != pdPASS)
+      {
+          // Handle error
+      }
+  }
+    \end{lstlisting}
+    \textbf{Note:} This example demonstrates creating a periodic timer that runs a callback function every second.
+\end{frame}
+
+\end{document}
