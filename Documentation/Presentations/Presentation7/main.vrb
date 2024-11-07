@@ -1,0 +1,20 @@
+\frametitle{Example: Using FreeRTOS Timers}
+    \begin{lstlisting}[language=C, basicstyle=\ttfamily\small]
+  // Timer callback function
+  void vTimerCallback(TimerHandle_t xTimer)
+  {
+      // Code to execute when the timer expires
+  }
+
+  // Creating and starting a timer
+  TimerHandle_t xMyTimer;
+  xMyTimer = xTimerCreate("Timer", 1000 / portTICK_PERIOD_MS, pdTRUE, (void *) 0, vTimerCallback);
+  if(xMyTimer != NULL)
+  {
+      if(xTimerStart(xMyTimer, 0) != pdPASS)
+      {
+          // Handle error
+      }
+  }
+    \end{lstlisting}
+    \textbf{Note:} This example demonstrates creating a periodic timer that runs a callback function every second.

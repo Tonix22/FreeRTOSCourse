@@ -1,0 +1,36 @@
+Background Story
+
+A city's traffic management authority is facing challenges with its current traffic control systems, 
+which are slow to react to changing traffic conditions and unable to handle real-time data effectively. 
+As part of a smart city initiative, they plan to upgrade their systems to improve traffic flow, reduce congestion, and enhance safety. 
+Your task is to develop a robust real-time communication system using FreeRTOS that can manage vast amounts of traffic data, 
+coordinate signals across the city, and respond dynamically to traffic conditions.
+
+Challenge Overview
+
+You are tasked with creating a prototype for an advanced real-time traffic management system. 
+Using FreeRTOS, your system will handle tasks, queues, semaphores, event groups, and software timers 
+to ensure efficient traffic flow across various intersections and highways. The system will manage high-priority traffic updates, 
+coordinate emergency vehicle routing, and provide real-time updates to public transit systems.
+
+Requirements
+
+    Task Management:
+        Traffic Data Collection Task: Gathers traffic data from sensors and cameras at multiple points throughout the city.
+        Signal Coordination Task: Analyzes traffic data to adjust traffic signals in real-time, optimizing traffic flow.
+        Emergency Handling Task: Prioritizes emergency signals and alters traffic patterns to facilitate rapid emergency response.
+
+    Queue Management:
+        Implement FIFO queues for handling sensor data inputs and traffic signal commands, ensuring timely and orderly processing.
+
+    Semaphore Usage:
+        Use semaphores to control access to data from traffic sensors and to ensure that data transmissions between tasks do not interfere with each other.
+
+    Event Group Bits:
+        Utilize event groups to manage and signal event statuses, such as traffic density changes, accident detection, and system errors.
+
+    Software Timers:
+        Deploy timers to manage the timing of traffic lights, monitor system performance metrics, and trigger periodic updates.
+
+    Endianness Conversion Functions:
+        If integrating systems with different hardware architectures, implement endianness conversion to ensure data compatibility.

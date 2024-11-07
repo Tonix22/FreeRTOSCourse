@@ -1,0 +1,15 @@
+dependencies:
+  idf:
+    component_hash: null
+    source:
+      type: idf
+    version: 5.2.2
+  protocol_examples_common:
+    component_hash: null
+    source:
+      path: /home/tonix/esp/v5.2.2/esp-idf/examples/common_components/protocol_examples_common
+      type: local
+    version: '*'
+manifest_hash: 8f8d0b93cb745c479ba680f47c9917e4f237e688a14ff759738353364f3adcec
+target: esp32
+version: 1.0.0

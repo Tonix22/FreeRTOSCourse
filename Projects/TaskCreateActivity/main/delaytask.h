@@ -38,12 +38,11 @@ class DelayTask : public Task
 
 void taskFunction() override
 {
-
-
     for(;;)
     {
         vTaskDelay(delay_ms/portTICK_PERIOD_MS);
         printf("%s \n", task_msg.c_str());
+        printf("HOLA\n");
     }
 }
  
