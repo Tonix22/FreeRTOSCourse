@@ -3,5 +3,6 @@
         "string": "cpp",
         "ostream": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/home/tonix/Documents/FreeRTOSCourse/Classwork/MQTT/mqtt5"
 }
