@@ -12,8 +12,13 @@
 #include "lwip/sockets.h"
 #include "lwip/netdb.h"
 
-#define WIFI_SSID "Tonix"
-#define WIFI_PASS "typewriter"
+#include "sdkconfig.h"
+#include "mdns.h"  // Include mDNS header
+
+//#define WIFI_SSID "Tonix"
+//#define WIFI_PASS "typewriter"
+#define WIFI_SSID CONFIG_WIFI_SSID
+#define WIFI_PASS CONFIG_WIFI_PASSWORD
 #define PORT 12345  // Server port
 
 static const char *TAG = "ESP32_CHAT_SERVER";
@@ -43,7 +48,19 @@ static void wifi_event_handler(void* arg, esp_event_base_t event_base,
             case IP_EVENT_STA_GOT_IP:
                 ip_event_got_ip_t* event = (ip_event_got_ip_t*) event_data;
                 ESP_LOGI(TAG, "Got IP Address: " IPSTR, IP2STR(&event->ip_info.ip));
-                // Start the TCP server after getting IP
+
+                // Initialize mDNS
+                ESP_ERROR_CHECK(mdns_init());
+                ESP_ERROR_CHECK(mdns_hostname_set("esp32-device"));  // Set your desired hostname
+                ESP_ERROR_CHECK(mdns_instance_name_set("ESP32 Chat Server"));
+
+                // Add a TCP service to advertise
+                ESP_ERROR_CHECK(mdns_service_add("ESP32_TCP_Server", "_tcp", "_local", PORT, NULL, 0));
+
+                // Add a TCP service to advertise with a specific service type
+                ESP_ERROR_CHECK(mdns_service_add("ESP32_TCP_Server", "_espchat", "_tcp", PORT, NULL, 0));
+
+                // Start the TCP server after initializing mDNS
                 xTaskCreate(tcp_server_task, "tcp_server", 4096, NULL, 5, NULL);
                 break;
             default:
@@ -122,7 +139,7 @@ static void tcp_server_task(void *pvParameters) {
     while (1) {
         ESP_LOGI(TAG, "Waiting for client to connect...");
         struct sockaddr_in source_addr;
-        socklen_t addr_len = sizeof(source_addr);  // Changed 'uint' to 'socklen_t'
+        socklen_t addr_len = sizeof(source_addr);
         int sock = accept(listen_sock, (struct sockaddr *)&source_addr, &addr_len);
         
         if (sock < 0) {
@@ -143,7 +160,7 @@ static void tcp_server_task(void *pvParameters) {
                 ESP_LOGI(TAG, "Connection closed");
                 break;
             } else {
-                rx_buffer[len] = 0;  // Null-terminate the received data
+                rx_buffer[len] = '\0';  // Null-terminate the received data
                 ESP_LOGI(TAG, "Received: %s", rx_buffer);
 
                 // Send the received message back to client

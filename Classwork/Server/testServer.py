@@ -1,14 +1,39 @@
 import socket
+from zeroconf import ServiceBrowser, Zeroconf
+import threading
 
-# ESP32 server IP address and port (replace with your ESP32 IP)
-ESP32_IP = '192.168.224.209'  # Replace with the IP address of your ESP32
-ESP32_PORT = 12345
+# Define the service type your ESP32 is advertising
+SERVICE_TYPE = "_espchat._tcp.local."
 
-def chat_with_esp():
+class MyListener:
+
+    def __init__(self):
+        self.server_ip = None
+        self.server_port = None
+        self.event = threading.Event()
+
+    def remove_service(self, zeroconf, type, name):
+        pass  # Not handling service removal
+
+    def add_service(self, zeroconf, type, name):
+        info = zeroconf.get_service_info(type, name)
+        if info:
+            # Decode the service name
+            service_name = info.name
+            if "ESP32_TCP_Server" in service_name:
+                # Extract IP address and port
+                addr = socket.inet_ntoa(info.addresses[0])
+                port = info.port
+                print(f"Found ESP32 server at {addr}:{port}")
+                self.server_ip = addr
+                self.server_port = port
+                self.event.set()  # Signal that we have found the service
+
+def chat_with_esp(ip, port):
     # Create a TCP/IP socket
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client_socket.connect((ESP32_IP, ESP32_PORT))
-    print(f"Connected to ESP32 server at {ESP32_IP}:{ESP32_PORT}")
+    client_socket.connect((ip, port))
+    print(f"Connected to ESP32 server at {ip}:{port}")
     
     try:
         while True:
@@ -27,10 +52,34 @@ def chat_with_esp():
 
     except KeyboardInterrupt:
         print("Chat interrupted.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
     finally:
         # Close the socket
         client_socket.close()
         print("Connection closed.")
 
+def find_esp32_service():
+    zeroconf = Zeroconf()
+    listener = MyListener()
+    browser = ServiceBrowser(zeroconf, SERVICE_TYPE, listener)
+
+    print("Searching for ESP32 service...")
+
+    # Wait until the service is found or timeout after 10 seconds
+    if listener.event.wait(timeout=10):
+        # Service found
+        zeroconf.close()
+        return listener.server_ip, listener.server_port
+    else:
+        # Service not found
+        zeroconf.close()
+        print("ESP32 service not found.")
+        return None, None
+
 if __name__ == "__main__":
-    chat_with_esp()
+    ip, port = find_esp32_service()
+    if ip and port:
+        chat_with_esp(ip, port)
+    else:
+        print("Could not find ESP32 server via mDNS.")
