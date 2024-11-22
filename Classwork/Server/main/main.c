@@ -17,6 +17,10 @@
 
 //#define WIFI_SSID "Tonix"
 //#define WIFI_PASS "typewriter"
+
+#define MDNS_HOSTNAME "tonix-laptop"
+#define MDNS_SERVICE_TYPE "_espchat"
+
 #define WIFI_SSID CONFIG_WIFI_SSID
 #define WIFI_PASS CONFIG_WIFI_PASSWORD
 #define PORT 12345  // Server port
@@ -25,6 +29,7 @@ static const char *TAG = "ESP32_CHAT_SERVER";
 
 // Forward declaration of tcp_server_task
 static void tcp_server_task(void *pvParameters);
+static void client_server_task(void *pvParameters);
 
 // Wi-Fi event handler function
 static void wifi_event_handler(void* arg, esp_event_base_t event_base,
@@ -61,7 +66,8 @@ static void wifi_event_handler(void* arg, esp_event_base_t event_base,
                 ESP_ERROR_CHECK(mdns_service_add("ESP32_TCP_Server", "_espchat", "_tcp", PORT, NULL, 0));
 
                 // Start the TCP server after initializing mDNS
-                xTaskCreate(tcp_server_task, "tcp_server", 4096, NULL, 5, NULL);
+                //xTaskCreate(tcp_server_task, "tcp_server", 4096, NULL, 5, NULL);
+                xTaskCreate(client_server_task, "client_server", 4096, NULL, 5, NULL);
                 break;
             default:
                 break;
@@ -171,6 +177,83 @@ static void tcp_server_task(void *pvParameters) {
         close(sock);
         ESP_LOGI(TAG, "Client disconnected");
     }
+    vTaskDelete(NULL);
+}
+
+static void client_server_task(void *pvParameters) {
+    ESP_LOGI(TAG, "Starting mDNS discovery for service: %s", MDNS_SERVICE_TYPE);
+
+    // Query the mDNS service
+    mdns_result_t *results = NULL;
+    esp_err_t err = mdns_query_ptr(MDNS_SERVICE_TYPE, "_tcp", 10000, 20, &results);
+    if (err) {
+        ESP_LOGE(TAG, "mDNS query failed: %s", esp_err_to_name(err));
+        vTaskDelete(NULL);
+        return;
+    }
+
+    if (!results) {
+        ESP_LOGE(TAG, "No mDNS services found");
+        vTaskDelete(NULL);
+        return;
+    }
+
+    // Iterate through the results to find the desired hostname
+    mdns_result_t *r = results;
+    char ip_string[INET_ADDRSTRLEN];
+    while (r) {
+        if (strcmp(r->hostname, MDNS_HOSTNAME) == 0) {
+            inet_ntoa_r(r->addr->addr, ip_string, sizeof(ip_string));
+            ESP_LOGI(TAG, "Found service: %s at %s:%d", r->instance_name, ip_string, r->port);
+            break;
+        }
+        r = r->next;
+    }
+
+    if (!r) {
+        ESP_LOGE(TAG, "Service '%s' not found", MDNS_HOSTNAME);
+        mdns_query_results_free(results);
+        vTaskDelete(NULL);
+        return;
+    }
+
+    // Connect to the discovered server
+    int sock = socket(AF_INET, SOCK_STREAM, 0);
+    if (sock < 0) {
+        ESP_LOGE(TAG, "Unable to create socket: errno %d", errno);
+        mdns_query_results_free(results);
+        vTaskDelete(NULL);
+        return;
+    }
+
+    struct sockaddr_in dest_addr;
+    dest_addr.sin_family = AF_INET;
+    dest_addr.sin_port = htons(r->port);
+    inet_pton(AF_INET, ip_string, &dest_addr.sin_addr);
+
+    ESP_LOGI(TAG, "Connecting to %s:%d", ip_string, r->port);
+    if (connect(sock, (struct sockaddr *)&dest_addr, sizeof(dest_addr)) != 0) {
+        ESP_LOGE(TAG, "Socket connection failed: errno %d", errno);
+        close(sock);
+        mdns_query_results_free(results);
+        vTaskDelete(NULL);
+        return;
+    }
+
+    ESP_LOGI(TAG, "Connected to the server. Sending a test message.");
+    const char *test_message = "Hello from ESP32!";
+    send(sock, test_message, strlen(test_message), 0);
+
+    char rx_buffer[128];
+    int len = recv(sock, rx_buffer, sizeof(rx_buffer) - 1, 0);
+    if (len > 0) {
+        rx_buffer[len] = '\0';
+        ESP_LOGI(TAG, "Received from server: %s", rx_buffer);
+    }
+
+    close(sock);
+    mdns_query_results_free(results);
+    ESP_LOGI(TAG, "Client task finished.");
     vTaskDelete(NULL);
 }
 
