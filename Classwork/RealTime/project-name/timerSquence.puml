@@ -1,0 +1,26 @@
+@startuml
+actor PC
+actor Master
+actor Slave1
+actor Slave2
+actor Slave3
+control DAC
+note over Master, Slave3:All devices boot at the same time T=0
+PC -> Master : Send new config
+
+
+note over Master, Slave3:Verify or Connect socket sesion.
+
+Master -> Slave1: Send Trigger Message (T+N)
+Master -> Slave2: Send Trigger Message (T+N)
+Master -> Slave3: Send Trigger Message (T+N)
+
+Slave1 -> Slave1: Calculate Timer to trigger DAC at T+N
+Slave2 -> Slave2: Calculate Timer to trigger DAC at T+N
+Slave3 -> Slave3: Calculate Timer to trigger DAC at T+N
+
+
+note over Slave1, Slave3: Start sequence at T+N.
+
+Slave1 -> DAC
+@enduml
