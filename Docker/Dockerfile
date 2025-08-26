@@ -37,24 +37,24 @@ RUN cd ${IDF_PATH} && ./install.sh
 
 
 # -----------------------
-# Instalar test tools
+# Instalar test tools con entorno ESP-IDF
 # -----------------------
-
-RUN . ${IDF_PATH}/export.sh && \
-    pip install --no-cache-dir "pytest-embedded-idf[serial]" && \
-    pip cache purge
-
+RUN set -eux; \
+    export IDF_PATH_FORCE=1; \
+    . ${IDF_PATH}/export.sh; \
+    python3 -m pip install --no-cache-dir "pytest-embedded-idf[serial]"; \
+    python3 -m pip cache purge
 
 # -----------------------
 # Activar entorno por defecto
 # -----------------------
-RUN echo ". ${IDF_PATH}/export.sh" >> /root/.bashrc
+RUN echo "export IDF_PATH_FORCE=1" >> /root/.bashrc && \
+    echo ". ${IDF_PATH}/export.sh" >> /root/.bashrc
 
 # -----------------------
 # Crear punto de entrada para proyectos
 # -----------------------
 WORKDIR /project
-
 VOLUME ["/project"]
 
 CMD ["/bin/bash"]
