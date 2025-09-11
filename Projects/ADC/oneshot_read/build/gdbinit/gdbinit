@@ -1,0 +1,2 @@
+source /project/ADC/oneshot_read/build/gdbinit/symbols
+source /project/ADC/oneshot_read/build/gdbinit/connect

@@ -1,0 +1,2 @@
+Command: ninja make
+ninja: error: unknown target 'make', did you mean 'all'?
