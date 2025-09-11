@@ -1,0 +1,2 @@
+source /project/ADC/continuous_read/build/bootloader/gdbinit/symbols
+source /project/ADC/continuous_read/build/bootloader/gdbinit/connect
