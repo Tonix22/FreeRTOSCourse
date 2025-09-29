@@ -1,4 +1,6 @@
-Projects/dac_cosine_wave/build
+**/build/*
+*.wav
+*.aux
 *pyc
 *main.aux
 *main.fdb_latexmk
@@ -22,3 +24,4 @@ Projects/ProducerConsumerActivity/build/*
 Projects/PWM/build/*
 Classwork/MQTT/mqtt5/build/*
 Classwork/Server/build/*
+Projects/ADC/continuous_read/build/CMakeFiles/clean_additional.cmake
