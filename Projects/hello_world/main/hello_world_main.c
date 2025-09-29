@@ -12,7 +12,8 @@
 #include "esp_chip_info.h"
 #include "esp_flash.h"
 #include "esp_system.h"
-#include "../drivers/HAL/include/gpio_driver.h"
+//#include "../drivers/HAL/include/gpio_driver.h"
+#include "gpio_driver.h"
 
 void app_main(void)
 {
