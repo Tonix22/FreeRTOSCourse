@@ -1,0 +1,179 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+% Colors for code
+\definecolor{codebg}{rgb}{0.95,0.95,0.95}
+\definecolor{keyword}{rgb}{0.1,0.1,0.7}
+\definecolor{comment}{rgb}{0.25,0.5,0.35}
+\definecolor{string}{rgb}{0.7,0.1,0.1}
+
+% Listings setup
+\lstset{
+  backgroundcolor=\color{codebg},
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{keyword}\bfseries,
+  commentstyle=\color{comment}\itshape,
+  stringstyle=\color{string},
+  numbers=left,
+  numberstyle=\tiny,
+  stepnumber=1,
+  numbersep=8pt,
+  tabsize=2,
+  breaklines=true,
+  showstringspaces=false,
+  captionpos=b
+}
+
+\title{GCC and CMake Tutorial with Static Libraries}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Project Structure}
+We will use the following files:
+\begin{lstlisting}[language=bash]
+project/
+ ├── main.c
+ ├── calculations.c
+ └── calculations.h
+\end{lstlisting}
+
+\section{Source Code}
+
+\subsection{Header (calculations.h)}
+\begin{lstlisting}[language=C]
+#ifndef CALCULATIONS_H
+#define CALCULATIONS_H
+
+double add(double a, double b);
+double multiply(double a, double b);
+double power(double base, double exp);
+
+#endif
+\end{lstlisting}
+
+\subsection{Implementation (calculations.c)}
+\begin{lstlisting}[language=C]
+#include <math.h>
+#include "calculations.h"
+
+double add(double a, double b) {
+    return a + b;
+}
+
+double multiply(double a, double b) {
+    return a * b;
+}
+
+double power(double base, double exp) {
+    return pow(base, exp);  // requires -lm
+}
+\end{lstlisting}
+
+\subsection{Main Program (main.c)}
+\begin{lstlisting}[language=C]
+#include <stdio.h>
+#include "calculations.h"
+
+// Example: macro can be set with gcc -DSCALE=10
+#ifndef SCALE
+#define SCALE 1.0
+#endif
+
+int main() {
+    double x = 2.0, y = 3.0;
+
+    printf("Add: %f\n", add(x, y) * SCALE);
+    printf("Multiply: %f\n", multiply(x, y) * SCALE);
+    printf("Power: %f\n", power(x, y) * SCALE);
+
+    return 0;
+}
+\end{lstlisting}
+
+\section{Using GCC Directly}
+
+\subsection{Compile and Link in One Step}
+\begin{lstlisting}[language=bash]
+gcc -DSCALE=10 main.c calculations.c -o main -lm
+./main
+\end{lstlisting}
+
+\subsection{Separate Compilation}
+\begin{lstlisting}[language=bash]
+# Compile object files
+gcc -c calculations.c -o calculations.o
+gcc -c -DSCALE=5 main.c -o main.o
+
+# Link together with math library
+gcc main.o calculations.o -o main -lm
+./main
+\end{lstlisting}
+
+\subsection{Create a Static Library (.a)}
+\begin{lstlisting}[language=bash]
+# Compile object file
+gcc -c calculations.c -o calculations.o
+
+# Create static library
+ar rcs libcalculations.a calculations.o
+
+# Link main with the static library
+gcc -c -DSCALE=2 main.c -o main.o
+gcc main.o -L. -lcalculations -o main -lm
+
+./main
+\end{lstlisting}
+
+\section{Using CMake}
+
+\subsection{CMakeLists.txt}
+\begin{lstlisting}[language=cmake]
+cmake_minimum_required(VERSION 3.10)
+project(GccTutorial C)
+
+# Create the static library
+add_library(calculations STATIC calculations.c)
+
+# Build the executable
+add_executable(main main.c)
+
+# Link math library and calculations
+target_link_libraries(main calculations m)
+
+# Pass SCALE as a definition
+target_compile_definitions(main PRIVATE SCALE=10)
+\end{lstlisting}
+
+\subsection{Build with CMake}
+\begin{lstlisting}[language=bash]
+mkdir build && cd build
+cmake ..
+cmake --build .
+./main
+\end{lstlisting}
+
+\subsection{Override SCALE at Configure Time}
+\begin{lstlisting}[language=bash]
+cmake -DSCALE=20 ..
+cmake --build .
+./main
+\end{lstlisting}
+
+\section{Conclusion}
+This tutorial demonstrated:
+\begin{itemize}
+  \item Using \texttt{gcc} with defines and the math library.
+  \item Creating object files, executables, and static libraries (\texttt{.a}).
+  \item Using CMake to manage the same workflow in a scalable way.
+\end{itemize}
+
+\end{document}
