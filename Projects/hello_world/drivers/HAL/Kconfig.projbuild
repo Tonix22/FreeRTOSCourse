@@ -1,39 +1,49 @@
-menu "GPIO configuration"
+menu "Example Configuration"
 
     orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
 
-    config GPIO_OUTPUT_0
-        int "GPIO output pin 0"
+    choice BLINK_LED
+        prompt "Blink LED type"
+        default BLINK_LED_GPIO
+        help
+            Select the LED type. A normal level controlled LED or an addressable LED strip.
+            The default selection is based on the Espressif DevKit boards.
+            You can change the default selection according to your board.
+
+        config BLINK_LED_GPIO
+            bool "GPIO"
+        config BLINK_LED_STRIP
+            bool "LED strip"
+    endchoice
+
+    choice BLINK_LED_STRIP_BACKEND
+        depends on BLINK_LED_STRIP
+        prompt "LED strip backend peripheral"
+        default BLINK_LED_STRIP_BACKEND_RMT if SOC_RMT_SUPPORTED
+        default BLINK_LED_STRIP_BACKEND_SPI
+        help
+            Select the backend peripheral to drive the LED strip.
+
+        config BLINK_LED_STRIP_BACKEND_RMT
+            depends on SOC_RMT_SUPPORTED
+            bool "RMT"
+        config BLINK_LED_STRIP_BACKEND_SPI
+            bool "SPI"
+    endchoice
+
+    config BLINK_GPIO
+        int "Blink GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
-        default 8 if IDF_TARGET_ESP32C2 || IDF_TARGET_ESP32H2 || IDF_TARGET_ESP32C5 || IDF_TARGET_ESP32C61
-        default 8 if IDF_TARGET_ESP32S3 || IDF_TARGET_ESP32H21
-        default 18
+        default 8
         help
-            GPIO pin number to be used as GPIO_OUTPUT_IO_0.
+            GPIO number (IOxx) to blink on and off the LED.
+            Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.
 
-    config GPIO_OUTPUT_1
-        int "GPIO output pin 1"
-        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
-        default 9 if IDF_TARGET_ESP32C2 || IDF_TARGET_ESP32H2 || IDF_TARGET_ESP32C5 || IDF_TARGET_ESP32C61
-        default 9 if IDF_TARGET_ESP32S3 || IDF_TARGET_ESP32H21
-        default 19
+    config BLINK_PERIOD
+        int "Blink period in ms"
+        range 10 3600000
+        default 1000
         help
-            GPIO pin number to be used as GPIO_OUTPUT_IO_1.
-
-    config GPIO_INPUT_0
-        int "GPIO input pin 0"
-        range ENV_GPIO_RANGE_MIN ENV_GPIO_IN_RANGE_MAX
-        default 2 if IDF_TARGET_ESP32H4
-        default 4
-        help
-            GPIO pin number to be used as GPIO_INPUT_IO_0.
-
-    config GPIO_INPUT_1
-        int "GPIO input pin 1"
-        range ENV_GPIO_RANGE_MIN ENV_GPIO_IN_RANGE_MAX
-        default 3 if IDF_TARGET_ESP32H4
-        default 5
-        help
-            GPIO pin number to be used as GPIO_INPUT_IO_1.
+            Define the blinking period in milliseconds.
 
 endmenu

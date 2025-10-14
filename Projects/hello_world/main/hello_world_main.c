@@ -12,11 +12,12 @@
 #include "esp_chip_info.h"
 #include "esp_flash.h"
 #include "esp_system.h"
-//#include "../drivers/HAL/include/gpio_driver.h"
 #include "gpio_driver.h"
 
 void app_main(void)
 {
+    led_code();
+    
     printf("Hello world!\n");
 
     /* Print chip information */
@@ -50,6 +51,5 @@ void app_main(void)
     }
     printf("Restarting now.\n");
     fflush(stdout);
-    gpio_test();
     esp_restart();
 }
