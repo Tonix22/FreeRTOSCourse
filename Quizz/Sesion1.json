@@ -1,0 +1,244 @@
+{
+  "quiz_title": "FreeRTOSPart1",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "Which type of memory is described as “the workaholic of memory” that runs out and makes things go bad quickly?",
+      "options": [
+        "Registers",
+        "Cache",
+        "RAM",
+        "Flash"
+      ],
+      "correct_answers": [
+        "RAM"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice",
+      "question": "When you pass a variable to a functionby copy, what happens if the function modifies the parameter?",
+      "options": [
+        "Only global variables are affected",
+        "The program crashes",
+        "The original variable is modified",
+        "The original variable is not modified"
+      ],
+      "correct_answers": [
+        "The original variable is not modified"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "multiple_choice",
+      "question": "Which option shows the memory hierarchy fromfastest and smallesttoslowest and largest?",
+      "options": [
+        "Disk/Flash → RAM → Cache → Registers",
+        "Cache → Registers → RAM → Disk/Flash",
+        "RAM → Cache → Registers → Disk",
+        "Registers → Cache → RAM → Disk/Flash"
+      ],
+      "correct_answers": [
+        "Registers → Cache → RAM → Disk/Flash"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "multiple_choice",
+      "question": "What happens when the system runs out of RAM during execution?",
+      "options": [
+        "Nothing, the program just keeps running normally",
+        "The system start swapping to slower memory",
+        "The CPU automatically makes more registers",
+        "The cache takes over and becomes RAM"
+      ],
+      "correct_answers": [
+        "The system start swapping to slower memory"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "multiple_choice",
+      "question": "Why don’t we just build a computer with only registers and no other memory?",
+      "options": [
+        "Registers can’t store integers",
+        "Registers are too slow for I/O",
+        "Registers are extremely expensive and limited in count",
+        "The compiler does not support registers"
+      ],
+      "correct_answers": [
+        "Registers are extremely expensive and limited in count"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "multiple_choice",
+      "question": "Which layer of memory is typicallymanaged automaticallyjust by writing normal C code (no malloc/free)?",
+      "options": [
+        "Heap",
+        "Stack",
+        "Flash",
+        "Disk"
+      ],
+      "correct_answers": [
+        "Stack"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "multiple_choice",
+      "question": "Which C function reserves (allocates) memory from the heap?",
+      "options": [
+        "malloc()",
+        "alloc()",
+        "calloc()",
+        "zalloc()"
+      ],
+      "correct_answers": [
+        "malloc()",
+        "calloc()"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "multiple_choice",
+      "question": "Which statement is true about heap memory?",
+      "options": [
+        "It is automatically freed when a variable goes out of { } scope",
+        "It is manually managed — you must free what you allocate",
+        "It only stores global variables",
+        "It cannot store arrays"
+      ],
+      "correct_answers": [
+        "It is manually managed — you must free what you allocate"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "multiple_choice",
+      "question": "Which variable lives on the heap?",
+      "options": [
+        "int x = 10;",
+        "static int counter = 0;",
+        "int buf[50];",
+        "free(msg)"
+      ],
+      "correct_answers": [
+        "free(msg)"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "multiple_choice",
+      "question": "What happens if you malloc() memory and never free() it?",
+      "options": [
+        "The compiler will free it for you at the end of the loop",
+        "Nothing bad can happen. MEH!!",
+        "You get faster code",
+        "You create a memory leak"
+      ],
+      "correct_answers": [
+        "You create a memory leak"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "multiple_choice",
+      "question": "Passing a parameter by reference is generally preferred over passing by copy when…",
+      "options": [
+        "You want to protect the original data",
+        "You want to allow the function to modify the original variable",
+        "You are working with very small integers only",
+        "You don’t know the function prototype"
+      ],
+      "correct_answers": [
+        "You want to allow the function to modify the original variable"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "multiple_choice",
+      "question": "According to the slides, a variable has two “values.” What are they?",
+      "options": [
+        "Its name and its type",
+        "Its size in bytes and its scope",
+        "Its address in flash and its address in RAM",
+        "Its current value and its current address"
+      ],
+      "correct_answers": [
+        "Its current value and its current address"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "multiple_choice",
+      "question": "Which of the following istrueabout stack memory?",
+      "options": [
+        "It is managed automatically in a last-in-first-out manner",
+        "It dynamically resizes at runtime with malloc()",
+        "It is slow because it lives in external storage",
+        "It cannot overflow"
+      ],
+      "correct_answers": [
+        "It is managed automatically in a last-in-first-out manner"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "multiple_choice",
+      "question": "Which of the following is a limitation of heap memory ?",
+      "options": [
+        "You cannot store large data on the heap",
+        "It cannot grow or shrink",
+        "It can fragment and depends on correct manual handling (malloc/free)",
+        "You cannot store large data on the heap"
+      ],
+      "correct_answers": [
+        "It can fragment and depends on correct manual handling (malloc/free)"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "multiple_choice",
+      "question": "int *p = malloc(100 * sizeof(int)); How manybytesof memory are being requested from the heap?",
+      "options": [
+        "100 bytes",
+        "200 bytes",
+        "25 bytes",
+        "400 bytes"
+      ],
+      "correct_answers": [
+        "400 bytes"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "multiple_choice",
+      "question": "What is a function pointer?",
+      "options": [
+        "A comment that documents a function",
+        "A FreeRTOS task handle",
+        "A constant that stores the stack size of a function",
+        "A variable that stores the address of a function"
+      ],
+      "correct_answers": [
+        "A variable that stores the address of a function"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "multiple_choice",
+      "question": "What is the main reason to use the heap instead of the stack?",
+      "options": [
+        "The heap is always faster than the stack",
+        "You need data that persists after the function returns",
+        "You don’t want to include stdio.h",
+        "The compiler refuses to create local variables"
+      ],
+      "correct_answers": [
+        "You need data that persists after the function returns"
+      ]
+    }
+  ]
+}

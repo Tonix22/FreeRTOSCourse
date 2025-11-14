@@ -1,0 +1,229 @@
+{
+  "quiz_title": "FreeRTOS2025part2",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "In an RTOS context switch, what is typically saved and restored to preserve a task’s execution context?",
+      "options": [
+        "Only general-purpose registers",
+        "Program counter and stack pointer only",
+        "CPU registers (general-purpose, PC, SP, status) and sometimes FPU state",
+        "Heap and global variables"
+      ],
+      "correct_answers": [
+        "CPU registers (general-purpose, PC, SP, status) and sometimes FPU state"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice",
+      "question": "Which C declaration correctly defines a pointer to a function that takes (int a, float b) and returns void?",
+      "options": [
+        "void *fp(int, float);",
+        "void (*fp)(int, float);",
+        "(void fp)(int, float);",
+        "void fp(int, float);"
+      ],
+      "correct_answers": [
+        "void (*fp)(int, float);"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "multiple_choice",
+      "question": "What does the FreeRTOS “system tick” represent?",
+      "options": [
+        "CPU clock cycles per instruction",
+        "USART baud rate",
+        "A periodic interrupt that drives the RTOS scheduler timing",
+        "The SPI clock edge"
+      ],
+      "correct_answers": [
+        "A periodic interrupt that drives the RTOS scheduler timing"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "multiple_choice",
+      "question": "Which is akey differencebetween Blocked and Suspended?",
+      "options": [
+        "Blocked uses less stack",
+        "Blocked has an associated timeout/event; Suspended has neither",
+        "Suspended tasks are eligible to run sooner",
+        "Suspended can only be used for ISR tasks"
+      ],
+      "correct_answers": [
+        "Blocked has an associated timeout/event; Suspended has neither"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "multiple_choice",
+      "question": "Which FreeRTOS state means the task is eligible to run but not currently executing?",
+      "options": [
+        "Ready",
+        "Blocked",
+        "Suspended",
+        "Running"
+      ],
+      "correct_answers": [
+        "Ready"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "multiple_choice",
+      "question": "Which state indicates a task will NOT be scheduled until explicitly resumed?",
+      "options": [
+        "Running",
+        "Ready",
+        "Blocked",
+        "Suspended"
+      ],
+      "correct_answers": [
+        "Blocked"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "multiple_choice",
+      "question": "Given a 1 kHz clk and (configTICK_RATE_HZ = 10), vTaskDelay(500) blocks a task for approximately:",
+      "options": [
+        "50 ms",
+        "50 s",
+        "5000 us",
+        "5 s"
+      ],
+      "correct_answers": [
+        "50 s"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "multiple_choice",
+      "question": "In FreeRTOS, the xTaskCreate “stack depth” parameter is specified in:",
+      "options": [
+        "Bytes",
+        "Bits",
+        "Words",
+        "Cache lines"
+      ],
+      "correct_answers": [
+        "Words"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "multiple_choice",
+      "question": "Which is MOST likely to cause a stack overflow in a FreeRTOS task?",
+      "options": [
+        "High priority",
+        "Short vTaskDelay calls",
+        "Large local arrays or deep recursion inside the task",
+        "Not enought reverseved stack"
+      ],
+      "correct_answers": [
+        "Not enought reverseved stack"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "multiple_choice",
+      "question": "A task’s entry function prototype in FreeRTOS should be:",
+      "options": [
+        "void TaskFn(void);",
+        "int TaskFn(void *pvParameters);",
+        "void TaskFn(void *pvParameters);",
+        "BaseType_t TaskFn(void);"
+      ],
+      "correct_answers": [
+        "int TaskFn(void *pvParameters);"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "multiple_choice",
+      "question": "In C, which statement about void* is TRUE?",
+      "options": [
+        "void* supports pointer arithmetic like int*",
+        "void* cannot be assigned NULL",
+        "void* can point to functions",
+        "void* can point to any data type and is implicitly convertible"
+      ],
+      "correct_answers": [
+        "void* can point to any data type and is implicitly convertible"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "multiple_choice",
+      "question": "In FreeRTOS, what is a common use of void *pvParameters in a task entry function?",
+      "options": [
+        "Passing per-task configuration/context",
+        "Enabling FPU usage",
+        "Returning an integer status",
+        "Selecting the task priority"
+      ],
+      "correct_answers": [
+        "Passing per-task configuration/context"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "multiple_choice",
+      "question": "Two tasks share a buffer. Task A locks the buff and performs work; Task B tries to lock the same mutex. Task B is",
+      "options": [
+        "Running",
+        "Ready",
+        "Blocked (waiting for the mutex)",
+        "Suspended"
+      ],
+      "correct_answers": [
+        "Blocked (waiting for the mutex)"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "multiple_choice",
+      "question": "A task calls vTaskDelay(200). Which state does it enter?",
+      "options": [
+        "Ready",
+        "Running",
+        "Blocked",
+        "Suspended"
+      ],
+      "correct_answers": [
+        "Blocked"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "multiple_choice",
+      "question": "Best reason to useSuspendedinstead ofBlocked:",
+      "options": [
+        "You want a timed sleep",
+        "You need the task to wake on a semaphore",
+        "You want the task completely disabled until explicitly resumed",
+        "You need to yield CPU briefly"
+      ],
+      "correct_answers": [
+        "You want the task completely disabled until explicitly resumed"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "multiple_choice",
+      "question": "A task never wakes by itself and only returns when another task explicitly triggers it.",
+      "options": [
+        "Ready",
+        "Blocked",
+        "Suspended",
+        "Running"
+      ],
+      "correct_answers": [
+        "Suspended"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "quiz_title": "FreeRTOSPart3",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "What is the initial state of a queue created with xQueueCreate?",
+      "options": [
+        "Empty",
+        "Depends on item size",
+        "Full",
+        "Give"
+      ],
+      "correct_answers": [
+        "Empty"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice",
+      "question": "Which API copies bytes into the queue’s storage?",
+      "options": [
+        "xQueueTake",
+        "xQueueRecieve",
+        "xQueueSend",
+        "xQueueGive"
+      ],
+      "correct_answers": [
+        "xQueueSend"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "multiple_choice",
+      "question": "How do you send a struct to a queue?",
+      "options": [
+        "Pass myStruct by value in ISR",
+        "Store fields separately in N items",
+        "Pass &myStruct",
+        "Only via global pointer"
+      ],
+      "correct_answers": [
+        "Pass &myStruct"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "multiple_choice",
+      "question": "Default item ordering in a FreeRTOS queue is…",
+      "options": [
+        "FOFI",
+        "LIFO",
+        "FIFI",
+        "None of the choices"
+      ],
+      "correct_answers": [
+        "None of the choices"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "multiple_choice",
+      "question": "Which risk has use xSemaphoreTake with portMAX_DELAY ?",
+      "options": [
+        "Dead condition",
+        "Dead Lock",
+        "Race condition",
+        "Race Lock"
+      ],
+      "correct_answers": [
+        "Dead Lock"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "multiple_choice",
+      "question": "Does xQueuePeek remove the items?",
+      "options": [
+        "Yes",
+        "No",
+        "Sometimes",
+        "Only in ISR"
+      ],
+      "correct_answers": [
+        "No"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "true_false",
+      "question": "Can I take multiple values from a queue?",
+      "correct_answer": false
+    },
+    {
+      "id": 8,
+      "type": "multiple_choice",
+      "question": "After a successful peek, what happens to queue length?",
+      "options": [
+        "Unchanged",
+        "Decreases",
+        "Increases",
+        "Resets"
+      ],
+      "correct_answers": [
+        "Unchanged"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "multiple_choice",
+      "question": "What’s the default behavior if multiple tasks are waiting to receive?",
+      "options": [
+        "Highest priority first",
+        "Random task",
+        "First come first server",
+        "FIFO by wait time"
+      ],
+      "correct_answers": [
+        "Highest priority first"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "multiple_choice",
+      "question": "What’s the item size when creating a queue for a struct MyMsg?",
+      "options": [
+        "sizeof(void*)",
+        "sizeof(MyMsg*)",
+        "sizeof(MyMsg)",
+        "sizeof(&MyMsg)"
+      ],
+      "correct_answers": [
+        "sizeof(MyMsg)"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "multiple_choice",
+      "question": "What happens if you try to take a binary semaphore that hasn’t been given yet, with a nonzero timeout?",
+      "options": [
+        "Return garbage",
+        "Reset the semaphore",
+        "Spin without blocking",
+        "Guru Error"
+      ],
+      "correct_answers": [
+        "Guru Error"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "multiple_choice",
+      "question": "What happens if you try to take a binary semaphore that hasn’t been given yet, with ticksToWait = 0?",
+      "options": [
+        "Core Dumped",
+        "Succeed due to auto-init",
+        "Block until a tick elapses",
+        "Guru mediation"
+      ],
+      "correct_answers": [
+        "Core Dumped"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "multiple_choice",
+      "question": "What is the initial state of a binary semaphore created with xSemaphoreCreateBinary()?",
+      "options": [
+        "Given by default",
+        "Empty",
+        "Locked by Idle task",
+        "Random until first use"
+      ],
+      "correct_answers": [
+        "Empty"
+      ]
+    }
+  ]
+}

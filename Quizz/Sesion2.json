@@ -1,0 +1,264 @@
+{
+  "quiz_title": "MQTT",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "What is CMake mainly used for?",
+      "options": [
+        "Writing code",
+        "Generating build files",
+        "Debugging",
+        "Compiling directly"
+      ],
+      "correct_answers": [
+        "Generating build files"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice",
+      "question": "In ESP-IDF, what does themain/folder usually contain?",
+      "options": [
+        "Hardware drivers",
+        "Application code",
+        "Wi-Fi stack",
+        "Configuration headers"
+      ],
+      "correct_answers": [
+        "Application code"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "multiple_choice",
+      "question": "What’s stored inside theHAL/folder?",
+      "options": [
+        "Sensor filters",
+        "Python scripts",
+        "User interface assets",
+        "Hardware access code"
+      ],
+      "correct_answers": [
+        "Hardware access code"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "multiple_choice",
+      "question": "Which file defines targets and dependencies in CMake?",
+      "options": [
+        "CmakeLists.txt",
+        "CmakeList.txt",
+        "CMakeLists.txt",
+        "Cmakelist.txt"
+      ],
+      "correct_answers": [
+        "CMakeLists.txt"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "multiple_choice",
+      "question": "If your project has 4 subfolders, how many CMakeLists.txt files are usually required including the root one?",
+      "options": [
+        "4",
+        "6",
+        "3",
+        "5"
+      ],
+      "correct_answers": [
+        "5"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "multiple_choice",
+      "question": "What is the main purpose of header guards in C/C++ files?",
+      "options": [
+        "Improve compilation speed",
+        "Encrypt source code",
+        "Prevent multiple file inclusions",
+        "Store global variables"
+      ],
+      "correct_answers": [
+        "Prevent multiple file inclusions"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "multiple_choice",
+      "question": "What does the C/C++ preprocessor mainly do before compilation?",
+      "options": [
+        "Runs the program",
+        "Links object files",
+        "Expands macros and includes headers",
+        "Optimizes binary code"
+      ],
+      "correct_answers": [
+        "Expands macros and includes headers"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "multiple_choice",
+      "question": "What is the correct order in a C/C++ program’s build process?",
+      "options": [
+        "Editor → Preprocessor → Compiler → Linker → Loader → CPU",
+        "Preprocessor → Compiler → Linker → Loader → CPU",
+        "Compiler → Linker → Preprocessor → Loader → CPU",
+        "Editor → Preprocessor → Compiler → Linker → CPU → Loader"
+      ],
+      "correct_answers": [
+        "Editor → Preprocessor → Compiler → Linker → Loader → CPU"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "multiple_choice",
+      "question": "What are .o and .a files in C/C++ projects?",
+      "options": [
+        "Source and header files",
+        "Object and static library files",
+        "Executable and script files",
+        "Debug and log files"
+      ],
+      "correct_answers": [
+        "Object and static library files"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "multiple_choice",
+      "question": "What is the main difference between static and dynamic libraries?",
+      "options": [
+        "Static libraries link at runtime, dynamic at compile time",
+        "Both link during execution",
+        "Dynamic libraries link at runtime, static at compile time",
+        "Static libraries are text files"
+      ],
+      "correct_answers": [
+        "Dynamic libraries link at runtime, static at compile time"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "multiple_choice",
+      "question": "What arecomponentsin an ESP-IDF project?",
+      "options": [
+        "Random code snippets",
+        "Only hardware drivers",
+        "External Python scripts",
+        "Independent modules with their own CMakeLists.txt and headers"
+      ],
+      "correct_answers": [
+        "Independent modules with their own CMakeLists.txt and headers"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "multiple_choice",
+      "question": "What does idf.py build or kprojbuild mainly do?",
+      "options": [
+        "Runs the compiled firmware",
+        "Cleans the workspace only",
+        "Configures and builds all project components",
+        "Uploads code to the ESP directly"
+      ],
+      "correct_answers": [
+        "Configures and builds all project components"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "multiple_choice",
+      "question": "What does MQTT stand for?",
+      "options": [
+        "Message Queue Telemetry Transport",
+        "Multiple Query Transfer Task",
+        "Multi Quick Transfer Tool",
+        "Machine Queue Type Transfer"
+      ],
+      "correct_answers": [
+        "Message Queue Telemetry Transport"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "multiple_choice",
+      "question": "Which default port does MQTT usually use?",
+      "options": [
+        "22",
+        "80",
+        "1883",
+        "8888"
+      ],
+      "correct_answers": [
+        "1883"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "multiple_choice",
+      "question": "In MQTT, what is atopic?",
+      "options": [
+        "A data packet format",
+        "A channel name used to organize messages",
+        "A file name",
+        "A hardware register"
+      ],
+      "correct_answers": [
+        "A channel name used to organize messages"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "multiple_choice",
+      "question": "What is adashboardin MQTT platforms like Adafruit IO?",
+      "options": [
+        "A GUI to visualize data from topics",
+        "A driver library",
+        "A network protocol",
+        "A CMake build target"
+      ],
+      "correct_answers": [
+        "A GUI to visualize data from topics"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "multiple_choice",
+      "question": "What isMosquittoin MQTT?",
+      "options": [
+        "A broker that manages message delivery",
+        "A compiler",
+        "A data logger",
+        "A Wi-Fi chip"
+      ],
+      "correct_answers": [
+        "A broker that manages message delivery"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "multiple_choice",
+      "question": "Which Wireshark filter shows only TCP packets with payload data?",
+      "options": [],
+      "correct_answers": []
+    },
+    {
+      "id": 19,
+      "type": "multiple_choice",
+      "question": "What mainly causes latency in TCP communication?",
+      "options": [
+        "Hardware interrupts",
+        "Compiler delays",
+        "File compression",
+        "Handshakes and acknowledgments"
+      ],
+      "correct_answers": [
+        "Handshakes and acknowledgments"
+      ]
+    }
+  ]
+}
